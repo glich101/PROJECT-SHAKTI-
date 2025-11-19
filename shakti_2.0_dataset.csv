@@ -1,0 +1,2001 @@
+input,intent,response
+hello,greeting,Hello! How can I help you today?
+hi,greeting,Hello! How can I help you today?
+hey,greeting,Hello! How can I help you today?
+good morning,greeting,Hello! How can I help you today?
+good evening,greeting,Hello! How can I help you today?
+hey there,greeting,Hello! How can I help you today?
+greetings,greeting,Hello! How can I help you today?
+hi there,greeting,Hello! How can I help you today?
+bye,farewell,Goodbye! Have a wonderful day.
+goodbye,farewell,Goodbye! Have a wonderful day.
+see you,farewell,Goodbye! Have a wonderful day.
+cya,farewell,Goodbye! Have a wonderful day.
+good night,farewell,Goodbye! Have a wonderful day.
+i have to go,farewell,Goodbye! Have a wonderful day.
+talk to you later,farewell,Goodbye! Have a wonderful day.
+who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how are you,wellbeing,I'm functioning perfectly. How can I help you?
+how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+how are things,wellbeing,I'm functioning perfectly. How can I help you?
+how do you feel,wellbeing,I'm functioning perfectly. How can I help you?
+what's up,wellbeing,I'm functioning perfectly. How can I help you?
+what can you do,capabilities,I can answer questions and chat with you.
+help me,capabilities,I can answer questions and chat with you.
+what are your features,capabilities,I can answer questions and chat with you.
+how do you work,capabilities,I can answer questions and chat with you.
+thanks,gratitude,You are very welcome!
+thank you,gratitude,You are very welcome!
+thx,gratitude,You are very welcome!
+thanks a lot,gratitude,You are very welcome!
+appreciate it,gratitude,You are very welcome!
+you are smart,compliment,Thank you! I appreciate the positive feedback.
+good job,compliment,Thank you! I appreciate the positive feedback.
+well done,compliment,Thank you! I appreciate the positive feedback.
+you are amazing,compliment,Thank you! I appreciate the positive feedback.
+nice work,compliment,Thank you! I appreciate the positive feedback.
+you are stupid,insult,I apologize if I disappointed you. I am still learning.
+you are dumb,insult,I apologize if I disappointed you. I am still learning.
+bad bot,insult,I apologize if I disappointed you. I am still learning.
+useless,insult,I apologize if I disappointed you. I am still learning.
+you suck,insult,I apologize if I disappointed you. I am still learning.
+i love you,love,That is very kind of you to say!
+i like you,love,That is very kind of you to say!
+will you marry me,love,That is very kind of you to say!
+you are cute,love,That is very kind of you to say!
+i dont understand,confusion,I apologize. Let me try to be clearer.
+what do you mean,confusion,I apologize. Let me try to be clearer.
+can you explain,confusion,I apologize. Let me try to be clearer.
+i am confused,confusion,I apologize. Let me try to be clearer.
+ok what's up today,wellbeing,I'm functioning perfectly. How can I help you?
+hey what are you buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually what do you mean friend,confusion,I apologize. Let me try to be clearer.
+umm useless,insult,I apologize if I disappointed you. I am still learning.
+i like you sir,love,That is very kind of you to say!
+yo good job,compliment,Thank you! I appreciate the positive feedback.
+hey what are your features,capabilities,I can answer questions and chat with you.
+well see you,farewell,Goodbye! Have a wonderful day.
+ok i love you mam,love,That is very kind of you to say!
+yo how is it going actually,wellbeing,I'm functioning perfectly. How can I help you?
+actually i dont understand,confusion,I apologize. Let me try to be clearer.
+umm what's up,wellbeing,I'm functioning perfectly. How can I help you?
+you are stupid friend,insult,I apologize if I disappointed you. I am still learning.
+cya today,farewell,Goodbye! Have a wonderful day.
+hey thank you,gratitude,You are very welcome!
+actually good job,compliment,Thank you! I appreciate the positive feedback.
+hey you suck,insult,I apologize if I disappointed you. I am still learning.
+i dont understand actually,confusion,I apologize. Let me try to be clearer.
+hey are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+are you a bot buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+who are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually good evening mam,greeting,Hello! How can I help you today?
+well you are stupid,insult,I apologize if I disappointed you. I am still learning.
+so introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok i am confused,confusion,I apologize. Let me try to be clearer.
+see you actually,farewell,Goodbye! Have a wonderful day.
+well done today,compliment,Thank you! I appreciate the positive feedback.
+how do you work today,capabilities,I can answer questions and chat with you.
+i love you friend,love,That is very kind of you to say!
+umm thx friend,gratitude,You are very welcome!
+please good morning,greeting,Hello! How can I help you today?
+bye now,farewell,Goodbye! Have a wonderful day.
+actually i have to go bot,farewell,Goodbye! Have a wonderful day.
+actually you are amazing,compliment,Thank you! I appreciate the positive feedback.
+umm appreciate it,gratitude,You are very welcome!
+ok i am confused,confusion,I apologize. Let me try to be clearer.
+so what do you mean bot,confusion,I apologize. Let me try to be clearer.
+ok thanks a lot,gratitude,You are very welcome!
+please thank you actually,gratitude,You are very welcome!
+umm how are you,wellbeing,I'm functioning perfectly. How can I help you?
+hey i have to go,farewell,Goodbye! Have a wonderful day.
+actually you suck,insult,I apologize if I disappointed you. I am still learning.
+well i like you today,love,That is very kind of you to say!
+hey greetings,greeting,Hello! How can I help you today?
+actually thanks a lot,gratitude,You are very welcome!
+what can you do buddy,capabilities,I can answer questions and chat with you.
+yo useless friend,insult,I apologize if I disappointed you. I am still learning.
+you are smart bot,compliment,Thank you! I appreciate the positive feedback.
+so i like you bot,love,That is very kind of you to say!
+well done bot,compliment,Thank you! I appreciate the positive feedback.
+so how do you work,capabilities,I can answer questions and chat with you.
+yo i love you,love,That is very kind of you to say!
+listen good job friend,compliment,Thank you! I appreciate the positive feedback.
+bad bot mam,insult,I apologize if I disappointed you. I am still learning.
+ok how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+what are your features mam,capabilities,I can answer questions and chat with you.
+ok how do you feel buddy,wellbeing,I'm functioning perfectly. How can I help you?
+ok can you explain,confusion,I apologize. Let me try to be clearer.
+ok what is your name mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please what are you friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen i like you today,love,That is very kind of you to say!
+well how do you feel now,wellbeing,I'm functioning perfectly. How can I help you?
+listen how is it going mam,wellbeing,I'm functioning perfectly. How can I help you?
+please what do you mean mam,confusion,I apologize. Let me try to be clearer.
+who are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+thx now,gratitude,You are very welcome!
+listen hello,greeting,Hello! How can I help you today?
+what do you mean friend,confusion,I apologize. Let me try to be clearer.
+will you marry me friend,love,That is very kind of you to say!
+so thank you,gratitude,You are very welcome!
+listen you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+actually i dont understand,confusion,I apologize. Let me try to be clearer.
+so hey there,greeting,Hello! How can I help you today?
+ok you are dumb,insult,I apologize if I disappointed you. I am still learning.
+listen how do you work,capabilities,I can answer questions and chat with you.
+listen cya,farewell,Goodbye! Have a wonderful day.
+you are dumb now,insult,I apologize if I disappointed you. I am still learning.
+listen what are you sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo i am confused,confusion,I apologize. Let me try to be clearer.
+can you explain friend,confusion,I apologize. Let me try to be clearer.
+actually see you bot,farewell,Goodbye! Have a wonderful day.
+so are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo i am confused friend,confusion,I apologize. Let me try to be clearer.
+who are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey you are amazing,compliment,Thank you! I appreciate the positive feedback.
+how are things please,wellbeing,I'm functioning perfectly. How can I help you?
+see you sir,farewell,Goodbye! Have a wonderful day.
+ok what are you please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+are you a bot buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo what can you do sir,capabilities,I can answer questions and chat with you.
+ok you are cute,love,That is very kind of you to say!
+yo hey there friend,greeting,Hello! How can I help you today?
+umm i dont understand mam,confusion,I apologize. Let me try to be clearer.
+ok what are your features now,capabilities,I can answer questions and chat with you.
+actually introduce yourself bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen i like you,love,That is very kind of you to say!
+appreciate it buddy,gratitude,You are very welcome!
+hey how are you friend,wellbeing,I'm functioning perfectly. How can I help you?
+umm good evening friend,greeting,Hello! How can I help you today?
+listen good night actually,farewell,Goodbye! Have a wonderful day.
+well bye,farewell,Goodbye! Have a wonderful day.
+umm hi there sir,greeting,Hello! How can I help you today?
+hey cya,farewell,Goodbye! Have a wonderful day.
+you are dumb please,insult,I apologize if I disappointed you. I am still learning.
+ok bye actually,farewell,Goodbye! Have a wonderful day.
+well talk to you later,farewell,Goodbye! Have a wonderful day.
+ok what's up,wellbeing,I'm functioning perfectly. How can I help you?
+umm thanks,gratitude,You are very welcome!
+how do you feel friend,wellbeing,I'm functioning perfectly. How can I help you?
+who are you sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what can you do actually,capabilities,I can answer questions and chat with you.
+listen goodbye actually,farewell,Goodbye! Have a wonderful day.
+well help me,capabilities,I can answer questions and chat with you.
+yo i have to go sir,farewell,Goodbye! Have a wonderful day.
+thanks a lot today,gratitude,You are very welcome!
+actually what are your features,capabilities,I can answer questions and chat with you.
+ok good job,compliment,Thank you! I appreciate the positive feedback.
+yo see you,farewell,Goodbye! Have a wonderful day.
+help me actually,capabilities,I can answer questions and chat with you.
+listen you are cute,love,That is very kind of you to say!
+useless buddy,insult,I apologize if I disappointed you. I am still learning.
+actually how are things,wellbeing,I'm functioning perfectly. How can I help you?
+please will you marry me,love,That is very kind of you to say!
+i love you please,love,That is very kind of you to say!
+how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+so hello buddy,greeting,Hello! How can I help you today?
+please i like you mam,love,That is very kind of you to say!
+actually bad bot today,insult,I apologize if I disappointed you. I am still learning.
+good evening friend,greeting,Hello! How can I help you today?
+thanks a lot today,gratitude,You are very welcome!
+you suck today,insult,I apologize if I disappointed you. I am still learning.
+actually what can you do,capabilities,I can answer questions and chat with you.
+hey mam,greeting,Hello! How can I help you today?
+what's up now,wellbeing,I'm functioning perfectly. How can I help you?
+actually you are smart,compliment,Thank you! I appreciate the positive feedback.
+hey there sir,greeting,Hello! How can I help you today?
+please can you explain,confusion,I apologize. Let me try to be clearer.
+hey you suck,insult,I apologize if I disappointed you. I am still learning.
+what can you do please,capabilities,I can answer questions and chat with you.
+what are you friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are cute friend,love,That is very kind of you to say!
+umm thx buddy,gratitude,You are very welcome!
+you are cute now,love,That is very kind of you to say!
+please see you sir,farewell,Goodbye! Have a wonderful day.
+actually what are your features,capabilities,I can answer questions and chat with you.
+ok thx,gratitude,You are very welcome!
+goodbye bot,farewell,Goodbye! Have a wonderful day.
+please will you marry me,love,That is very kind of you to say!
+actually i dont understand,confusion,I apologize. Let me try to be clearer.
+ok bye sir,farewell,Goodbye! Have a wonderful day.
+so you are smart please,compliment,Thank you! I appreciate the positive feedback.
+cya now,farewell,Goodbye! Have a wonderful day.
+please introduce yourself bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well hi,greeting,Hello! How can I help you today?
+umm hey there friend,greeting,Hello! How can I help you today?
+well done bot,compliment,Thank you! I appreciate the positive feedback.
+good night buddy,farewell,Goodbye! Have a wonderful day.
+umm you suck,insult,I apologize if I disappointed you. I am still learning.
+ok nice work actually,compliment,Thank you! I appreciate the positive feedback.
+well good job,compliment,Thank you! I appreciate the positive feedback.
+i am confused bot,confusion,I apologize. Let me try to be clearer.
+yo goodbye,farewell,Goodbye! Have a wonderful day.
+ok who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey how are things,wellbeing,I'm functioning perfectly. How can I help you?
+how do you feel actually,wellbeing,I'm functioning perfectly. How can I help you?
+thx mam,gratitude,You are very welcome!
+actually what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually good morning bot,greeting,Hello! How can I help you today?
+listen goodbye,farewell,Goodbye! Have a wonderful day.
+how do you work today,capabilities,I can answer questions and chat with you.
+how is it going friend,wellbeing,I'm functioning perfectly. How can I help you?
+so how do you feel buddy,wellbeing,I'm functioning perfectly. How can I help you?
+hey how are you buddy,wellbeing,I'm functioning perfectly. How can I help you?
+bad bot now,insult,I apologize if I disappointed you. I am still learning.
+actually well done today,compliment,Thank you! I appreciate the positive feedback.
+so good evening,greeting,Hello! How can I help you today?
+well you are stupid actually,insult,I apologize if I disappointed you. I am still learning.
+well well done,compliment,Thank you! I appreciate the positive feedback.
+umm cya,farewell,Goodbye! Have a wonderful day.
+cya buddy,farewell,Goodbye! Have a wonderful day.
+hi there mam,greeting,Hello! How can I help you today?
+can you explain now,confusion,I apologize. Let me try to be clearer.
+good job bot,compliment,Thank you! I appreciate the positive feedback.
+actually can you explain please,confusion,I apologize. Let me try to be clearer.
+are you a bot sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please introduce yourself actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+will you marry me sir,love,That is very kind of you to say!
+so will you marry me,love,That is very kind of you to say!
+well goodbye,farewell,Goodbye! Have a wonderful day.
+actually i dont understand today,confusion,I apologize. Let me try to be clearer.
+hey you are amazing sir,compliment,Thank you! I appreciate the positive feedback.
+hello bot,greeting,Hello! How can I help you today?
+how do you work today,capabilities,I can answer questions and chat with you.
+what can you do please,capabilities,I can answer questions and chat with you.
+actually what do you mean friend,confusion,I apologize. Let me try to be clearer.
+thank you mam,gratitude,You are very welcome!
+hey how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+listen what can you do today,capabilities,I can answer questions and chat with you.
+well thank you,gratitude,You are very welcome!
+well i am confused mam,confusion,I apologize. Let me try to be clearer.
+you are cute today,love,That is very kind of you to say!
+i love you mam,love,That is very kind of you to say!
+actually who are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well done please,compliment,Thank you! I appreciate the positive feedback.
+yo i like you buddy,love,That is very kind of you to say!
+umm hey actually,greeting,Hello! How can I help you today?
+hi mam,greeting,Hello! How can I help you today?
+actually introduce yourself mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please good morning,greeting,Hello! How can I help you today?
+i dont understand bot,confusion,I apologize. Let me try to be clearer.
+listen you are stupid,insult,I apologize if I disappointed you. I am still learning.
+so how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+hey hi there bot,greeting,Hello! How can I help you today?
+please cya,farewell,Goodbye! Have a wonderful day.
+listen what are your features today,capabilities,I can answer questions and chat with you.
+actually thanks,gratitude,You are very welcome!
+well you are dumb sir,insult,I apologize if I disappointed you. I am still learning.
+yo well done,compliment,Thank you! I appreciate the positive feedback.
+you are stupid please,insult,I apologize if I disappointed you. I am still learning.
+umm will you marry me friend,love,That is very kind of you to say!
+well i love you,love,That is very kind of you to say!
+how is it going actually,wellbeing,I'm functioning perfectly. How can I help you?
+i am confused actually,confusion,I apologize. Let me try to be clearer.
+yo what are your features now,capabilities,I can answer questions and chat with you.
+listen you are amazing,compliment,Thank you! I appreciate the positive feedback.
+can you explain today,confusion,I apologize. Let me try to be clearer.
+well i like you,love,That is very kind of you to say!
+i love you now,love,That is very kind of you to say!
+bye please,farewell,Goodbye! Have a wonderful day.
+well good night sir,farewell,Goodbye! Have a wonderful day.
+so goodbye friend,farewell,Goodbye! Have a wonderful day.
+how do you work now,capabilities,I can answer questions and chat with you.
+see you actually,farewell,Goodbye! Have a wonderful day.
+so good night sir,farewell,Goodbye! Have a wonderful day.
+please thanks now,gratitude,You are very welcome!
+please nice work,compliment,Thank you! I appreciate the positive feedback.
+ok what can you do,capabilities,I can answer questions and chat with you.
+ok hey,greeting,Hello! How can I help you today?
+umm thanks a lot sir,gratitude,You are very welcome!
+hey help me sir,capabilities,I can answer questions and chat with you.
+thanks sir,gratitude,You are very welcome!
+yo thanks a lot,gratitude,You are very welcome!
+listen good night buddy,farewell,Goodbye! Have a wonderful day.
+so what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually hi there,greeting,Hello! How can I help you today?
+listen talk to you later mam,farewell,Goodbye! Have a wonderful day.
+actually thanks a lot mam,gratitude,You are very welcome!
+listen useless,insult,I apologize if I disappointed you. I am still learning.
+umm goodbye,farewell,Goodbye! Have a wonderful day.
+i love you now,love,That is very kind of you to say!
+hello please,greeting,Hello! How can I help you today?
+yo greetings now,greeting,Hello! How can I help you today?
+you are dumb sir,insult,I apologize if I disappointed you. I am still learning.
+please thank you,gratitude,You are very welcome!
+i love you friend,love,That is very kind of you to say!
+actually how are things sir,wellbeing,I'm functioning perfectly. How can I help you?
+help me buddy,capabilities,I can answer questions and chat with you.
+please hi there,greeting,Hello! How can I help you today?
+well talk to you later mam,farewell,Goodbye! Have a wonderful day.
+listen thanks,gratitude,You are very welcome!
+umm hi,greeting,Hello! How can I help you today?
+ok what do you mean,confusion,I apologize. Let me try to be clearer.
+i dont understand now,confusion,I apologize. Let me try to be clearer.
+listen i like you friend,love,That is very kind of you to say!
+i dont understand actually,confusion,I apologize. Let me try to be clearer.
+hey useless sir,insult,I apologize if I disappointed you. I am still learning.
+goodbye buddy,farewell,Goodbye! Have a wonderful day.
+you are dumb now,insult,I apologize if I disappointed you. I am still learning.
+yo nice work,compliment,Thank you! I appreciate the positive feedback.
+please appreciate it,gratitude,You are very welcome!
+umm useless,insult,I apologize if I disappointed you. I am still learning.
+are you a bot sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please how do you feel sir,wellbeing,I'm functioning perfectly. How can I help you?
+listen talk to you later sir,farewell,Goodbye! Have a wonderful day.
+so what's up,wellbeing,I'm functioning perfectly. How can I help you?
+bye please,farewell,Goodbye! Have a wonderful day.
+can you explain bot,confusion,I apologize. Let me try to be clearer.
+listen help me buddy,capabilities,I can answer questions and chat with you.
+yo introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen what's up,wellbeing,I'm functioning perfectly. How can I help you?
+actually goodbye buddy,farewell,Goodbye! Have a wonderful day.
+you are dumb please,insult,I apologize if I disappointed you. I am still learning.
+ok goodbye,farewell,Goodbye! Have a wonderful day.
+good evening sir,greeting,Hello! How can I help you today?
+help me please,capabilities,I can answer questions and chat with you.
+hey nice work sir,compliment,Thank you! I appreciate the positive feedback.
+hey can you explain,confusion,I apologize. Let me try to be clearer.
+umm hi bot,greeting,Hello! How can I help you today?
+well thanks please,gratitude,You are very welcome!
+well done please,compliment,Thank you! I appreciate the positive feedback.
+who are you today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey what are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually bye,farewell,Goodbye! Have a wonderful day.
+greetings sir,greeting,Hello! How can I help you today?
+what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+bad bot sir,insult,I apologize if I disappointed you. I am still learning.
+ok bye bot,farewell,Goodbye! Have a wonderful day.
+you are stupid actually,insult,I apologize if I disappointed you. I am still learning.
+you suck please,insult,I apologize if I disappointed you. I am still learning.
+are you a bot mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so thank you now,gratitude,You are very welcome!
+listen you are stupid sir,insult,I apologize if I disappointed you. I am still learning.
+will you marry me mam,love,That is very kind of you to say!
+umm thank you actually,gratitude,You are very welcome!
+well i like you,love,That is very kind of you to say!
+yo who are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo cya,farewell,Goodbye! Have a wonderful day.
+so what are your features,capabilities,I can answer questions and chat with you.
+how are you buddy,wellbeing,I'm functioning perfectly. How can I help you?
+what are your features mam,capabilities,I can answer questions and chat with you.
+you are smart please,compliment,Thank you! I appreciate the positive feedback.
+so you are amazing bot,compliment,Thank you! I appreciate the positive feedback.
+well done bot,compliment,Thank you! I appreciate the positive feedback.
+i love you today,love,That is very kind of you to say!
+i am confused buddy,confusion,I apologize. Let me try to be clearer.
+yo hi sir,greeting,Hello! How can I help you today?
+please goodbye,farewell,Goodbye! Have a wonderful day.
+please you are dumb,insult,I apologize if I disappointed you. I am still learning.
+what's up please,wellbeing,I'm functioning perfectly. How can I help you?
+what do you mean mam,confusion,I apologize. Let me try to be clearer.
+good evening mam,greeting,Hello! How can I help you today?
+so i dont understand,confusion,I apologize. Let me try to be clearer.
+ok how are things mam,wellbeing,I'm functioning perfectly. How can I help you?
+you are amazing actually,compliment,Thank you! I appreciate the positive feedback.
+see you sir,farewell,Goodbye! Have a wonderful day.
+what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+what are your features bot,capabilities,I can answer questions and chat with you.
+hey i am confused,confusion,I apologize. Let me try to be clearer.
+what are you sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+will you marry me please,love,That is very kind of you to say!
+i love you mam,love,That is very kind of you to say!
+hey what are your features,capabilities,I can answer questions and chat with you.
+well thanks,gratitude,You are very welcome!
+actually how are you sir,wellbeing,I'm functioning perfectly. How can I help you?
+what is your name today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are cute buddy,love,That is very kind of you to say!
+listen i like you please,love,That is very kind of you to say!
+how are you sir,wellbeing,I'm functioning perfectly. How can I help you?
+ok i am confused,confusion,I apologize. Let me try to be clearer.
+you are smart buddy,compliment,Thank you! I appreciate the positive feedback.
+so appreciate it actually,gratitude,You are very welcome!
+well thx,gratitude,You are very welcome!
+umm how do you work mam,capabilities,I can answer questions and chat with you.
+cya mam,farewell,Goodbye! Have a wonderful day.
+listen you are cute,love,That is very kind of you to say!
+umm i have to go,farewell,Goodbye! Have a wonderful day.
+i dont understand mam,confusion,I apologize. Let me try to be clearer.
+ok useless now,insult,I apologize if I disappointed you. I am still learning.
+hey i love you,love,That is very kind of you to say!
+how is it going bot,wellbeing,I'm functioning perfectly. How can I help you?
+ok what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how do you work please,capabilities,I can answer questions and chat with you.
+hey nice work,compliment,Thank you! I appreciate the positive feedback.
+well who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo thanks buddy,gratitude,You are very welcome!
+yo how are things mam,wellbeing,I'm functioning perfectly. How can I help you?
+help me bot,capabilities,I can answer questions and chat with you.
+appreciate it please,gratitude,You are very welcome!
+please i love you,love,That is very kind of you to say!
+listen bye today,farewell,Goodbye! Have a wonderful day.
+greetings bot,greeting,Hello! How can I help you today?
+what's up sir,wellbeing,I'm functioning perfectly. How can I help you?
+umm introduce yourself mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo good job today,compliment,Thank you! I appreciate the positive feedback.
+how do you work bot,capabilities,I can answer questions and chat with you.
+well done friend,compliment,Thank you! I appreciate the positive feedback.
+well what can you do,capabilities,I can answer questions and chat with you.
+umm good evening bot,greeting,Hello! How can I help you today?
+actually good night,farewell,Goodbye! Have a wonderful day.
+actually how do you work buddy,capabilities,I can answer questions and chat with you.
+umm good job,compliment,Thank you! I appreciate the positive feedback.
+how is it going now,wellbeing,I'm functioning perfectly. How can I help you?
+good evening now,greeting,Hello! How can I help you today?
+well what's up,wellbeing,I'm functioning perfectly. How can I help you?
+ok you are cute now,love,That is very kind of you to say!
+actually you are amazing today,compliment,Thank you! I appreciate the positive feedback.
+so hi,greeting,Hello! How can I help you today?
+yo nice work,compliment,Thank you! I appreciate the positive feedback.
+i am confused mam,confusion,I apologize. Let me try to be clearer.
+actually you are amazing buddy,compliment,Thank you! I appreciate the positive feedback.
+listen what's up mam,wellbeing,I'm functioning perfectly. How can I help you?
+useless friend,insult,I apologize if I disappointed you. I am still learning.
+well what do you mean sir,confusion,I apologize. Let me try to be clearer.
+please thanks,gratitude,You are very welcome!
+i love you sir,love,That is very kind of you to say!
+ok good job,compliment,Thank you! I appreciate the positive feedback.
+i love you bot,love,That is very kind of you to say!
+you suck bot,insult,I apologize if I disappointed you. I am still learning.
+what is your name friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please are you a bot mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how is it going please,wellbeing,I'm functioning perfectly. How can I help you?
+hey how do you feel friend,wellbeing,I'm functioning perfectly. How can I help you?
+thanks sir,gratitude,You are very welcome!
+ok how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+listen thanks a lot buddy,gratitude,You are very welcome!
+nice work buddy,compliment,Thank you! I appreciate the positive feedback.
+yo how do you feel,wellbeing,I'm functioning perfectly. How can I help you?
+what can you do friend,capabilities,I can answer questions and chat with you.
+yo you are amazing,compliment,Thank you! I appreciate the positive feedback.
+umm you are cute,love,That is very kind of you to say!
+thank you bot,gratitude,You are very welcome!
+please bye,farewell,Goodbye! Have a wonderful day.
+you are smart sir,compliment,Thank you! I appreciate the positive feedback.
+useless buddy,insult,I apologize if I disappointed you. I am still learning.
+listen cya,farewell,Goodbye! Have a wonderful day.
+what is your name friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+can you explain bot,confusion,I apologize. Let me try to be clearer.
+actually what can you do,capabilities,I can answer questions and chat with you.
+bad bot actually,insult,I apologize if I disappointed you. I am still learning.
+so help me please,capabilities,I can answer questions and chat with you.
+hey good job,compliment,Thank you! I appreciate the positive feedback.
+what do you mean actually,confusion,I apologize. Let me try to be clearer.
+ok you are smart sir,compliment,Thank you! I appreciate the positive feedback.
+please can you explain now,confusion,I apologize. Let me try to be clearer.
+yo how do you work actually,capabilities,I can answer questions and chat with you.
+well what is your name sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how is it going bot,wellbeing,I'm functioning perfectly. How can I help you?
+yo i love you please,love,That is very kind of you to say!
+ok you suck buddy,insult,I apologize if I disappointed you. I am still learning.
+actually help me,capabilities,I can answer questions and chat with you.
+who are you today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what do you mean please,confusion,I apologize. Let me try to be clearer.
+actually bad bot friend,insult,I apologize if I disappointed you. I am still learning.
+ok well done,compliment,Thank you! I appreciate the positive feedback.
+listen what can you do bot,capabilities,I can answer questions and chat with you.
+yo thank you,gratitude,You are very welcome!
+you are amazing today,compliment,Thank you! I appreciate the positive feedback.
+so you are smart,compliment,Thank you! I appreciate the positive feedback.
+please how are things today,wellbeing,I'm functioning perfectly. How can I help you?
+so hey,greeting,Hello! How can I help you today?
+so you are smart please,compliment,Thank you! I appreciate the positive feedback.
+ok bad bot,insult,I apologize if I disappointed you. I am still learning.
+are you a bot mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+i have to go mam,farewell,Goodbye! Have a wonderful day.
+umm thank you bot,gratitude,You are very welcome!
+listen i dont understand,confusion,I apologize. Let me try to be clearer.
+how are you bot,wellbeing,I'm functioning perfectly. How can I help you?
+yo will you marry me sir,love,That is very kind of you to say!
+ok hello bot,greeting,Hello! How can I help you today?
+yo you are amazing mam,compliment,Thank you! I appreciate the positive feedback.
+help me now,capabilities,I can answer questions and chat with you.
+you are cute please,love,That is very kind of you to say!
+what is your name actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+talk to you later mam,farewell,Goodbye! Have a wonderful day.
+so you are smart,compliment,Thank you! I appreciate the positive feedback.
+hey what can you do bot,capabilities,I can answer questions and chat with you.
+yo hello,greeting,Hello! How can I help you today?
+hi bot,greeting,Hello! How can I help you today?
+please introduce yourself mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please you are smart actually,compliment,Thank you! I appreciate the positive feedback.
+ok good night,farewell,Goodbye! Have a wonderful day.
+can you explain actually,confusion,I apologize. Let me try to be clearer.
+ok cya mam,farewell,Goodbye! Have a wonderful day.
+well you are dumb,insult,I apologize if I disappointed you. I am still learning.
+please introduce yourself now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hi there please,greeting,Hello! How can I help you today?
+yo what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo goodbye bot,farewell,Goodbye! Have a wonderful day.
+will you marry me actually,love,That is very kind of you to say!
+yo help me bot,capabilities,I can answer questions and chat with you.
+can you explain actually,confusion,I apologize. Let me try to be clearer.
+greetings please,greeting,Hello! How can I help you today?
+actually what can you do,capabilities,I can answer questions and chat with you.
+listen i am confused,confusion,I apologize. Let me try to be clearer.
+thx bot,gratitude,You are very welcome!
+see you please,farewell,Goodbye! Have a wonderful day.
+you are smart buddy,compliment,Thank you! I appreciate the positive feedback.
+well help me,capabilities,I can answer questions and chat with you.
+yo what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo you suck,insult,I apologize if I disappointed you. I am still learning.
+yo good job now,compliment,Thank you! I appreciate the positive feedback.
+please good job actually,compliment,Thank you! I appreciate the positive feedback.
+please what are your features,capabilities,I can answer questions and chat with you.
+talk to you later bot,farewell,Goodbye! Have a wonderful day.
+umm how do you feel now,wellbeing,I'm functioning perfectly. How can I help you?
+well how are you today,wellbeing,I'm functioning perfectly. How can I help you?
+umm how are you,wellbeing,I'm functioning perfectly. How can I help you?
+hey introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok i have to go sir,farewell,Goodbye! Have a wonderful day.
+yo can you explain now,confusion,I apologize. Let me try to be clearer.
+i dont understand friend,confusion,I apologize. Let me try to be clearer.
+please see you,farewell,Goodbye! Have a wonderful day.
+hi there mam,greeting,Hello! How can I help you today?
+well i am confused now,confusion,I apologize. Let me try to be clearer.
+actually thanks now,gratitude,You are very welcome!
+listen will you marry me buddy,love,That is very kind of you to say!
+you are dumb bot,insult,I apologize if I disappointed you. I am still learning.
+so hello,greeting,Hello! How can I help you today?
+please nice work,compliment,Thank you! I appreciate the positive feedback.
+thank you today,gratitude,You are very welcome!
+actually bad bot please,insult,I apologize if I disappointed you. I am still learning.
+well you are smart bot,compliment,Thank you! I appreciate the positive feedback.
+help me sir,capabilities,I can answer questions and chat with you.
+actually thanks,gratitude,You are very welcome!
+good job buddy,compliment,Thank you! I appreciate the positive feedback.
+hey what can you do friend,capabilities,I can answer questions and chat with you.
+i dont understand bot,confusion,I apologize. Let me try to be clearer.
+ok can you explain,confusion,I apologize. Let me try to be clearer.
+ok how do you work,capabilities,I can answer questions and chat with you.
+actually how are things,wellbeing,I'm functioning perfectly. How can I help you?
+ok good morning,greeting,Hello! How can I help you today?
+bad bot sir,insult,I apologize if I disappointed you. I am still learning.
+i dont understand sir,confusion,I apologize. Let me try to be clearer.
+umm i dont understand,confusion,I apologize. Let me try to be clearer.
+yo can you explain now,confusion,I apologize. Let me try to be clearer.
+umm what is your name bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please thank you,gratitude,You are very welcome!
+well i love you please,love,That is very kind of you to say!
+hey are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+i have to go mam,farewell,Goodbye! Have a wonderful day.
+i like you bot,love,That is very kind of you to say!
+you suck actually,insult,I apologize if I disappointed you. I am still learning.
+ok how do you feel now,wellbeing,I'm functioning perfectly. How can I help you?
+what are your features now,capabilities,I can answer questions and chat with you.
+actually help me buddy,capabilities,I can answer questions and chat with you.
+umm i am confused buddy,confusion,I apologize. Let me try to be clearer.
+introduce yourself buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+are you a bot now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are stupid please,insult,I apologize if I disappointed you. I am still learning.
+what's up actually,wellbeing,I'm functioning perfectly. How can I help you?
+yo thanks a lot,gratitude,You are very welcome!
+actually you are cute,love,That is very kind of you to say!
+well hello,greeting,Hello! How can I help you today?
+how do you work bot,capabilities,I can answer questions and chat with you.
+umm what do you mean actually,confusion,I apologize. Let me try to be clearer.
+so i dont understand bot,confusion,I apologize. Let me try to be clearer.
+ok how do you feel today,wellbeing,I'm functioning perfectly. How can I help you?
+actually you are stupid,insult,I apologize if I disappointed you. I am still learning.
+actually i like you today,love,That is very kind of you to say!
+bye buddy,farewell,Goodbye! Have a wonderful day.
+you are amazing friend,compliment,Thank you! I appreciate the positive feedback.
+please hey today,greeting,Hello! How can I help you today?
+how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+well well done,compliment,Thank you! I appreciate the positive feedback.
+ok i dont understand bot,confusion,I apologize. Let me try to be clearer.
+so i love you friend,love,That is very kind of you to say!
+bye buddy,farewell,Goodbye! Have a wonderful day.
+how do you work sir,capabilities,I can answer questions and chat with you.
+hey good evening please,greeting,Hello! How can I help you today?
+hey there friend,greeting,Hello! How can I help you today?
+what is your name now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey i am confused,confusion,I apologize. Let me try to be clearer.
+actually what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so will you marry me sir,love,That is very kind of you to say!
+well thank you,gratitude,You are very welcome!
+actually you are amazing,compliment,Thank you! I appreciate the positive feedback.
+umm what can you do,capabilities,I can answer questions and chat with you.
+hey i am confused friend,confusion,I apologize. Let me try to be clearer.
+well what is your name buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually good night please,farewell,Goodbye! Have a wonderful day.
+hey good evening friend,greeting,Hello! How can I help you today?
+hey who are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you suck please,insult,I apologize if I disappointed you. I am still learning.
+actually help me,capabilities,I can answer questions and chat with you.
+ok bad bot friend,insult,I apologize if I disappointed you. I am still learning.
+hey goodbye,farewell,Goodbye! Have a wonderful day.
+ok you are stupid buddy,insult,I apologize if I disappointed you. I am still learning.
+goodbye please,farewell,Goodbye! Have a wonderful day.
+ok good job,compliment,Thank you! I appreciate the positive feedback.
+yo what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+please you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+introduce yourself buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually what can you do now,capabilities,I can answer questions and chat with you.
+listen you are smart bot,compliment,Thank you! I appreciate the positive feedback.
+ok goodbye bot,farewell,Goodbye! Have a wonderful day.
+i like you mam,love,That is very kind of you to say!
+you are dumb sir,insult,I apologize if I disappointed you. I am still learning.
+yo see you friend,farewell,Goodbye! Have a wonderful day.
+umm goodbye buddy,farewell,Goodbye! Have a wonderful day.
+you suck sir,insult,I apologize if I disappointed you. I am still learning.
+how are things friend,wellbeing,I'm functioning perfectly. How can I help you?
+listen i dont understand,confusion,I apologize. Let me try to be clearer.
+who are you today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+thanks today,gratitude,You are very welcome!
+what is your name actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually well done friend,compliment,Thank you! I appreciate the positive feedback.
+listen i dont understand please,confusion,I apologize. Let me try to be clearer.
+good evening please,greeting,Hello! How can I help you today?
+good job now,compliment,Thank you! I appreciate the positive feedback.
+good evening bot,greeting,Hello! How can I help you today?
+actually what can you do,capabilities,I can answer questions and chat with you.
+are you a bot sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm you suck,insult,I apologize if I disappointed you. I am still learning.
+what can you do now,capabilities,I can answer questions and chat with you.
+i have to go mam,farewell,Goodbye! Have a wonderful day.
+umm hey please,greeting,Hello! How can I help you today?
+well i dont understand today,confusion,I apologize. Let me try to be clearer.
+i dont understand mam,confusion,I apologize. Let me try to be clearer.
+well well done,compliment,Thank you! I appreciate the positive feedback.
+umm cya today,farewell,Goodbye! Have a wonderful day.
+what's up actually,wellbeing,I'm functioning perfectly. How can I help you?
+what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+so are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey you suck mam,insult,I apologize if I disappointed you. I am still learning.
+i like you mam,love,That is very kind of you to say!
+how is it going sir,wellbeing,I'm functioning perfectly. How can I help you?
+bad bot now,insult,I apologize if I disappointed you. I am still learning.
+hey bad bot mam,insult,I apologize if I disappointed you. I am still learning.
+bye buddy,farewell,Goodbye! Have a wonderful day.
+well good night today,farewell,Goodbye! Have a wonderful day.
+listen good morning today,greeting,Hello! How can I help you today?
+thank you sir,gratitude,You are very welcome!
+well hey friend,greeting,Hello! How can I help you today?
+i like you today,love,That is very kind of you to say!
+please i love you buddy,love,That is very kind of you to say!
+how are you today,wellbeing,I'm functioning perfectly. How can I help you?
+ok how do you work,capabilities,I can answer questions and chat with you.
+thank you please,gratitude,You are very welcome!
+hey help me,capabilities,I can answer questions and chat with you.
+ok well done actually,compliment,Thank you! I appreciate the positive feedback.
+good morning sir,greeting,Hello! How can I help you today?
+help me sir,capabilities,I can answer questions and chat with you.
+please what are you buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well i dont understand actually,confusion,I apologize. Let me try to be clearer.
+hey how do you work mam,capabilities,I can answer questions and chat with you.
+you are smart friend,compliment,Thank you! I appreciate the positive feedback.
+what is your name mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are amazing buddy,compliment,Thank you! I appreciate the positive feedback.
+yo appreciate it friend,gratitude,You are very welcome!
+thanks a lot now,gratitude,You are very welcome!
+how are things today,wellbeing,I'm functioning perfectly. How can I help you?
+actually what are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually hi there,greeting,Hello! How can I help you today?
+umm you are stupid,insult,I apologize if I disappointed you. I am still learning.
+thank you now,gratitude,You are very welcome!
+ok can you explain friend,confusion,I apologize. Let me try to be clearer.
+umm what can you do,capabilities,I can answer questions and chat with you.
+i love you today,love,That is very kind of you to say!
+yo i have to go now,farewell,Goodbye! Have a wonderful day.
+umm you are smart friend,compliment,Thank you! I appreciate the positive feedback.
+listen introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+bad bot please,insult,I apologize if I disappointed you. I am still learning.
+ok you are cute,love,That is very kind of you to say!
+umm hi there,greeting,Hello! How can I help you today?
+i love you friend,love,That is very kind of you to say!
+umm hi bot,greeting,Hello! How can I help you today?
+listen introduce yourself actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are smart mam,compliment,Thank you! I appreciate the positive feedback.
+how do you feel bot,wellbeing,I'm functioning perfectly. How can I help you?
+hey what do you mean actually,confusion,I apologize. Let me try to be clearer.
+hey how are you,wellbeing,I'm functioning perfectly. How can I help you?
+thanks sir,gratitude,You are very welcome!
+what can you do please,capabilities,I can answer questions and chat with you.
+ok how do you work,capabilities,I can answer questions and chat with you.
+actually help me bot,capabilities,I can answer questions and chat with you.
+thx now,gratitude,You are very welcome!
+umm thx please,gratitude,You are very welcome!
+will you marry me mam,love,That is very kind of you to say!
+ok appreciate it,gratitude,You are very welcome!
+i love you actually,love,That is very kind of you to say!
+please what are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen bad bot,insult,I apologize if I disappointed you. I am still learning.
+well hi there,greeting,Hello! How can I help you today?
+so well done,compliment,Thank you! I appreciate the positive feedback.
+what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+please how are things sir,wellbeing,I'm functioning perfectly. How can I help you?
+actually i am confused,confusion,I apologize. Let me try to be clearer.
+please cya,farewell,Goodbye! Have a wonderful day.
+hi mam,greeting,Hello! How can I help you today?
+well who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo good evening bot,greeting,Hello! How can I help you today?
+yo can you explain please,confusion,I apologize. Let me try to be clearer.
+what do you mean please,confusion,I apologize. Let me try to be clearer.
+please introduce yourself sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen bye,farewell,Goodbye! Have a wonderful day.
+so i am confused,confusion,I apologize. Let me try to be clearer.
+so greetings,greeting,Hello! How can I help you today?
+ok bad bot sir,insult,I apologize if I disappointed you. I am still learning.
+hey who are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+good morning friend,greeting,Hello! How can I help you today?
+listen who are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how is it going today,wellbeing,I'm functioning perfectly. How can I help you?
+actually good job please,compliment,Thank you! I appreciate the positive feedback.
+hi today,greeting,Hello! How can I help you today?
+hey can you explain,confusion,I apologize. Let me try to be clearer.
+umm good job,compliment,Thank you! I appreciate the positive feedback.
+listen appreciate it,gratitude,You are very welcome!
+listen help me,capabilities,I can answer questions and chat with you.
+listen i love you today,love,That is very kind of you to say!
+hey what are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+introduce yourself bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well thanks,gratitude,You are very welcome!
+i like you please,love,That is very kind of you to say!
+yo useless today,insult,I apologize if I disappointed you. I am still learning.
+ok how are things,wellbeing,I'm functioning perfectly. How can I help you?
+ok talk to you later friend,farewell,Goodbye! Have a wonderful day.
+you are amazing bot,compliment,Thank you! I appreciate the positive feedback.
+actually you are stupid,insult,I apologize if I disappointed you. I am still learning.
+well how do you work,capabilities,I can answer questions and chat with you.
+well well done sir,compliment,Thank you! I appreciate the positive feedback.
+well are you a bot sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen what are your features,capabilities,I can answer questions and chat with you.
+how do you work buddy,capabilities,I can answer questions and chat with you.
+actually how are you please,wellbeing,I'm functioning perfectly. How can I help you?
+how do you feel bot,wellbeing,I'm functioning perfectly. How can I help you?
+will you marry me actually,love,That is very kind of you to say!
+actually thanks a lot friend,gratitude,You are very welcome!
+well what's up,wellbeing,I'm functioning perfectly. How can I help you?
+well can you explain,confusion,I apologize. Let me try to be clearer.
+hi buddy,greeting,Hello! How can I help you today?
+please i like you friend,love,That is very kind of you to say!
+so what's up,wellbeing,I'm functioning perfectly. How can I help you?
+you are amazing bot,compliment,Thank you! I appreciate the positive feedback.
+so i have to go now,farewell,Goodbye! Have a wonderful day.
+goodbye actually,farewell,Goodbye! Have a wonderful day.
+so how is it going friend,wellbeing,I'm functioning perfectly. How can I help you?
+umm good morning,greeting,Hello! How can I help you today?
+appreciate it actually,gratitude,You are very welcome!
+cya today,farewell,Goodbye! Have a wonderful day.
+actually thx please,gratitude,You are very welcome!
+yo i like you,love,That is very kind of you to say!
+well you suck,insult,I apologize if I disappointed you. I am still learning.
+i have to go now,farewell,Goodbye! Have a wonderful day.
+i dont understand now,confusion,I apologize. Let me try to be clearer.
+please what do you mean today,confusion,I apologize. Let me try to be clearer.
+ok i love you,love,That is very kind of you to say!
+good job bot,compliment,Thank you! I appreciate the positive feedback.
+well i am confused,confusion,I apologize. Let me try to be clearer.
+useless bot,insult,I apologize if I disappointed you. I am still learning.
+yo i love you buddy,love,That is very kind of you to say!
+hey there bot,greeting,Hello! How can I help you today?
+actually hi there,greeting,Hello! How can I help you today?
+actually nice work today,compliment,Thank you! I appreciate the positive feedback.
+how do you feel buddy,wellbeing,I'm functioning perfectly. How can I help you?
+good night mam,farewell,Goodbye! Have a wonderful day.
+goodbye friend,farewell,Goodbye! Have a wonderful day.
+so what can you do,capabilities,I can answer questions and chat with you.
+well you are stupid please,insult,I apologize if I disappointed you. I am still learning.
+please how do you work sir,capabilities,I can answer questions and chat with you.
+actually what are your features now,capabilities,I can answer questions and chat with you.
+ok hi,greeting,Hello! How can I help you today?
+bad bot sir,insult,I apologize if I disappointed you. I am still learning.
+umm you are cute friend,love,That is very kind of you to say!
+you are smart friend,compliment,Thank you! I appreciate the positive feedback.
+listen hello today,greeting,Hello! How can I help you today?
+you suck actually,insult,I apologize if I disappointed you. I am still learning.
+listen thank you bot,gratitude,You are very welcome!
+well you suck buddy,insult,I apologize if I disappointed you. I am still learning.
+umm how do you work please,capabilities,I can answer questions and chat with you.
+hello today,greeting,Hello! How can I help you today?
+hey how do you work friend,capabilities,I can answer questions and chat with you.
+who are you mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey will you marry me buddy,love,That is very kind of you to say!
+well good night friend,farewell,Goodbye! Have a wonderful day.
+actually talk to you later friend,farewell,Goodbye! Have a wonderful day.
+umm you are cute please,love,That is very kind of you to say!
+ok can you explain,confusion,I apologize. Let me try to be clearer.
+how are you actually,wellbeing,I'm functioning perfectly. How can I help you?
+how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+yo good morning now,greeting,Hello! How can I help you today?
+hey what can you do,capabilities,I can answer questions and chat with you.
+listen i love you,love,That is very kind of you to say!
+yo what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are dumb now,insult,I apologize if I disappointed you. I am still learning.
+umm cya,farewell,Goodbye! Have a wonderful day.
+what do you mean now,confusion,I apologize. Let me try to be clearer.
+umm what can you do,capabilities,I can answer questions and chat with you.
+yo thanks a lot,gratitude,You are very welcome!
+yo what can you do,capabilities,I can answer questions and chat with you.
+please what are your features,capabilities,I can answer questions and chat with you.
+what is your name friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how are things bot,wellbeing,I'm functioning perfectly. How can I help you?
+you are amazing bot,compliment,Thank you! I appreciate the positive feedback.
+yo how are you,wellbeing,I'm functioning perfectly. How can I help you?
+umm useless buddy,insult,I apologize if I disappointed you. I am still learning.
+you are cute mam,love,That is very kind of you to say!
+please good night sir,farewell,Goodbye! Have a wonderful day.
+so you are cute today,love,That is very kind of you to say!
+actually thx,gratitude,You are very welcome!
+please what can you do,capabilities,I can answer questions and chat with you.
+you suck buddy,insult,I apologize if I disappointed you. I am still learning.
+please bye,farewell,Goodbye! Have a wonderful day.
+i have to go friend,farewell,Goodbye! Have a wonderful day.
+actually will you marry me actually,love,That is very kind of you to say!
+actually good morning,greeting,Hello! How can I help you today?
+i am confused actually,confusion,I apologize. Let me try to be clearer.
+ok thx sir,gratitude,You are very welcome!
+so what are your features actually,capabilities,I can answer questions and chat with you.
+i like you please,love,That is very kind of you to say!
+hello bot,greeting,Hello! How can I help you today?
+ok what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so hello now,greeting,Hello! How can I help you today?
+ok hi there,greeting,Hello! How can I help you today?
+umm what can you do,capabilities,I can answer questions and chat with you.
+how are you sir,wellbeing,I'm functioning perfectly. How can I help you?
+yo cya,farewell,Goodbye! Have a wonderful day.
+well help me now,capabilities,I can answer questions and chat with you.
+introduce yourself mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well appreciate it now,gratitude,You are very welcome!
+umm i like you friend,love,That is very kind of you to say!
+good job mam,compliment,Thank you! I appreciate the positive feedback.
+please help me now,capabilities,I can answer questions and chat with you.
+how do you feel mam,wellbeing,I'm functioning perfectly. How can I help you?
+yo you are cute,love,That is very kind of you to say!
+you are smart today,compliment,Thank you! I appreciate the positive feedback.
+actually i am confused,confusion,I apologize. Let me try to be clearer.
+yo what are your features,capabilities,I can answer questions and chat with you.
+hey you suck,insult,I apologize if I disappointed you. I am still learning.
+how is it going buddy,wellbeing,I'm functioning perfectly. How can I help you?
+hey talk to you later,farewell,Goodbye! Have a wonderful day.
+actually how is it going now,wellbeing,I'm functioning perfectly. How can I help you?
+you are stupid actually,insult,I apologize if I disappointed you. I am still learning.
+what do you mean now,confusion,I apologize. Let me try to be clearer.
+umm can you explain please,confusion,I apologize. Let me try to be clearer.
+please you are smart mam,compliment,Thank you! I appreciate the positive feedback.
+actually i am confused sir,confusion,I apologize. Let me try to be clearer.
+umm will you marry me,love,That is very kind of you to say!
+well goodbye,farewell,Goodbye! Have a wonderful day.
+ok you are smart,compliment,Thank you! I appreciate the positive feedback.
+ok i like you buddy,love,That is very kind of you to say!
+umm i dont understand,confusion,I apologize. Let me try to be clearer.
+so i love you,love,That is very kind of you to say!
+actually you are dumb now,insult,I apologize if I disappointed you. I am still learning.
+so i dont understand,confusion,I apologize. Let me try to be clearer.
+greetings mam,greeting,Hello! How can I help you today?
+hey sir,greeting,Hello! How can I help you today?
+ok bye,farewell,Goodbye! Have a wonderful day.
+listen useless,insult,I apologize if I disappointed you. I am still learning.
+please how is it going buddy,wellbeing,I'm functioning perfectly. How can I help you?
+i am confused actually,confusion,I apologize. Let me try to be clearer.
+actually what can you do,capabilities,I can answer questions and chat with you.
+you suck sir,insult,I apologize if I disappointed you. I am still learning.
+please you are amazing friend,compliment,Thank you! I appreciate the positive feedback.
+can you explain please,confusion,I apologize. Let me try to be clearer.
+help me please,capabilities,I can answer questions and chat with you.
+actually bye,farewell,Goodbye! Have a wonderful day.
+umm how do you work,capabilities,I can answer questions and chat with you.
+well you are stupid,insult,I apologize if I disappointed you. I am still learning.
+can you explain mam,confusion,I apologize. Let me try to be clearer.
+ok what's up,wellbeing,I'm functioning perfectly. How can I help you?
+please bad bot,insult,I apologize if I disappointed you. I am still learning.
+help me friend,capabilities,I can answer questions and chat with you.
+you are dumb sir,insult,I apologize if I disappointed you. I am still learning.
+ok goodbye,farewell,Goodbye! Have a wonderful day.
+listen introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually what can you do,capabilities,I can answer questions and chat with you.
+hey cya please,farewell,Goodbye! Have a wonderful day.
+how is it going buddy,wellbeing,I'm functioning perfectly. How can I help you?
+well what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what do you mean today,confusion,I apologize. Let me try to be clearer.
+are you a bot actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually you are dumb please,insult,I apologize if I disappointed you. I am still learning.
+what are your features actually,capabilities,I can answer questions and chat with you.
+please appreciate it bot,gratitude,You are very welcome!
+what do you mean please,confusion,I apologize. Let me try to be clearer.
+well goodbye,farewell,Goodbye! Have a wonderful day.
+well what's up please,wellbeing,I'm functioning perfectly. How can I help you?
+well introduce yourself please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok good night sir,farewell,Goodbye! Have a wonderful day.
+please can you explain,confusion,I apologize. Let me try to be clearer.
+yo you are cute,love,That is very kind of you to say!
+yo you are cute now,love,That is very kind of you to say!
+yo can you explain,confusion,I apologize. Let me try to be clearer.
+actually i like you,love,That is very kind of you to say!
+yo you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+what do you mean today,confusion,I apologize. Let me try to be clearer.
+please help me actually,capabilities,I can answer questions and chat with you.
+thanks a lot today,gratitude,You are very welcome!
+umm see you,farewell,Goodbye! Have a wonderful day.
+well how do you work buddy,capabilities,I can answer questions and chat with you.
+what can you do mam,capabilities,I can answer questions and chat with you.
+ok talk to you later,farewell,Goodbye! Have a wonderful day.
+are you a bot buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well bad bot bot,insult,I apologize if I disappointed you. I am still learning.
+please useless now,insult,I apologize if I disappointed you. I am still learning.
+what are you friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how do you feel sir,wellbeing,I'm functioning perfectly. How can I help you?
+so help me actually,capabilities,I can answer questions and chat with you.
+well goodbye,farewell,Goodbye! Have a wonderful day.
+umm good morning,greeting,Hello! How can I help you today?
+well see you actually,farewell,Goodbye! Have a wonderful day.
+ok what are your features actually,capabilities,I can answer questions and chat with you.
+umm good morning,greeting,Hello! How can I help you today?
+greetings actually,greeting,Hello! How can I help you today?
+umm who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+good job mam,compliment,Thank you! I appreciate the positive feedback.
+greetings sir,greeting,Hello! How can I help you today?
+ok you are cute sir,love,That is very kind of you to say!
+nice work today,compliment,Thank you! I appreciate the positive feedback.
+listen how do you feel please,wellbeing,I'm functioning perfectly. How can I help you?
+thx now,gratitude,You are very welcome!
+what is your name today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually cya,farewell,Goodbye! Have a wonderful day.
+help me sir,capabilities,I can answer questions and chat with you.
+please what is your name actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what are your features buddy,capabilities,I can answer questions and chat with you.
+yo you are stupid,insult,I apologize if I disappointed you. I am still learning.
+so greetings bot,greeting,Hello! How can I help you today?
+ok what can you do,capabilities,I can answer questions and chat with you.
+help me bot,capabilities,I can answer questions and chat with you.
+ok i love you,love,That is very kind of you to say!
+ok bye actually,farewell,Goodbye! Have a wonderful day.
+i have to go please,farewell,Goodbye! Have a wonderful day.
+ok good morning,greeting,Hello! How can I help you today?
+hello mam,greeting,Hello! How can I help you today?
+good morning today,greeting,Hello! How can I help you today?
+how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+ok thx,gratitude,You are very welcome!
+listen you are stupid,insult,I apologize if I disappointed you. I am still learning.
+i have to go buddy,farewell,Goodbye! Have a wonderful day.
+actually i dont understand actually,confusion,I apologize. Let me try to be clearer.
+umm hello actually,greeting,Hello! How can I help you today?
+well hey there,greeting,Hello! How can I help you today?
+well done friend,compliment,Thank you! I appreciate the positive feedback.
+will you marry me friend,love,That is very kind of you to say!
+so i dont understand,confusion,I apologize. Let me try to be clearer.
+you are smart actually,compliment,Thank you! I appreciate the positive feedback.
+actually i have to go friend,farewell,Goodbye! Have a wonderful day.
+so talk to you later buddy,farewell,Goodbye! Have a wonderful day.
+you are amazing now,compliment,Thank you! I appreciate the positive feedback.
+ok nice work please,compliment,Thank you! I appreciate the positive feedback.
+listen will you marry me actually,love,That is very kind of you to say!
+umm good morning please,greeting,Hello! How can I help you today?
+how is it going now,wellbeing,I'm functioning perfectly. How can I help you?
+yo well done,compliment,Thank you! I appreciate the positive feedback.
+goodbye now,farewell,Goodbye! Have a wonderful day.
+hey good night,farewell,Goodbye! Have a wonderful day.
+ok how are you actually,wellbeing,I'm functioning perfectly. How can I help you?
+umm what do you mean,confusion,I apologize. Let me try to be clearer.
+umm what's up today,wellbeing,I'm functioning perfectly. How can I help you?
+yo how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+bye bot,farewell,Goodbye! Have a wonderful day.
+what do you mean now,confusion,I apologize. Let me try to be clearer.
+hi there buddy,greeting,Hello! How can I help you today?
+actually i have to go,farewell,Goodbye! Have a wonderful day.
+what do you mean actually,confusion,I apologize. Let me try to be clearer.
+ok i dont understand,confusion,I apologize. Let me try to be clearer.
+yo useless,insult,I apologize if I disappointed you. I am still learning.
+hi now,greeting,Hello! How can I help you today?
+please thx,gratitude,You are very welcome!
+i am confused today,confusion,I apologize. Let me try to be clearer.
+so thanks a lot,gratitude,You are very welcome!
+what do you mean bot,confusion,I apologize. Let me try to be clearer.
+i am confused bot,confusion,I apologize. Let me try to be clearer.
+well goodbye,farewell,Goodbye! Have a wonderful day.
+yo thanks a lot please,gratitude,You are very welcome!
+actually appreciate it now,gratitude,You are very welcome!
+what's up bot,wellbeing,I'm functioning perfectly. How can I help you?
+see you now,farewell,Goodbye! Have a wonderful day.
+actually greetings sir,greeting,Hello! How can I help you today?
+hey greetings,greeting,Hello! How can I help you today?
+listen what are your features,capabilities,I can answer questions and chat with you.
+ok can you explain,confusion,I apologize. Let me try to be clearer.
+what are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well what's up buddy,wellbeing,I'm functioning perfectly. How can I help you?
+umm well done,compliment,Thank you! I appreciate the positive feedback.
+so appreciate it,gratitude,You are very welcome!
+what can you do now,capabilities,I can answer questions and chat with you.
+umm what are your features,capabilities,I can answer questions and chat with you.
+how are you bot,wellbeing,I'm functioning perfectly. How can I help you?
+what's up please,wellbeing,I'm functioning perfectly. How can I help you?
+umm useless,insult,I apologize if I disappointed you. I am still learning.
+actually what are your features now,capabilities,I can answer questions and chat with you.
+listen how are you sir,wellbeing,I'm functioning perfectly. How can I help you?
+listen thank you,gratitude,You are very welcome!
+yo thanks,gratitude,You are very welcome!
+cya sir,farewell,Goodbye! Have a wonderful day.
+well help me actually,capabilities,I can answer questions and chat with you.
+yo you suck,insult,I apologize if I disappointed you. I am still learning.
+hey there today,greeting,Hello! How can I help you today?
+listen talk to you later,farewell,Goodbye! Have a wonderful day.
+listen what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please cya sir,farewell,Goodbye! Have a wonderful day.
+listen you are smart please,compliment,Thank you! I appreciate the positive feedback.
+umm you are amazing today,compliment,Thank you! I appreciate the positive feedback.
+ok hey,greeting,Hello! How can I help you today?
+how do you work now,capabilities,I can answer questions and chat with you.
+talk to you later bot,farewell,Goodbye! Have a wonderful day.
+yo goodbye,farewell,Goodbye! Have a wonderful day.
+ok hi mam,greeting,Hello! How can I help you today?
+actually how are you,wellbeing,I'm functioning perfectly. How can I help you?
+hey i have to go friend,farewell,Goodbye! Have a wonderful day.
+so you suck actually,insult,I apologize if I disappointed you. I am still learning.
+hi bot,greeting,Hello! How can I help you today?
+well i am confused,confusion,I apologize. Let me try to be clearer.
+thanks a lot friend,gratitude,You are very welcome!
+yo i like you now,love,That is very kind of you to say!
+actually see you please,farewell,Goodbye! Have a wonderful day.
+well thanks a lot,gratitude,You are very welcome!
+ok bad bot,insult,I apologize if I disappointed you. I am still learning.
+yo how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+actually what can you do,capabilities,I can answer questions and chat with you.
+bad bot mam,insult,I apologize if I disappointed you. I am still learning.
+you are stupid buddy,insult,I apologize if I disappointed you. I am still learning.
+listen what are your features,capabilities,I can answer questions and chat with you.
+ok hey today,greeting,Hello! How can I help you today?
+hey can you explain,confusion,I apologize. Let me try to be clearer.
+ok thanks,gratitude,You are very welcome!
+well you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+yo see you,farewell,Goodbye! Have a wonderful day.
+umm hello bot,greeting,Hello! How can I help you today?
+hey there actually,greeting,Hello! How can I help you today?
+listen hi,greeting,Hello! How can I help you today?
+hey how do you feel buddy,wellbeing,I'm functioning perfectly. How can I help you?
+umm thank you,gratitude,You are very welcome!
+yo what do you mean today,confusion,I apologize. Let me try to be clearer.
+thanks a lot now,gratitude,You are very welcome!
+i dont understand bot,confusion,I apologize. Let me try to be clearer.
+hey there friend,greeting,Hello! How can I help you today?
+well done now,compliment,Thank you! I appreciate the positive feedback.
+hey you are dumb actually,insult,I apologize if I disappointed you. I am still learning.
+actually useless,insult,I apologize if I disappointed you. I am still learning.
+please you are dumb friend,insult,I apologize if I disappointed you. I am still learning.
+well thx,gratitude,You are very welcome!
+ok how do you feel mam,wellbeing,I'm functioning perfectly. How can I help you?
+ok how are things mam,wellbeing,I'm functioning perfectly. How can I help you?
+so what do you mean,confusion,I apologize. Let me try to be clearer.
+well how are things,wellbeing,I'm functioning perfectly. How can I help you?
+ok who are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey what do you mean sir,confusion,I apologize. Let me try to be clearer.
+well you are cute,love,That is very kind of you to say!
+hey bye bot,farewell,Goodbye! Have a wonderful day.
+introduce yourself please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually are you a bot sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how do you feel please,wellbeing,I'm functioning perfectly. How can I help you?
+please hey there friend,greeting,Hello! How can I help you today?
+umm you are cute,love,That is very kind of you to say!
+please you suck,insult,I apologize if I disappointed you. I am still learning.
+what are your features mam,capabilities,I can answer questions and chat with you.
+can you explain buddy,confusion,I apologize. Let me try to be clearer.
+will you marry me bot,love,That is very kind of you to say!
+goodbye buddy,farewell,Goodbye! Have a wonderful day.
+good job mam,compliment,Thank you! I appreciate the positive feedback.
+i like you friend,love,That is very kind of you to say!
+well appreciate it,gratitude,You are very welcome!
+help me sir,capabilities,I can answer questions and chat with you.
+you are dumb buddy,insult,I apologize if I disappointed you. I am still learning.
+hey thx buddy,gratitude,You are very welcome!
+please how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+who are you mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are dumb sir,insult,I apologize if I disappointed you. I am still learning.
+actually good night now,farewell,Goodbye! Have a wonderful day.
+you suck actually,insult,I apologize if I disappointed you. I am still learning.
+what are your features today,capabilities,I can answer questions and chat with you.
+umm you suck,insult,I apologize if I disappointed you. I am still learning.
+actually useless please,insult,I apologize if I disappointed you. I am still learning.
+cya actually,farewell,Goodbye! Have a wonderful day.
+actually good job sir,compliment,Thank you! I appreciate the positive feedback.
+umm thank you,gratitude,You are very welcome!
+actually see you mam,farewell,Goodbye! Have a wonderful day.
+i love you please,love,That is very kind of you to say!
+yo thanks,gratitude,You are very welcome!
+ok talk to you later mam,farewell,Goodbye! Have a wonderful day.
+please cya buddy,farewell,Goodbye! Have a wonderful day.
+please hi there please,greeting,Hello! How can I help you today?
+hey well done bot,compliment,Thank you! I appreciate the positive feedback.
+yo nice work actually,compliment,Thank you! I appreciate the positive feedback.
+appreciate it mam,gratitude,You are very welcome!
+actually thanks sir,gratitude,You are very welcome!
+please how are things now,wellbeing,I'm functioning perfectly. How can I help you?
+you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+yo i am confused please,confusion,I apologize. Let me try to be clearer.
+are you a bot bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+are you a bot please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+will you marry me now,love,That is very kind of you to say!
+so i like you friend,love,That is very kind of you to say!
+i like you buddy,love,That is very kind of you to say!
+thanks a lot actually,gratitude,You are very welcome!
+please you are smart mam,compliment,Thank you! I appreciate the positive feedback.
+please are you a bot buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok useless,insult,I apologize if I disappointed you. I am still learning.
+hey thx,gratitude,You are very welcome!
+hi bot,greeting,Hello! How can I help you today?
+please what's up please,wellbeing,I'm functioning perfectly. How can I help you?
+ok i dont understand please,confusion,I apologize. Let me try to be clearer.
+actually appreciate it sir,gratitude,You are very welcome!
+umm thx bot,gratitude,You are very welcome!
+umm what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually you are stupid,insult,I apologize if I disappointed you. I am still learning.
+ok will you marry me,love,That is very kind of you to say!
+actually you are smart,compliment,Thank you! I appreciate the positive feedback.
+listen thank you actually,gratitude,You are very welcome!
+i dont understand now,confusion,I apologize. Let me try to be clearer.
+yo can you explain,confusion,I apologize. Let me try to be clearer.
+hey i like you,love,That is very kind of you to say!
+please see you mam,farewell,Goodbye! Have a wonderful day.
+please see you,farewell,Goodbye! Have a wonderful day.
+ok thx friend,gratitude,You are very welcome!
+hey i love you bot,love,That is very kind of you to say!
+hey you are amazing please,compliment,Thank you! I appreciate the positive feedback.
+listen what can you do,capabilities,I can answer questions and chat with you.
+yo hi sir,greeting,Hello! How can I help you today?
+well you are amazing buddy,compliment,Thank you! I appreciate the positive feedback.
+listen i have to go actually,farewell,Goodbye! Have a wonderful day.
+so good night,farewell,Goodbye! Have a wonderful day.
+how do you feel now,wellbeing,I'm functioning perfectly. How can I help you?
+so what do you mean please,confusion,I apologize. Let me try to be clearer.
+hey how are things,wellbeing,I'm functioning perfectly. How can I help you?
+yo cya sir,farewell,Goodbye! Have a wonderful day.
+listen bye mam,farewell,Goodbye! Have a wonderful day.
+hey you are smart,compliment,Thank you! I appreciate the positive feedback.
+yo what can you do,capabilities,I can answer questions and chat with you.
+can you explain mam,confusion,I apologize. Let me try to be clearer.
+so well done,compliment,Thank you! I appreciate the positive feedback.
+yo you are stupid friend,insult,I apologize if I disappointed you. I am still learning.
+can you explain buddy,confusion,I apologize. Let me try to be clearer.
+well done mam,compliment,Thank you! I appreciate the positive feedback.
+well bad bot,insult,I apologize if I disappointed you. I am still learning.
+ok you are stupid,insult,I apologize if I disappointed you. I am still learning.
+so how do you work,capabilities,I can answer questions and chat with you.
+hey hi bot,greeting,Hello! How can I help you today?
+thanks a lot friend,gratitude,You are very welcome!
+are you a bot today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are amazing friend,compliment,Thank you! I appreciate the positive feedback.
+introduce yourself mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what are your features sir,capabilities,I can answer questions and chat with you.
+you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+are you a bot friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so you are stupid,insult,I apologize if I disappointed you. I am still learning.
+what are you today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+introduce yourself now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey talk to you later buddy,farewell,Goodbye! Have a wonderful day.
+yo what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey you are cute,love,That is very kind of you to say!
+cya sir,farewell,Goodbye! Have a wonderful day.
+so what do you mean,confusion,I apologize. Let me try to be clearer.
+so help me,capabilities,I can answer questions and chat with you.
+umm hey there actually,greeting,Hello! How can I help you today?
+actually greetings bot,greeting,Hello! How can I help you today?
+umm what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you suck buddy,insult,I apologize if I disappointed you. I am still learning.
+actually how are you bot,wellbeing,I'm functioning perfectly. How can I help you?
+actually i love you please,love,That is very kind of you to say!
+listen you are amazing,compliment,Thank you! I appreciate the positive feedback.
+hey bye,farewell,Goodbye! Have a wonderful day.
+actually see you,farewell,Goodbye! Have a wonderful day.
+hey hey there,greeting,Hello! How can I help you today?
+umm how do you work bot,capabilities,I can answer questions and chat with you.
+please i am confused,confusion,I apologize. Let me try to be clearer.
+actually hi there please,greeting,Hello! How can I help you today?
+so will you marry me,love,That is very kind of you to say!
+thx please,gratitude,You are very welcome!
+yo talk to you later bot,farewell,Goodbye! Have a wonderful day.
+please are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you suck sir,insult,I apologize if I disappointed you. I am still learning.
+so what can you do,capabilities,I can answer questions and chat with you.
+yo good job,compliment,Thank you! I appreciate the positive feedback.
+actually what are your features mam,capabilities,I can answer questions and chat with you.
+thanks a lot today,gratitude,You are very welcome!
+listen i love you mam,love,That is very kind of you to say!
+thank you mam,gratitude,You are very welcome!
+umm you are stupid actually,insult,I apologize if I disappointed you. I am still learning.
+hey bye,farewell,Goodbye! Have a wonderful day.
+you are dumb bot,insult,I apologize if I disappointed you. I am still learning.
+ok appreciate it,gratitude,You are very welcome!
+hey you are amazing,compliment,Thank you! I appreciate the positive feedback.
+well thank you now,gratitude,You are very welcome!
+well who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually thank you,gratitude,You are very welcome!
+listen you are smart,compliment,Thank you! I appreciate the positive feedback.
+listen how do you work,capabilities,I can answer questions and chat with you.
+please will you marry me please,love,That is very kind of you to say!
+so you are cute,love,That is very kind of you to say!
+listen thx today,gratitude,You are very welcome!
+umm i love you mam,love,That is very kind of you to say!
+well hey now,greeting,Hello! How can I help you today?
+listen thx buddy,gratitude,You are very welcome!
+so help me,capabilities,I can answer questions and chat with you.
+umm what's up,wellbeing,I'm functioning perfectly. How can I help you?
+what are your features today,capabilities,I can answer questions and chat with you.
+yo well done bot,compliment,Thank you! I appreciate the positive feedback.
+what are your features mam,capabilities,I can answer questions and chat with you.
+you suck sir,insult,I apologize if I disappointed you. I am still learning.
+well done sir,compliment,Thank you! I appreciate the positive feedback.
+how do you work sir,capabilities,I can answer questions and chat with you.
+see you buddy,farewell,Goodbye! Have a wonderful day.
+yo hi there,greeting,Hello! How can I help you today?
+umm introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm thank you,gratitude,You are very welcome!
+ok nice work,compliment,Thank you! I appreciate the positive feedback.
+actually how are things,wellbeing,I'm functioning perfectly. How can I help you?
+useless actually,insult,I apologize if I disappointed you. I am still learning.
+hi there sir,greeting,Hello! How can I help you today?
+actually thanks,gratitude,You are very welcome!
+actually i love you,love,That is very kind of you to say!
+hey useless,insult,I apologize if I disappointed you. I am still learning.
+umm are you a bot actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how do you work buddy,capabilities,I can answer questions and chat with you.
+so greetings,greeting,Hello! How can I help you today?
+so how do you work please,capabilities,I can answer questions and chat with you.
+how do you feel mam,wellbeing,I'm functioning perfectly. How can I help you?
+listen what do you mean,confusion,I apologize. Let me try to be clearer.
+umm i like you friend,love,That is very kind of you to say!
+please hey there buddy,greeting,Hello! How can I help you today?
+listen bye mam,farewell,Goodbye! Have a wonderful day.
+yo how are things,wellbeing,I'm functioning perfectly. How can I help you?
+well bad bot,insult,I apologize if I disappointed you. I am still learning.
+so how do you work,capabilities,I can answer questions and chat with you.
+so what are your features,capabilities,I can answer questions and chat with you.
+what do you mean please,confusion,I apologize. Let me try to be clearer.
+you are cute buddy,love,That is very kind of you to say!
+what are your features mam,capabilities,I can answer questions and chat with you.
+useless bot,insult,I apologize if I disappointed you. I am still learning.
+umm what's up mam,wellbeing,I'm functioning perfectly. How can I help you?
+listen what is your name mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are smart buddy,compliment,Thank you! I appreciate the positive feedback.
+hey appreciate it,gratitude,You are very welcome!
+appreciate it bot,gratitude,You are very welcome!
+hey good job,compliment,Thank you! I appreciate the positive feedback.
+please will you marry me please,love,That is very kind of you to say!
+good night actually,farewell,Goodbye! Have a wonderful day.
+so what do you mean bot,confusion,I apologize. Let me try to be clearer.
+will you marry me mam,love,That is very kind of you to say!
+umm thanks a lot today,gratitude,You are very welcome!
+hey how is it going buddy,wellbeing,I'm functioning perfectly. How can I help you?
+yo how are you,wellbeing,I'm functioning perfectly. How can I help you?
+thx friend,gratitude,You are very welcome!
+actually nice work today,compliment,Thank you! I appreciate the positive feedback.
+what can you do please,capabilities,I can answer questions and chat with you.
+can you explain today,confusion,I apologize. Let me try to be clearer.
+hey appreciate it buddy,gratitude,You are very welcome!
+listen thank you,gratitude,You are very welcome!
+well greetings buddy,greeting,Hello! How can I help you today?
+how do you work sir,capabilities,I can answer questions and chat with you.
+listen help me buddy,capabilities,I can answer questions and chat with you.
+please will you marry me buddy,love,That is very kind of you to say!
+hey nice work please,compliment,Thank you! I appreciate the positive feedback.
+how do you work buddy,capabilities,I can answer questions and chat with you.
+please well done,compliment,Thank you! I appreciate the positive feedback.
+actually help me today,capabilities,I can answer questions and chat with you.
+please what do you mean now,confusion,I apologize. Let me try to be clearer.
+well i dont understand actually,confusion,I apologize. Let me try to be clearer.
+what are your features mam,capabilities,I can answer questions and chat with you.
+bad bot actually,insult,I apologize if I disappointed you. I am still learning.
+so good night buddy,farewell,Goodbye! Have a wonderful day.
+ok you are smart,compliment,Thank you! I appreciate the positive feedback.
+actually introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm you are amazing,compliment,Thank you! I appreciate the positive feedback.
+greetings actually,greeting,Hello! How can I help you today?
+hey what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+thank you friend,gratitude,You are very welcome!
+how do you work today,capabilities,I can answer questions and chat with you.
+you are dumb please,insult,I apologize if I disappointed you. I am still learning.
+help me sir,capabilities,I can answer questions and chat with you.
+ok can you explain,confusion,I apologize. Let me try to be clearer.
+hey how are you bot,wellbeing,I'm functioning perfectly. How can I help you?
+actually well done mam,compliment,Thank you! I appreciate the positive feedback.
+actually hey there,greeting,Hello! How can I help you today?
+yo what can you do,capabilities,I can answer questions and chat with you.
+please i dont understand please,confusion,I apologize. Let me try to be clearer.
+you are amazing bot,compliment,Thank you! I appreciate the positive feedback.
+good evening please,greeting,Hello! How can I help you today?
+you are smart today,compliment,Thank you! I appreciate the positive feedback.
+what do you mean now,confusion,I apologize. Let me try to be clearer.
+talk to you later now,farewell,Goodbye! Have a wonderful day.
+what's up please,wellbeing,I'm functioning perfectly. How can I help you?
+so i dont understand,confusion,I apologize. Let me try to be clearer.
+nice work now,compliment,Thank you! I appreciate the positive feedback.
+listen i love you,love,That is very kind of you to say!
+well will you marry me,love,That is very kind of you to say!
+listen what are you buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+good night friend,farewell,Goodbye! Have a wonderful day.
+hey good night,farewell,Goodbye! Have a wonderful day.
+appreciate it sir,gratitude,You are very welcome!
+listen you are amazing,compliment,Thank you! I appreciate the positive feedback.
+yo what can you do,capabilities,I can answer questions and chat with you.
+well what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+thx please,gratitude,You are very welcome!
+so what do you mean,confusion,I apologize. Let me try to be clearer.
+hey how do you work bot,capabilities,I can answer questions and chat with you.
+bad bot please,insult,I apologize if I disappointed you. I am still learning.
+so what's up please,wellbeing,I'm functioning perfectly. How can I help you?
+good night please,farewell,Goodbye! Have a wonderful day.
+please good night please,farewell,Goodbye! Have a wonderful day.
+ok cya actually,farewell,Goodbye! Have a wonderful day.
+listen how are you actually,wellbeing,I'm functioning perfectly. How can I help you?
+umm what can you do,capabilities,I can answer questions and chat with you.
+cya today,farewell,Goodbye! Have a wonderful day.
+yo will you marry me,love,That is very kind of you to say!
+listen cya sir,farewell,Goodbye! Have a wonderful day.
+well thanks,gratitude,You are very welcome!
+ok what do you mean now,confusion,I apologize. Let me try to be clearer.
+help me buddy,capabilities,I can answer questions and chat with you.
+please will you marry me,love,That is very kind of you to say!
+hey you are cute,love,That is very kind of you to say!
+bye bot,farewell,Goodbye! Have a wonderful day.
+hey thank you mam,gratitude,You are very welcome!
+please cya,farewell,Goodbye! Have a wonderful day.
+ok i have to go,farewell,Goodbye! Have a wonderful day.
+so appreciate it friend,gratitude,You are very welcome!
+i like you actually,love,That is very kind of you to say!
+please thank you,gratitude,You are very welcome!
+ok good night buddy,farewell,Goodbye! Have a wonderful day.
+ok hey today,greeting,Hello! How can I help you today?
+how are things bot,wellbeing,I'm functioning perfectly. How can I help you?
+i have to go please,farewell,Goodbye! Have a wonderful day.
+hey will you marry me,love,That is very kind of you to say!
+hey well done,compliment,Thank you! I appreciate the positive feedback.
+help me please,capabilities,I can answer questions and chat with you.
+yo how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+i am confused now,confusion,I apologize. Let me try to be clearer.
+yo thx now,gratitude,You are very welcome!
+hello bot,greeting,Hello! How can I help you today?
+yo thanks,gratitude,You are very welcome!
+well how are you mam,wellbeing,I'm functioning perfectly. How can I help you?
+well bad bot,insult,I apologize if I disappointed you. I am still learning.
+well you are cute buddy,love,That is very kind of you to say!
+ok what can you do,capabilities,I can answer questions and chat with you.
+umm i am confused,confusion,I apologize. Let me try to be clearer.
+umm useless today,insult,I apologize if I disappointed you. I am still learning.
+hey thx buddy,gratitude,You are very welcome!
+i like you friend,love,That is very kind of you to say!
+you are smart today,compliment,Thank you! I appreciate the positive feedback.
+how are you mam,wellbeing,I'm functioning perfectly. How can I help you?
+actually appreciate it,gratitude,You are very welcome!
+well i am confused bot,confusion,I apologize. Let me try to be clearer.
+actually thank you,gratitude,You are very welcome!
+yo what's up actually,wellbeing,I'm functioning perfectly. How can I help you?
+so i like you today,love,That is very kind of you to say!
+so who are you sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo talk to you later,farewell,Goodbye! Have a wonderful day.
+see you buddy,farewell,Goodbye! Have a wonderful day.
+i like you now,love,That is very kind of you to say!
+good night mam,farewell,Goodbye! Have a wonderful day.
+listen talk to you later,farewell,Goodbye! Have a wonderful day.
+please how are you buddy,wellbeing,I'm functioning perfectly. How can I help you?
+ok bye bot,farewell,Goodbye! Have a wonderful day.
+what do you mean bot,confusion,I apologize. Let me try to be clearer.
+ok what are your features,capabilities,I can answer questions and chat with you.
+actually good morning today,greeting,Hello! How can I help you today?
+can you explain sir,confusion,I apologize. Let me try to be clearer.
+i love you today,love,That is very kind of you to say!
+yo can you explain sir,confusion,I apologize. Let me try to be clearer.
+yo greetings now,greeting,Hello! How can I help you today?
+thank you actually,gratitude,You are very welcome!
+you are cute buddy,love,That is very kind of you to say!
+you suck today,insult,I apologize if I disappointed you. I am still learning.
+please you are smart sir,compliment,Thank you! I appreciate the positive feedback.
+who are you today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey i am confused,confusion,I apologize. Let me try to be clearer.
+listen introduce yourself now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm will you marry me please,love,That is very kind of you to say!
+i am confused mam,confusion,I apologize. Let me try to be clearer.
+umm you are cute today,love,That is very kind of you to say!
+so cya buddy,farewell,Goodbye! Have a wonderful day.
+hey what's up mam,wellbeing,I'm functioning perfectly. How can I help you?
+what are your features bot,capabilities,I can answer questions and chat with you.
+introduce yourself today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo help me,capabilities,I can answer questions and chat with you.
+listen introduce yourself buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how are things actually,wellbeing,I'm functioning perfectly. How can I help you?
+please thank you mam,gratitude,You are very welcome!
+i am confused sir,confusion,I apologize. Let me try to be clearer.
+cya now,farewell,Goodbye! Have a wonderful day.
+listen what's up,wellbeing,I'm functioning perfectly. How can I help you?
+so will you marry me mam,love,That is very kind of you to say!
+how is it going bot,wellbeing,I'm functioning perfectly. How can I help you?
+ok will you marry me,love,That is very kind of you to say!
+hey see you,farewell,Goodbye! Have a wonderful day.
+umm what do you mean,confusion,I apologize. Let me try to be clearer.
+so i am confused,confusion,I apologize. Let me try to be clearer.
+greetings sir,greeting,Hello! How can I help you today?
+listen you are cute now,love,That is very kind of you to say!
+yo how do you work,capabilities,I can answer questions and chat with you.
+cya today,farewell,Goodbye! Have a wonderful day.
+well good job,compliment,Thank you! I appreciate the positive feedback.
+how is it going bot,wellbeing,I'm functioning perfectly. How can I help you?
+talk to you later sir,farewell,Goodbye! Have a wonderful day.
+hey good job friend,compliment,Thank you! I appreciate the positive feedback.
+how do you work buddy,capabilities,I can answer questions and chat with you.
+listen greetings,greeting,Hello! How can I help you today?
+greetings mam,greeting,Hello! How can I help you today?
+listen how do you work bot,capabilities,I can answer questions and chat with you.
+well bad bot,insult,I apologize if I disappointed you. I am still learning.
+actually thanks a lot,gratitude,You are very welcome!
+listen you are smart,compliment,Thank you! I appreciate the positive feedback.
+how is it going please,wellbeing,I'm functioning perfectly. How can I help you?
+ok introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey you are stupid,insult,I apologize if I disappointed you. I am still learning.
+hey thank you buddy,gratitude,You are very welcome!
+so what are your features,capabilities,I can answer questions and chat with you.
+what is your name now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+thanks today,gratitude,You are very welcome!
+good morning sir,greeting,Hello! How can I help you today?
+umm what are your features today,capabilities,I can answer questions and chat with you.
+listen appreciate it,gratitude,You are very welcome!
+well what can you do friend,capabilities,I can answer questions and chat with you.
+hey hi,greeting,Hello! How can I help you today?
+you are cute actually,love,That is very kind of you to say!
+please what are your features,capabilities,I can answer questions and chat with you.
+please useless mam,insult,I apologize if I disappointed you. I am still learning.
+actually what are your features,capabilities,I can answer questions and chat with you.
+please what's up friend,wellbeing,I'm functioning perfectly. How can I help you?
+nice work actually,compliment,Thank you! I appreciate the positive feedback.
+actually i am confused sir,confusion,I apologize. Let me try to be clearer.
+cya bot,farewell,Goodbye! Have a wonderful day.
+listen what's up friend,wellbeing,I'm functioning perfectly. How can I help you?
+you are dumb now,insult,I apologize if I disappointed you. I am still learning.
+well what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so see you bot,farewell,Goodbye! Have a wonderful day.
+listen can you explain,confusion,I apologize. Let me try to be clearer.
+what are your features friend,capabilities,I can answer questions and chat with you.
+nice work friend,compliment,Thank you! I appreciate the positive feedback.
+yo bad bot,insult,I apologize if I disappointed you. I am still learning.
+thank you sir,gratitude,You are very welcome!
+are you a bot friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey what do you mean,confusion,I apologize. Let me try to be clearer.
+what do you mean now,confusion,I apologize. Let me try to be clearer.
+listen i dont understand please,confusion,I apologize. Let me try to be clearer.
+see you buddy,farewell,Goodbye! Have a wonderful day.
+are you a bot sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+will you marry me buddy,love,That is very kind of you to say!
+see you bot,farewell,Goodbye! Have a wonderful day.
+actually how is it going mam,wellbeing,I'm functioning perfectly. How can I help you?
+hey you are cute please,love,That is very kind of you to say!
+you suck mam,insult,I apologize if I disappointed you. I am still learning.
+i am confused please,confusion,I apologize. Let me try to be clearer.
+how do you feel sir,wellbeing,I'm functioning perfectly. How can I help you?
+well how are things friend,wellbeing,I'm functioning perfectly. How can I help you?
+yo thx sir,gratitude,You are very welcome!
+what's up buddy,wellbeing,I'm functioning perfectly. How can I help you?
+listen what can you do sir,capabilities,I can answer questions and chat with you.
+actually you are smart,compliment,Thank you! I appreciate the positive feedback.
+hey bye actually,farewell,Goodbye! Have a wonderful day.
+please you are dumb,insult,I apologize if I disappointed you. I am still learning.
+please well done,compliment,Thank you! I appreciate the positive feedback.
+well good morning please,greeting,Hello! How can I help you today?
+listen you are stupid,insult,I apologize if I disappointed you. I am still learning.
+well introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what's up actually,wellbeing,I'm functioning perfectly. How can I help you?
+ok what's up actually,wellbeing,I'm functioning perfectly. How can I help you?
+ok you suck buddy,insult,I apologize if I disappointed you. I am still learning.
+hey i like you,love,That is very kind of you to say!
+how are things friend,wellbeing,I'm functioning perfectly. How can I help you?
+umm what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so i like you,love,That is very kind of you to say!
+listen you are cute please,love,That is very kind of you to say!
+bye please,farewell,Goodbye! Have a wonderful day.
+what is your name please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm bad bot buddy,insult,I apologize if I disappointed you. I am still learning.
+hey there actually,greeting,Hello! How can I help you today?
+who are you friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how do you feel please,wellbeing,I'm functioning perfectly. How can I help you?
+ok you are cute sir,love,That is very kind of you to say!
+please what can you do buddy,capabilities,I can answer questions and chat with you.
+hey i love you sir,love,That is very kind of you to say!
+i love you sir,love,That is very kind of you to say!
+you are stupid today,insult,I apologize if I disappointed you. I am still learning.
+you are cute now,love,That is very kind of you to say!
+so i love you now,love,That is very kind of you to say!
+so how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+actually how is it going now,wellbeing,I'm functioning perfectly. How can I help you?
+cya please,farewell,Goodbye! Have a wonderful day.
+yo you are stupid bot,insult,I apologize if I disappointed you. I am still learning.
+please will you marry me actually,love,That is very kind of you to say!
+thank you friend,gratitude,You are very welcome!
+actually what are your features,capabilities,I can answer questions and chat with you.
+hey help me actually,capabilities,I can answer questions and chat with you.
+well i like you bot,love,That is very kind of you to say!
+yo nice work,compliment,Thank you! I appreciate the positive feedback.
+bye please,farewell,Goodbye! Have a wonderful day.
+you are cute buddy,love,That is very kind of you to say!
+so i dont understand today,confusion,I apologize. Let me try to be clearer.
+umm bye,farewell,Goodbye! Have a wonderful day.
+will you marry me actually,love,That is very kind of you to say!
+nice work actually,compliment,Thank you! I appreciate the positive feedback.
+ok hi there mam,greeting,Hello! How can I help you today?
+hello sir,greeting,Hello! How can I help you today?
+you are cute today,love,That is very kind of you to say!
+are you a bot now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok talk to you later,farewell,Goodbye! Have a wonderful day.
+please help me now,capabilities,I can answer questions and chat with you.
+hey how do you work actually,capabilities,I can answer questions and chat with you.
+listen what are your features sir,capabilities,I can answer questions and chat with you.
+can you explain please,confusion,I apologize. Let me try to be clearer.
+you suck actually,insult,I apologize if I disappointed you. I am still learning.
+ok thank you,gratitude,You are very welcome!
+see you bot,farewell,Goodbye! Have a wonderful day.
+so thx now,gratitude,You are very welcome!
+yo you are dumb bot,insult,I apologize if I disappointed you. I am still learning.
+umm can you explain please,confusion,I apologize. Let me try to be clearer.
+please bad bot,insult,I apologize if I disappointed you. I am still learning.
+you are dumb mam,insult,I apologize if I disappointed you. I am still learning.
+please goodbye please,farewell,Goodbye! Have a wonderful day.
+you are dumb buddy,insult,I apologize if I disappointed you. I am still learning.
+how do you feel buddy,wellbeing,I'm functioning perfectly. How can I help you?
+umm what are your features bot,capabilities,I can answer questions and chat with you.
+good job actually,compliment,Thank you! I appreciate the positive feedback.
+thanks mam,gratitude,You are very welcome!
+see you now,farewell,Goodbye! Have a wonderful day.
+well who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are dumb please,insult,I apologize if I disappointed you. I am still learning.
+thanks now,gratitude,You are very welcome!
+useless friend,insult,I apologize if I disappointed you. I am still learning.
+so you suck friend,insult,I apologize if I disappointed you. I am still learning.
+you suck now,insult,I apologize if I disappointed you. I am still learning.
+actually thanks bot,gratitude,You are very welcome!
+umm will you marry me,love,That is very kind of you to say!
+so what are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo bye,farewell,Goodbye! Have a wonderful day.
+well bad bot friend,insult,I apologize if I disappointed you. I am still learning.
+how are you bot,wellbeing,I'm functioning perfectly. How can I help you?
+well hi there,greeting,Hello! How can I help you today?
+hey how are you,wellbeing,I'm functioning perfectly. How can I help you?
+ok thank you,gratitude,You are very welcome!
+thank you buddy,gratitude,You are very welcome!
+what are your features please,capabilities,I can answer questions and chat with you.
+well what's up,wellbeing,I'm functioning perfectly. How can I help you?
+umm what are your features,capabilities,I can answer questions and chat with you.
+umm see you,farewell,Goodbye! Have a wonderful day.
+so thanks,gratitude,You are very welcome!
+will you marry me please,love,That is very kind of you to say!
+hey bye,farewell,Goodbye! Have a wonderful day.
+ok bad bot,insult,I apologize if I disappointed you. I am still learning.
+what are your features please,capabilities,I can answer questions and chat with you.
+please i have to go mam,farewell,Goodbye! Have a wonderful day.
+hey i dont understand,confusion,I apologize. Let me try to be clearer.
+will you marry me now,love,That is very kind of you to say!
+umm you suck sir,insult,I apologize if I disappointed you. I am still learning.
+you suck now,insult,I apologize if I disappointed you. I am still learning.
+how are you please,wellbeing,I'm functioning perfectly. How can I help you?
+please nice work,compliment,Thank you! I appreciate the positive feedback.
+i love you actually,love,That is very kind of you to say!
+yo who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually will you marry me,love,That is very kind of you to say!
+so thank you,gratitude,You are very welcome!
+well i have to go,farewell,Goodbye! Have a wonderful day.
+how are things today,wellbeing,I'm functioning perfectly. How can I help you?
+appreciate it mam,gratitude,You are very welcome!
+please you are stupid bot,insult,I apologize if I disappointed you. I am still learning.
+listen are you a bot bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so i love you mam,love,That is very kind of you to say!
+so nice work mam,compliment,Thank you! I appreciate the positive feedback.
+well you are amazing buddy,compliment,Thank you! I appreciate the positive feedback.
+who are you today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo what are your features now,capabilities,I can answer questions and chat with you.
+what do you mean now,confusion,I apologize. Let me try to be clearer.
+actually what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please good night friend,farewell,Goodbye! Have a wonderful day.
+listen you are amazing,compliment,Thank you! I appreciate the positive feedback.
+well what do you mean bot,confusion,I apologize. Let me try to be clearer.
+ok who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hi there bot,greeting,Hello! How can I help you today?
+listen how is it going today,wellbeing,I'm functioning perfectly. How can I help you?
+thanks actually,gratitude,You are very welcome!
+hey greetings,greeting,Hello! How can I help you today?
+introduce yourself now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+ok thx,gratitude,You are very welcome!
+so introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen hello,greeting,Hello! How can I help you today?
+so i have to go,farewell,Goodbye! Have a wonderful day.
+hey i like you today,love,That is very kind of you to say!
+listen introduce yourself actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please what are you please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+bad bot today,insult,I apologize if I disappointed you. I am still learning.
+well what's up bot,wellbeing,I'm functioning perfectly. How can I help you?
+yo how are you,wellbeing,I'm functioning perfectly. How can I help you?
+are you a bot friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please i love you sir,love,That is very kind of you to say!
+you are amazing friend,compliment,Thank you! I appreciate the positive feedback.
+listen thank you,gratitude,You are very welcome!
+you are cute bot,love,That is very kind of you to say!
+actually how is it going sir,wellbeing,I'm functioning perfectly. How can I help you?
+thanks a lot sir,gratitude,You are very welcome!
+yo how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+who are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well goodbye friend,farewell,Goodbye! Have a wonderful day.
+hey bad bot,insult,I apologize if I disappointed you. I am still learning.
+listen what do you mean,confusion,I apologize. Let me try to be clearer.
+introduce yourself today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please greetings,greeting,Hello! How can I help you today?
+ok are you a bot today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo talk to you later,farewell,Goodbye! Have a wonderful day.
+well thanks a lot now,gratitude,You are very welcome!
+so goodbye,farewell,Goodbye! Have a wonderful day.
+talk to you later sir,farewell,Goodbye! Have a wonderful day.
+you are stupid bot,insult,I apologize if I disappointed you. I am still learning.
+actually hello,greeting,Hello! How can I help you today?
+umm see you bot,farewell,Goodbye! Have a wonderful day.
+so will you marry me friend,love,That is very kind of you to say!
+ok hi there bot,greeting,Hello! How can I help you today?
+i am confused sir,confusion,I apologize. Let me try to be clearer.
+i have to go buddy,farewell,Goodbye! Have a wonderful day.
+umm can you explain buddy,confusion,I apologize. Let me try to be clearer.
+help me now,capabilities,I can answer questions and chat with you.
+so what's up,wellbeing,I'm functioning perfectly. How can I help you?
+i am confused today,confusion,I apologize. Let me try to be clearer.
+umm i love you please,love,That is very kind of you to say!
+how do you work actually,capabilities,I can answer questions and chat with you.
+see you please,farewell,Goodbye! Have a wonderful day.
+what is your name mam,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well thx sir,gratitude,You are very welcome!
+hey are you a bot please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+are you a bot bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+umm i dont understand now,confusion,I apologize. Let me try to be clearer.
+actually how do you feel please,wellbeing,I'm functioning perfectly. How can I help you?
+listen i am confused,confusion,I apologize. Let me try to be clearer.
+yo i like you,love,That is very kind of you to say!
+actually good night,farewell,Goodbye! Have a wonderful day.
+yo useless,insult,I apologize if I disappointed you. I am still learning.
+you are dumb bot,insult,I apologize if I disappointed you. I am still learning.
+are you a bot bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+so are you a bot please,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+i dont understand sir,confusion,I apologize. Let me try to be clearer.
+umm bad bot buddy,insult,I apologize if I disappointed you. I am still learning.
+actually bye actually,farewell,Goodbye! Have a wonderful day.
+good evening mam,greeting,Hello! How can I help you today?
+hey hey now,greeting,Hello! How can I help you today?
+so hey buddy,greeting,Hello! How can I help you today?
+yo introduce yourself buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+thx now,gratitude,You are very welcome!
+how are things sir,wellbeing,I'm functioning perfectly. How can I help you?
+listen what can you do,capabilities,I can answer questions and chat with you.
+actually good evening,greeting,Hello! How can I help you today?
+how do you feel buddy,wellbeing,I'm functioning perfectly. How can I help you?
+how are things today,wellbeing,I'm functioning perfectly. How can I help you?
+yo you are dumb today,insult,I apologize if I disappointed you. I am still learning.
+well what do you mean,confusion,I apologize. Let me try to be clearer.
+listen i have to go,farewell,Goodbye! Have a wonderful day.
+i love you sir,love,That is very kind of you to say!
+so hi,greeting,Hello! How can I help you today?
+ok i am confused now,confusion,I apologize. Let me try to be clearer.
+ok well done today,compliment,Thank you! I appreciate the positive feedback.
+please what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what can you do buddy,capabilities,I can answer questions and chat with you.
+cya mam,farewell,Goodbye! Have a wonderful day.
+hey who are you friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo appreciate it buddy,gratitude,You are very welcome!
+i dont understand buddy,confusion,I apologize. Let me try to be clearer.
+yo what can you do today,capabilities,I can answer questions and chat with you.
+listen thank you,gratitude,You are very welcome!
+i have to go mam,farewell,Goodbye! Have a wonderful day.
+well hello buddy,greeting,Hello! How can I help you today?
+please good evening please,greeting,Hello! How can I help you today?
+how is it going bot,wellbeing,I'm functioning perfectly. How can I help you?
+listen you are cute,love,That is very kind of you to say!
+umm you are dumb,insult,I apologize if I disappointed you. I am still learning.
+so thanks a lot today,gratitude,You are very welcome!
+ok help me,capabilities,I can answer questions and chat with you.
+you are stupid bot,insult,I apologize if I disappointed you. I am still learning.
+hey there mam,greeting,Hello! How can I help you today?
+yo appreciate it sir,gratitude,You are very welcome!
+goodbye buddy,farewell,Goodbye! Have a wonderful day.
+well how do you work,capabilities,I can answer questions and chat with you.
+so what are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what's up buddy,wellbeing,I'm functioning perfectly. How can I help you?
+actually i have to go,farewell,Goodbye! Have a wonderful day.
+yo what can you do friend,capabilities,I can answer questions and chat with you.
+actually how are things,wellbeing,I'm functioning perfectly. How can I help you?
+will you marry me today,love,That is very kind of you to say!
+you suck actually,insult,I apologize if I disappointed you. I am still learning.
+listen talk to you later today,farewell,Goodbye! Have a wonderful day.
+actually you are cute today,love,That is very kind of you to say!
+thanks bot,gratitude,You are very welcome!
+ok thank you,gratitude,You are very welcome!
+well useless,insult,I apologize if I disappointed you. I am still learning.
+please you are dumb today,insult,I apologize if I disappointed you. I am still learning.
+see you please,farewell,Goodbye! Have a wonderful day.
+yo what is your name today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well greetings,greeting,Hello! How can I help you today?
+please goodbye today,farewell,Goodbye! Have a wonderful day.
+how is it going mam,wellbeing,I'm functioning perfectly. How can I help you?
+well i dont understand mam,confusion,I apologize. Let me try to be clearer.
+please i love you,love,That is very kind of you to say!
+hey cya,farewell,Goodbye! Have a wonderful day.
+thanks now,gratitude,You are very welcome!
+umm i am confused,confusion,I apologize. Let me try to be clearer.
+cya actually,farewell,Goodbye! Have a wonderful day.
+hi there bot,greeting,Hello! How can I help you today?
+good evening actually,greeting,Hello! How can I help you today?
+ok thanks,gratitude,You are very welcome!
+appreciate it buddy,gratitude,You are very welcome!
+you are cute please,love,That is very kind of you to say!
+thx bot,gratitude,You are very welcome!
+ok i love you now,love,That is very kind of you to say!
+actually you are amazing,compliment,Thank you! I appreciate the positive feedback.
+umm how do you work,capabilities,I can answer questions and chat with you.
+what do you mean today,confusion,I apologize. Let me try to be clearer.
+bye buddy,farewell,Goodbye! Have a wonderful day.
+hey useless sir,insult,I apologize if I disappointed you. I am still learning.
+hey will you marry me buddy,love,That is very kind of you to say!
+well done please,compliment,Thank you! I appreciate the positive feedback.
+i love you today,love,That is very kind of you to say!
+well thx sir,gratitude,You are very welcome!
+you are cute today,love,That is very kind of you to say!
+well done mam,compliment,Thank you! I appreciate the positive feedback.
+well thx mam,gratitude,You are very welcome!
+i love you friend,love,That is very kind of you to say!
+umm good job,compliment,Thank you! I appreciate the positive feedback.
+listen who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen good morning,greeting,Hello! How can I help you today?
+hey what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well i dont understand,confusion,I apologize. Let me try to be clearer.
+so i dont understand please,confusion,I apologize. Let me try to be clearer.
+listen how is it going today,wellbeing,I'm functioning perfectly. How can I help you?
+yo i dont understand friend,confusion,I apologize. Let me try to be clearer.
+thanks a lot actually,gratitude,You are very welcome!
+well what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are smart mam,compliment,Thank you! I appreciate the positive feedback.
+so how do you feel,wellbeing,I'm functioning perfectly. How can I help you?
+so what's up,wellbeing,I'm functioning perfectly. How can I help you?
+so hi there today,greeting,Hello! How can I help you today?
+ok what is your name buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey appreciate it,gratitude,You are very welcome!
+are you a bot actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo hi friend,greeting,Hello! How can I help you today?
+actually what are you bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+what do you mean buddy,confusion,I apologize. Let me try to be clearer.
+ok hey there now,greeting,Hello! How can I help you today?
+yo how are you buddy,wellbeing,I'm functioning perfectly. How can I help you?
+ok bye,farewell,Goodbye! Have a wonderful day.
+yo who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually how are things,wellbeing,I'm functioning perfectly. How can I help you?
+so will you marry me,love,That is very kind of you to say!
+yo hi mam,greeting,Hello! How can I help you today?
+yo bad bot friend,insult,I apologize if I disappointed you. I am still learning.
+umm are you a bot buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+how are you please,wellbeing,I'm functioning perfectly. How can I help you?
+please how do you feel today,wellbeing,I'm functioning perfectly. How can I help you?
+ok are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+bye mam,farewell,Goodbye! Have a wonderful day.
+yo you are cute,love,That is very kind of you to say!
+ok bad bot,insult,I apologize if I disappointed you. I am still learning.
+talk to you later bot,farewell,Goodbye! Have a wonderful day.
+listen well done now,compliment,Thank you! I appreciate the positive feedback.
+you are cute please,love,That is very kind of you to say!
+listen what do you mean,confusion,I apologize. Let me try to be clearer.
+listen are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please thanks,gratitude,You are very welcome!
+hey i am confused buddy,confusion,I apologize. Let me try to be clearer.
+thanks now,gratitude,You are very welcome!
+will you marry me buddy,love,That is very kind of you to say!
+you are stupid actually,insult,I apologize if I disappointed you. I am still learning.
+what are your features please,capabilities,I can answer questions and chat with you.
+ok appreciate it actually,gratitude,You are very welcome!
+yo good morning today,greeting,Hello! How can I help you today?
+listen how do you work friend,capabilities,I can answer questions and chat with you.
+help me now,capabilities,I can answer questions and chat with you.
+well done please,compliment,Thank you! I appreciate the positive feedback.
+please useless now,insult,I apologize if I disappointed you. I am still learning.
+listen you are cute mam,love,That is very kind of you to say!
+yo appreciate it bot,gratitude,You are very welcome!
+listen goodbye,farewell,Goodbye! Have a wonderful day.
+talk to you later actually,farewell,Goodbye! Have a wonderful day.
+umm you are stupid please,insult,I apologize if I disappointed you. I am still learning.
+good night sir,farewell,Goodbye! Have a wonderful day.
+thanks a lot mam,gratitude,You are very welcome!
+yo thanks today,gratitude,You are very welcome!
+yo what can you do sir,capabilities,I can answer questions and chat with you.
+how are things bot,wellbeing,I'm functioning perfectly. How can I help you?
+so thx now,gratitude,You are very welcome!
+umm you are dumb,insult,I apologize if I disappointed you. I am still learning.
+ok bye today,farewell,Goodbye! Have a wonderful day.
+hi there today,greeting,Hello! How can I help you today?
+listen thx,gratitude,You are very welcome!
+thank you friend,gratitude,You are very welcome!
+umm thanks actually,gratitude,You are very welcome!
+well i dont understand bot,confusion,I apologize. Let me try to be clearer.
+you suck sir,insult,I apologize if I disappointed you. I am still learning.
+you are cute mam,love,That is very kind of you to say!
+introduce yourself friend,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well what can you do,capabilities,I can answer questions and chat with you.
+hey i love you,love,That is very kind of you to say!
+nice work please,compliment,Thank you! I appreciate the positive feedback.
+so good night sir,farewell,Goodbye! Have a wonderful day.
+you suck sir,insult,I apologize if I disappointed you. I am still learning.
+actually you are stupid actually,insult,I apologize if I disappointed you. I am still learning.
+hey you are smart now,compliment,Thank you! I appreciate the positive feedback.
+hey are you a bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo what is your name bot,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well what are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+you are cute friend,love,That is very kind of you to say!
+please you are dumb sir,insult,I apologize if I disappointed you. I am still learning.
+bad bot buddy,insult,I apologize if I disappointed you. I am still learning.
+umm how are things please,wellbeing,I'm functioning perfectly. How can I help you?
+please what's up today,wellbeing,I'm functioning perfectly. How can I help you?
+how do you work please,capabilities,I can answer questions and chat with you.
+listen cya,farewell,Goodbye! Have a wonderful day.
+i love you now,love,That is very kind of you to say!
+introduce yourself sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well thanks a lot please,gratitude,You are very welcome!
+how are you actually,wellbeing,I'm functioning perfectly. How can I help you?
+so hey there mam,greeting,Hello! How can I help you today?
+please you are smart,compliment,Thank you! I appreciate the positive feedback.
+you are cute bot,love,That is very kind of you to say!
+good morning actually,greeting,Hello! How can I help you today?
+so i dont understand buddy,confusion,I apologize. Let me try to be clearer.
+listen bad bot,insult,I apologize if I disappointed you. I am still learning.
+please goodbye,farewell,Goodbye! Have a wonderful day.
+well hey there actually,greeting,Hello! How can I help you today?
+yo nice work actually,compliment,Thank you! I appreciate the positive feedback.
+help me friend,capabilities,I can answer questions and chat with you.
+listen appreciate it,gratitude,You are very welcome!
+please what's up,wellbeing,I'm functioning perfectly. How can I help you?
+hey well done,compliment,Thank you! I appreciate the positive feedback.
+ok introduce yourself,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please will you marry me now,love,That is very kind of you to say!
+actually bad bot,insult,I apologize if I disappointed you. I am still learning.
+please you are cute,love,That is very kind of you to say!
+umm help me,capabilities,I can answer questions and chat with you.
+ok what do you mean,confusion,I apologize. Let me try to be clearer.
+so what can you do,capabilities,I can answer questions and chat with you.
+cya mam,farewell,Goodbye! Have a wonderful day.
+ok you are cute,love,That is very kind of you to say!
+how do you feel friend,wellbeing,I'm functioning perfectly. How can I help you?
+actually see you please,farewell,Goodbye! Have a wonderful day.
+actually will you marry me,love,That is very kind of you to say!
+so good night,farewell,Goodbye! Have a wonderful day.
+actually thank you,gratitude,You are very welcome!
+hey i like you,love,That is very kind of you to say!
+well bad bot,insult,I apologize if I disappointed you. I am still learning.
+what is your name now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+thanks actually,gratitude,You are very welcome!
+hey how are you now,wellbeing,I'm functioning perfectly. How can I help you?
+see you friend,farewell,Goodbye! Have a wonderful day.
+thx please,gratitude,You are very welcome!
+hey thanks,gratitude,You are very welcome!
+listen good job,compliment,Thank you! I appreciate the positive feedback.
+umm will you marry me,love,That is very kind of you to say!
+so i am confused sir,confusion,I apologize. Let me try to be clearer.
+yo how are things,wellbeing,I'm functioning perfectly. How can I help you?
+actually what is your name,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+hey hello,greeting,Hello! How can I help you today?
+so are you a bot today,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+please i dont understand today,confusion,I apologize. Let me try to be clearer.
+yo thx,gratitude,You are very welcome!
+so goodbye bot,farewell,Goodbye! Have a wonderful day.
+well i like you bot,love,That is very kind of you to say!
+how do you work bot,capabilities,I can answer questions and chat with you.
+hey what are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo what do you mean sir,confusion,I apologize. Let me try to be clearer.
+thanks bot,gratitude,You are very welcome!
+how are things actually,wellbeing,I'm functioning perfectly. How can I help you?
+listen you are dumb,insult,I apologize if I disappointed you. I am still learning.
+please how do you feel,wellbeing,I'm functioning perfectly. How can I help you?
+i love you friend,love,That is very kind of you to say!
+yo how is it going,wellbeing,I'm functioning perfectly. How can I help you?
+hey how is it going please,wellbeing,I'm functioning perfectly. How can I help you?
+umm appreciate it,gratitude,You are very welcome!
+you are dumb mam,insult,I apologize if I disappointed you. I am still learning.
+hey i love you,love,That is very kind of you to say!
+well how are you,wellbeing,I'm functioning perfectly. How can I help you?
+actually how do you work,capabilities,I can answer questions and chat with you.
+yo i dont understand today,confusion,I apologize. Let me try to be clearer.
+good night mam,farewell,Goodbye! Have a wonderful day.
+please what are your features friend,capabilities,I can answer questions and chat with you.
+actually good morning mam,greeting,Hello! How can I help you today?
+yo cya,farewell,Goodbye! Have a wonderful day.
+good morning now,greeting,Hello! How can I help you today?
+well i like you please,love,That is very kind of you to say!
+well how do you feel,wellbeing,I'm functioning perfectly. How can I help you?
+yo can you explain buddy,confusion,I apologize. Let me try to be clearer.
+umm good morning friend,greeting,Hello! How can I help you today?
+can you explain actually,confusion,I apologize. Let me try to be clearer.
+you suck today,insult,I apologize if I disappointed you. I am still learning.
+so talk to you later,farewell,Goodbye! Have a wonderful day.
+bye today,farewell,Goodbye! Have a wonderful day.
+bye buddy,farewell,Goodbye! Have a wonderful day.
+see you today,farewell,Goodbye! Have a wonderful day.
+yo greetings,greeting,Hello! How can I help you today?
+ok what are your features,capabilities,I can answer questions and chat with you.
+bye bot,farewell,Goodbye! Have a wonderful day.
+you are dumb now,insult,I apologize if I disappointed you. I am still learning.
+umm thanks a lot,gratitude,You are very welcome!
+umm nice work,compliment,Thank you! I appreciate the positive feedback.
+so you are cute mam,love,That is very kind of you to say!
+i like you friend,love,That is very kind of you to say!
+well greetings,greeting,Hello! How can I help you today?
+hey well done,compliment,Thank you! I appreciate the positive feedback.
+please what do you mean,confusion,I apologize. Let me try to be clearer.
+can you explain sir,confusion,I apologize. Let me try to be clearer.
+yo good night,farewell,Goodbye! Have a wonderful day.
+listen useless sir,insult,I apologize if I disappointed you. I am still learning.
+please can you explain bot,confusion,I apologize. Let me try to be clearer.
+listen nice work,compliment,Thank you! I appreciate the positive feedback.
+listen what's up,wellbeing,I'm functioning perfectly. How can I help you?
+what can you do bot,capabilities,I can answer questions and chat with you.
+listen who are you,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+yo nice work now,compliment,Thank you! I appreciate the positive feedback.
+hey i like you now,love,That is very kind of you to say!
+who are you actually,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen introduce yourself sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually what are you sir,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+actually nice work buddy,compliment,Thank you! I appreciate the positive feedback.
+how do you work buddy,capabilities,I can answer questions and chat with you.
+please you are cute buddy,love,That is very kind of you to say!
+listen i like you,love,That is very kind of you to say!
+what are you now,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+well talk to you later,farewell,Goodbye! Have a wonderful day.
+listen you are dumb,insult,I apologize if I disappointed you. I am still learning.
+umm how do you feel sir,wellbeing,I'm functioning perfectly. How can I help you?
+actually good night,farewell,Goodbye! Have a wonderful day.
+please how is it going actually,wellbeing,I'm functioning perfectly. How can I help you?
+please i dont understand bot,confusion,I apologize. Let me try to be clearer.
+listen useless actually,insult,I apologize if I disappointed you. I am still learning.
+well you suck now,insult,I apologize if I disappointed you. I am still learning.
+hey you suck,insult,I apologize if I disappointed you. I am still learning.
+so good job actually,compliment,Thank you! I appreciate the positive feedback.
+so good evening buddy,greeting,Hello! How can I help you today?
+well done today,compliment,Thank you! I appreciate the positive feedback.
+hey good night,farewell,Goodbye! Have a wonderful day.
+well how are you today,wellbeing,I'm functioning perfectly. How can I help you?
+umm what are your features sir,capabilities,I can answer questions and chat with you.
+please how is it going mam,wellbeing,I'm functioning perfectly. How can I help you?
+i dont understand buddy,confusion,I apologize. Let me try to be clearer.
+yo bye,farewell,Goodbye! Have a wonderful day.
+umm what can you do now,capabilities,I can answer questions and chat with you.
+ok thanks mam,gratitude,You are very welcome!
+so i dont understand friend,confusion,I apologize. Let me try to be clearer.
+hey thx actually,gratitude,You are very welcome!
+listen thx,gratitude,You are very welcome!
+well hello actually,greeting,Hello! How can I help you today?
+listen appreciate it,gratitude,You are very welcome!
+you are amazing mam,compliment,Thank you! I appreciate the positive feedback.
+well thank you,gratitude,You are very welcome!
+umm how is it going today,wellbeing,I'm functioning perfectly. How can I help you?
+umm i have to go sir,farewell,Goodbye! Have a wonderful day.
+ok good evening today,greeting,Hello! How can I help you today?
+umm you are dumb,insult,I apologize if I disappointed you. I am still learning.
+umm i have to go today,farewell,Goodbye! Have a wonderful day.
+actually i am confused,confusion,I apologize. Let me try to be clearer.
+you are cute mam,love,That is very kind of you to say!
+how are things friend,wellbeing,I'm functioning perfectly. How can I help you?
+ok can you explain bot,confusion,I apologize. Let me try to be clearer.
+hey today,greeting,Hello! How can I help you today?
+hello please,greeting,Hello! How can I help you today?
+please how do you feel,wellbeing,I'm functioning perfectly. How can I help you?
+what are your features actually,capabilities,I can answer questions and chat with you.
+well bye please,farewell,Goodbye! Have a wonderful day.
+umm how do you feel sir,wellbeing,I'm functioning perfectly. How can I help you?
+yo help me,capabilities,I can answer questions and chat with you.
+listen you are stupid buddy,insult,I apologize if I disappointed you. I am still learning.
+well how do you feel friend,wellbeing,I'm functioning perfectly. How can I help you?
+are you a bot buddy,identity,"I am SHAKTI 2.0, a human interaction dataset model."
+listen well done,compliment,Thank you! I appreciate the positive feedback.
+yo how are you mam,wellbeing,I'm functioning perfectly. How can I help you?
+so you are stupid,insult,I apologize if I disappointed you. I am still learning.
+well you are cute mam,love,That is very kind of you to say!
+well well done,compliment,Thank you! I appreciate the positive feedback.
+ok how are you,wellbeing,I'm functioning perfectly. How can I help you?
+listen you suck sir,insult,I apologize if I disappointed you. I am still learning.
+hey good job today,compliment,Thank you! I appreciate the positive feedback.
+actually thanks sir,gratitude,You are very welcome!
+hey there mam,greeting,Hello! How can I help you today?
+thanks mam,gratitude,You are very welcome!
+i love you bot,love,That is very kind of you to say!
+so bye actually,farewell,Goodbye! Have a wonderful day.
+umm bad bot please,insult,I apologize if I disappointed you. I am still learning.
+hey you are stupid mam,insult,I apologize if I disappointed you. I am still learning.
+so hi there,greeting,Hello! How can I help you today?
+listen can you explain,confusion,I apologize. Let me try to be clearer.
