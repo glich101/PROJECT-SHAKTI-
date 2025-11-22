@@ -1,0 +1,123 @@
+graph TD
+    A[Start: User Opens SHAKTI 2.0] --> B{First Time<br/>User?}
+    B -->|Yes| C[Show Configuration Screen]
+    B -->|No| D[Load Saved Settings]
+    
+    C --> E[User Selects AI Provider]
+    E --> F{Provider<br/>Selected}
+    F -->|Gemini| G1[Google Gemini 2.0 Flash]
+    F -->|OpenAI| G2[OpenAI GPT-3.5/4]
+    F -->|Anthropic| G3[Anthropic Claude]
+    F -->|HuggingFace| G4[Hugging Face Models]
+    F -->|Cohere| G5[Cohere Command]
+    F -->|Custom| G6[Custom API Endpoint]
+    
+    G1 --> H[Enter API Key]
+    G2 --> H
+    G3 --> H
+    G4 --> H
+    G5 --> H
+    G6 --> I[Enter Custom Endpoint + Key]
+    I --> H
+    
+    H --> J{Valid<br/>Key?}
+    J -->|No| K[Show Error Message]
+    K --> H
+    J -->|Yes| L[Initialize Chat Interface]
+    D --> L
+    
+    L --> M[Load Trained Dataset<br/>2000+ Patterns]
+    M --> N[Initialize State Space<br/>Context • Memory • Attention]
+    N --> O[Display Welcome Message]
+    
+    O --> P{User<br/>Action?}
+    
+    P -->|Toggle Theme| Q[Switch Dark/Light Mode]
+    Q --> P
+    
+    P -->|Open Settings| R[Show Configuration Panel]
+    R --> P
+    
+    P -->|Clear Chat| S[Reset Messages & State]
+    S --> O
+    
+    P -->|Send Message| T[User Types & Sends Message]
+    
+    T --> U[Add Message to Chat UI]
+    U --> V[Preprocess Message<br/>Remove Filler Words]
+    
+    V --> W{NLP: Check<br/>Trained Dataset}
+    
+    W -->|Pattern Match| X[Extract Intent Category]
+    X --> Y{Intent<br/>Type?}
+    
+    Y -->|Greeting| Z1[Response: Hello! How can I help?]
+    Y -->|Farewell| Z2[Response: Goodbye! Have a wonderful day]
+    Y -->|Identity| Z3[Response: I am SHAKTI 2.0]
+    Y -->|Wellbeing| Z4[Response: I'm functioning perfectly]
+    Y -->|Capabilities| Z5[Response: I can answer questions]
+    Y -->|Gratitude| Z6[Response: You are very welcome!]
+    Y -->|Compliment| Z7[Response: Thank you for feedback!]
+    Y -->|Insult| Z8[Response: I apologize, still learning]
+    Y -->|Love| Z9[Response: That is very kind!]
+    Y -->|Confusion| Z10[Response: Let me be clearer]
+    
+    Z1 --> AA[Display Bot Response]
+    Z2 --> AA
+    Z3 --> AA
+    Z4 --> AA
+    Z5 --> AA
+    Z6 --> AA
+    Z7 --> AA
+    Z8 --> AA
+    Z9 --> AA
+    Z10 --> AA
+    
+    W -->|No Match| AB[Build Context-Aware Prompt]
+    
+    AB --> AC[Add Conversation History<br/>Last 5 Exchanges]
+    AC --> AD[Add Semantic Memory<br/>Last 20 Entities]
+    AD --> AE[Calculate Attention Weights]
+    
+    AE --> AF{API<br/>Provider?}
+    
+    AF -->|Gemini| AG1[Call Gemini API]
+    AF -->|OpenAI| AG2[Call OpenAI API]
+    AF -->|Anthropic| AG3[Call Anthropic API]
+    AF -->|HuggingFace| AG4[Call HuggingFace API]
+    AF -->|Cohere| AG5[Call Cohere API]
+    AF -->|Custom| AG6[Call Custom API]
+    
+    AG1 --> AH{API<br/>Success?}
+    AG2 --> AH
+    AG3 --> AH
+    AG4 --> AH
+    AG5 --> AH
+    AG6 --> AH
+    
+    AH -->|No| AI[Display Error Message]
+    AI --> P
+    
+    AH -->|Yes| AJ[Extract AI Response]
+    AJ --> AA
+    
+    AA --> AK[Update State Space]
+    
+    AK --> AL[Context History<br/>Store Last 10 Conversations]
+    AL --> AM[Semantic Memory<br/>Extract Key Entities]
+    AM --> AN[Generate Embeddings<br/>Keywords + Sentiment]
+    AN --> AO[Update Attention Weights<br/>Recent = Higher Priority]
+    
+    AO --> AP[Analyze Sentiment<br/>Positive/Negative/Neutral]
+    
+    AP --> AQ[Display Complete Response]
+    AQ --> P
+    
+    style A fill:#87CEEB
+    style L fill:#4682B4,color:#fff
+    style W fill:#FFD700
+    style AF fill:#FF6347,color:#fff
+    style AK fill:#32CD32,color:#fff
+    style AA fill:#9370DB,color:#fff
+    style M fill:#FF69B4,color:#fff
+    style N fill:#20B2AA,color:#fff
