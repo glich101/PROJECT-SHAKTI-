@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakti - Upload Data</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { display: flex; min-height: 100vh; background-color: #f8f9fa; }
+        .sidebar { width: 280px; background: #343a40; color: white; position: fixed; top: 0; left: 0; height: 100%; padding-top: 1rem; }
+        .sidebar .nav-link { color: #adb5bd; }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover { color: white; }
+        .sidebar .navbar-brand { font-size: 1.5rem; font-weight: bold; }
+        .main-content { margin-left: 280px; padding: 2rem; width: calc(100% - 280px); }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar d-flex flex-column p-3">
+    <a href="{{ url_for('index') }}" class="navbar-brand text-white mb-4">Shakti</a>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="{{ url_for('index') }}" class="nav-link">
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('upload_page') }}" class="nav-link active">
+                Upload Data
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('graph_page') }}" class="nav-link">
+                View Graphs
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div>
+        <button class="btn btn-danger w-100" onclick="resetAllData()">Reset All Data</button>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="container-fluid">
+        <h1 class="mb-4">Upload Data</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <form id="uploadForm">
+                    <div class="mb-3">
+                        <label for="dataTypeSelect" class="form-label">1. Select Data Type</label>
+                        <select id="dataTypeSelect" class="form-select" required>
+                            <option value="" selected disabled>Choose a data type...</option>
+                            {% for dt in data_types %}
+                            <option value="{{ dt }}">{{ dt.replace('_', ' ') | capitalize }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">2. Choose File (.csv, .xls, .xlsx)</label>
+                        <input type="file" id="fileInput" class="form-control" accept=".csv,.xls,.xlsx" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+                <div id="uploadStatus" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const dataType = document.getElementById('dataTypeSelect').value;
+    const fileInput = document.getElementById('fileInput');
+    const statusDiv = document.getElementById('uploadStatus');
+
+    if (!dataType || fileInput.files.length === 0) {
+        statusDiv.innerHTML = `<div class="alert alert-warning">Please select a data type and a file.</div>`;
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    statusDiv.innerHTML = `<div class="alert alert-info">Uploading and processing...</div>`;
+
+    fetch(`/upload/${dataType}`, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        // If the response is a redirect (even if opaque), we handle it on the client.
+        if (response.redirected) {
+            window.location.href = response.url;
+            return; // Stop processing
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data && data.success && data.redirect_url) {
+            // On success, redirect the user to the URL provided by the server.
+            window.location.href = data.redirect_url;
+        } else {
+            // Display the error message from the server.
+            statusDiv.innerHTML = `<div class="alert alert-danger"><strong>Error:</strong> ${data ? data.error : 'An unknown error occurred.'}</div>`;
+        }
+    })
+    .catch(error => {
+        statusDiv.innerHTML = `<div class="alert alert-danger">An unexpected error occurred. See console for details.</div>`;
+        console.error('Upload error:', error);
+    });
+});
+
+function resetAllData() {
+    if (confirm('Are you sure you want to delete all uploaded data? This cannot be undone.')) {
+        fetch('/reset', { method: 'POST' }).then(() => alert('All data cleared.'));
+    }
+}
+</script>
+
+</body>
+</html>

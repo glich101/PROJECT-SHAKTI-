@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakti - Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 280px;
+            background: #343a40;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 1rem;
+        }
+        .sidebar .nav-link {
+            color: #adb5bd;
+        }
+        .sidebar .nav-link.active,
+        .sidebar .nav-link:hover {
+            color: white;
+        }
+        .sidebar .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+            width: calc(100% - 280px);
+        }
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar d-flex flex-column p-3">
+    <a href="{{ url_for('index') }}" class="navbar-brand text-white mb-4">Shakti</a>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="{{ url_for('index') }}" class="nav-link active">
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <!-- This would ideally lead to a dedicated upload page -->
+            <a href="{{ url_for('upload_page') }}" class="nav-link">
+                Upload Data
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('graph_page') }}" class="nav-link">
+                View Graphs
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div>
+        <button class="btn btn-danger w-100" onclick="resetAllData()">Reset All Data</button>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="container-fluid">
+        <h1 class="mb-4">Dashboard</h1>
+
+        {% if is_filtered_view %}
+            <div class="mb-4">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                    &larr; Back to Full Dashboard
+                </a>
+            </div>
+        {% endif %}
+
+        {% if available_data %}
+            <div class="row g-4">
+                {% for data_summary in available_data %}
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <h5 class="text-capitalize">{{ data_summary.type.replace('_', ' ') }} Summary</h5>
+                        {% if data_summary.metadata.column_names %}
+                            <canvas id="chart-{{ data_summary.type }}"></canvas>
+                        {% else %}
+                            <p class="text-muted">No columns found to chart.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center p-5 bg-light rounded">
+                <h3>No Data Uploaded</h3>
+                <p class="lead text-muted">Upload a dataset to see visualizations on the dashboard.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Data passed from Flask template
+    const availableData = {{ available_data | tojson | safe }};
+
+    availableData.forEach(dataSummary => {
+        const dataType = dataSummary.type;
+
+        if (dataSummary.metadata.column_names.length > 0) {
+            // Fetch automatically selected chart data from the new 'best' endpoint
+            fetch(`/chart_data/best/${dataType}`)
+                .then(response => response.json())
+                .then(chartData => {
+                    if (chartData.error) {
+                        console.error(`Error fetching chart for ${dataType}:`, chartData.error);
+                        return;
+                    }
+                    renderChart(dataType, `Top 15 values in '${chartData.column_name}'`, chartData);
+                })
+                .catch(error => console.error(`Failed to load chart for ${dataType}:`, error));
+        }
+    });
+});
+
+function renderChart(dataType, chartTitle, chartData) {
+    const ctx = document.getElementById(`chart-${dataType}`).getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: chartData.labels,
+            datasets: [{
+                label: 'Count',
+                data: chartData.data,
+                backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: chartTitle
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function resetAllData() {
+    if (confirm('Are you sure you want to delete all uploaded data? This cannot be undone.')) {
+        fetch('/reset', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('All data has been cleared.');
+                    window.location.reload();
+                }
+            });
+    }
+}
+</script>
+
+</body>
+</html>
