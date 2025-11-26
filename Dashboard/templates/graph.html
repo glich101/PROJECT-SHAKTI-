@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakti - View Graphs</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { display: flex; min-height: 100vh; background-color: #f8f9fa; }
+        .sidebar { width: 280px; background: #343a40; color: white; position: fixed; top: 0; left: 0; height: 100%; padding-top: 1rem; }
+        .sidebar .nav-link { color: #adb5bd; }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover { color: white; }
+        .sidebar .navbar-brand { font-size: 1.5rem; font-weight: bold; }
+        .main-content { margin-left: 280px; padding: 2rem; width: calc(100% - 280px); }
+        #graph-container { background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075); min-height: 400px; }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar d-flex flex-column p-3">
+    <a href="{{ url_for('index') }}" class="navbar-brand text-white mb-4">Shakti</a>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="{{ url_for('index') }}" class="nav-link">
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('upload_page') }}" class="nav-link">
+                Upload Data
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('graph_page') }}" class="nav-link active">
+                View Graphs
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div>
+        <button class="btn btn-danger w-100" onclick="resetAllData()">Reset All Data</button>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="container-fluid">
+        <h1 class="mb-4">View Graphs</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label for="dataTypeSelect" class="form-label">Select Data Type</label>
+                        <select id="dataTypeSelect" class="form-select">
+                            <option selected disabled>Choose a data type...</option>
+                            {% for dt in data_types %}
+                            <option value="{{ dt }}">{{ dt.replace('_', ' ') | capitalize }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="columnSelect" class="form-label">Select Column</label>
+                        <select id="columnSelect" class="form-select" disabled>
+                            <option>Select data type first</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="generateGraphBtn" class="btn btn-primary w-100" disabled>Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="graph-container" class="mt-4 d-flex align-items-center justify-content-center">
+            <p class="text-muted">Select a data type and column to generate a graph.</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dataTypeSelect = document.getElementById('dataTypeSelect');
+    const columnSelect = document.getElementById('columnSelect');
+    const generateBtn = document.getElementById('generateGraphBtn');
+    const graphContainer = document.getElementById('graph-container');
+
+    dataTypeSelect.addEventListener('change', function () {
+        const dataType = this.value;
+        columnSelect.disabled = true;
+        columnSelect.innerHTML = '<option>Loading columns...</option>';
+        generateBtn.disabled = true;
+
+        fetch(`/data/${dataType}`)
+            .then(response => response.json())
+            .then(metadata => {
+                if (metadata.error) {
+                    columnSelect.innerHTML = `<option>${metadata.error}</option>`;
+                    return;
+                }
+                columnSelect.innerHTML = '<option selected disabled>Choose a column...</option>';
+                metadata.column_names.forEach(col => {
+                    const option = new Option(col, col);
+                    columnSelect.add(option);
+                });
+                columnSelect.disabled = false;
+            });
+    });
+
+    columnSelect.addEventListener('change', function() {
+        generateBtn.disabled = !this.value;
+    });
+
+    generateBtn.addEventListener('click', function () {
+        const dataType = dataTypeSelect.value;
+        const column = columnSelect.value;
+        graphContainer.innerHTML = '<p class="text-muted">Loading graph...</p>';
+
+        fetch(`/graph/${dataType}?column=${column}`)
+            .then(response => response.text())
+            .then(html => {
+                graphContainer.innerHTML = html;
+            });
+    });
+});
+
+function resetAllData() {
+    if (confirm('Are you sure you want to delete all uploaded data? This cannot be undone.')) {
+        fetch('/reset', { method: 'POST' }).then(() => window.location.reload());
+    }
+}
+</script>
+
+</body>
+</html>
