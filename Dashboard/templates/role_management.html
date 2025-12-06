@@ -1,0 +1,418 @@
+{% extends 'base.html' %}
+
+{% block title %}Role Management - Shakti Analytics{% endblock %}
+
+{% block content %}
+<div class="role-management-page-container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb-nav">
+      <div class="breadcrumb-container">
+        <a href="{{ url_for('homepage') }}" class="breadcrumb-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">
+          <i class="fas fa-user-shield"></i>
+          Role Management
+        </span>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <h1 class="page-title">
+        <i class="fas fa-user-shield"></i>
+        Role Management
+      </h1>
+      <p class="page-subtitle">Define roles, permissions, and access levels for system users</p>
+    </div>
+
+    <!-- Add Role Button -->
+    <div class="add-role-section">
+      <button class="btn btn-modern" onclick="showAddRoleModal()">
+        <i class="fas fa-plus"></i>
+        <span>Add New Role</span>
+      </button>
+    </div>
+
+    <!-- Roles Grid Card -->
+    <div class="roles-grid-card card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-users-cog"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>System Roles</h3>
+          <p>Manage roles and their associated permissions</p>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="roles-grid">
+          <!-- Detective Role -->
+          <div class="role-card">
+            <div class="role-header">
+              <div class="role-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="role-info">
+                <h4>Detective</h4>
+                <span class="role-users">2 users</span>
+              </div>
+              <div class="role-actions">
+                <button class="btn-action edit" onclick="editRole('detective')" title="Edit Role">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-action delete" onclick="deleteRole('detective')" title="Delete Role">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <div class="role-permissions">
+              <div class="permission-tag">Data Upload</div>
+              <div class="permission-tag">Data Analysis</div>
+              <div class="permission-tag">Report Generation</div>
+              <div class="permission-tag">Map View</div>
+            </div>
+          </div>
+
+          <!-- Officer Role -->
+          <div class="role-card">
+            <div class="role-header">
+              <div class="role-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="role-info">
+                <h4>Officer</h4>
+                <span class="role-users">1 user</span>
+              </div>
+              <div class="role-actions">
+                <button class="btn-action edit" onclick="editRole('officer')" title="Edit Role">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-action delete" onclick="deleteRole('officer')" title="Delete Role">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <div class="role-permissions">
+              <div class="permission-tag">Data Upload</div>
+              <div class="permission-tag">Data Analysis</div>
+              <div class="permission-tag">Map View</div>
+            </div>
+          </div>
+
+          <!-- Admin Role -->
+          <div class="role-card">
+            <div class="role-header">
+              <div class="role-icon">
+                <i class="fas fa-crown"></i>
+              </div>
+              <div class="role-info">
+                <h4>Administrator</h4>
+                <span class="role-users">0 users</span>
+              </div>
+              <div class="role-actions">
+                <button class="btn-action edit" onclick="editRole('admin')" title="Edit Role">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-action delete" onclick="deleteRole('admin')" title="Delete Role">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <div class="role-permissions">
+              <div class="permission-tag">All Permissions</div>
+              <div class="permission-tag">User Management</div>
+              <div class="permission-tag">System Settings</div>
+              <div class="permission-tag">Audit Logs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Permissions Matrix Card -->
+    <div class="permissions-matrix-card card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-key"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>Permissions Matrix</h3>
+          <p>Overview of role-based access control</p>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="permissions-table-container">
+          <table class="permissions-table">
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Officer</th>
+                <th>Detective</th>
+                <th>Administrator</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data Upload</td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+              <tr>
+                <td>Data Analysis</td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+              <tr>
+                <td>Report Generation</td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+              <tr>
+                <td>Map View</td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+              <tr>
+                <td>User Management</td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+              <tr>
+                <td>System Settings</td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+              <tr>
+                <td>Audit Logs</td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-times permission-denied"></i></td>
+                <td><i class="fas fa-check permission-granted"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block head %}
+<style>
+.role-management-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+.add-role-section {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.roles-grid-card {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 30px;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.role-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.role-card:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 212, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.role-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.role-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--neon-glow);
+}
+
+.role-icon i {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.role-info {
+  flex: 1;
+}
+
+.role-info h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.role-users {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.role-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.role-permissions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.permission-tag {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-blue);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Permissions Matrix */
+.permissions-matrix-card {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 30px;
+}
+
+.permissions-table-container {
+  overflow-x: auto;
+}
+
+.permissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--glass-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+}
+
+.permissions-table th {
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.permissions-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.permissions-table tbody tr:hover {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.permission-granted {
+  color: #198754;
+  font-size: 1.1rem;
+}
+
+.permission-denied {
+  color: #dc3545;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .role-management-page-container {
+    padding: 0 15px;
+  }
+
+  .add-role-section {
+    justify-content: center;
+  }
+
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .role-actions {
+    justify-content: center;
+  }
+
+  .permissions-table th,
+  .permissions-table td {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    window.showAddRoleModal = function() {
+        alert('Add role functionality would be implemented here.');
+    };
+
+    window.editRole = function(roleId) {
+        alert(`Edit role ${roleId} functionality would be implemented here.`);
+    };
+
+    window.deleteRole = function(roleId) {
+        if (confirm(`Are you sure you want to delete the ${roleId} role? This will affect all users with this role.`)) {
+            alert(`Role ${roleId} deleted.`);
+        }
+    };
+});
+</script>
+{% endblock %}

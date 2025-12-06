@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Shakti{% endblock %}
+
+{% block content %}
+  <div class="dashboard-content">
+    <h1 class="page-title animate-fade-in-up">Dashboard</h1>
+    {% if not available_data %}
+      <div class="dashboard-empty animate-fade-in-up animate-stagger-1">No data has been uploaded yet. Please go to the <a href="{{ url_for('upload_page') }}">Upload Data</a> page to get started.</div>
+    {% else %}
+      <div class="dashboard-cards">
+        {% for data in available_data[:2] %}
+        <div class="card-modern animate-scale-in animate-stagger-{{ loop.index }}">
+          <div class="card-header-modern">
+            <span class="card-title">{{ data.type.replace('_', ' ') | capitalize }}</span>
+            <span class="card-meta">Rows: <b>{{ "{:,}".format(data.metadata.rows) }}</b> &nbsp;|&nbsp; Columns: <b>{{ data.metadata.columns }}</b></span>
+          </div>
+          <div class="card-body-modern">
+            <div class="chart-container">
+              <div class="chart-loader spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <canvas class="summary-chart" data-type="{{ data.type }}" style="display: none;"></canvas>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('graph_page') }}?data_type={{ data.type }}" class="btn btn--primary hover-lift">View Details</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const chartCanvases = document.querySelectorAll('.summary-chart');
+    const chartColors = [
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+    ];
+
+    chartCanvases.forEach((canvas, index) => {
+        const dataType = canvas.getAttribute('data-type');
+        const container = canvas.parentElement;
+        const loader = container.querySelector('.chart-loader');
+
+        fetch(`/chart_data/best/${dataType}`)
+            .then(response => response.json())
+            .then(chartData => {
+                loader.style.display = 'none';
+                if (chartData.error) {
+                    console.error(`Error fetching chart data for ${dataType}:`, chartData.error);
+                    container.innerHTML = `<div class="text-center text-danger p-3">Could not load chart: ${chartData.error}</div>`;
+                    return;
+                }
+                
+                canvas.style.display = 'block';
+                new Chart(canvas, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: [{
+                            label: `Count of ${chartData.column_name}`,
+                            data: chartData.data,
+                            backgroundColor: chartColors[index % chartColors.length],
+                            borderColor: chartColors[index % chartColors.length].replace('0.6', '1'),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, title: { display: true, text: `Top Values for ${chartData.column_name}` } }, scales: { y: { beginAtZero: true } } }
+                });
+            })
+            .catch(error => {
+                loader.style.display = 'none';
+                container.innerHTML = `<div class="text-center text-danger p-3">Could not load chart. See console for details.</div>`;
+                console.error(`Failed to fetch chart data for ${dataType}:`, error);
+            });
+    });
+});
+</script>
+{% endblock %}

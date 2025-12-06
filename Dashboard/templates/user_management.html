@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block title %}User Management - Shakti Analytics{% endblock %}
+
+{% block content %}
+<div class="user-management-page-container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb-nav">
+      <div class="breadcrumb-container">
+        <a href="{{ url_for('homepage') }}" class="breadcrumb-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">
+          <i class="fas fa-users-cog"></i>
+          User Management
+        </span>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <h1 class="page-title">
+        <i class="fas fa-users-cog"></i>
+        User Management
+      </h1>
+      <p class="page-subtitle">Manage system users, roles, and access permissions</p>
+    </div>
+
+    <!-- Add User Button -->
+    <div class="add-user-section">
+      <button class="btn btn-modern" onclick="showAddUserModal()">
+        <i class="fas fa-user-plus"></i>
+        <span>Add New User</span>
+      </button>
+    </div>
+
+    <!-- Users Table Card -->
+    <div class="users-table-card card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>System Users</h3>
+          <p>View and manage all registered users</p>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="table-responsive">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>Officer ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr>
+                <td>4782</td>
+                <td>Detective Alex Rivera</td>
+                <td>Detective</td>
+                <td>Cyber Crimes Unit</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-action edit" onclick="editUser('4782')" title="Edit User">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn-action delete" onclick="deleteUser('4782')" title="Delete User">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block head %}
+<style>
+.user-management-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+.add-user-section {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.users-table-card {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 30px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--glass-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+}
+
+.users-table th {
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.users-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.status-badge.active {
+  background: rgba(25, 135, 84, 0.2);
+  color: #198754;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-action.edit {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.btn-action.edit:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn-action.delete {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.btn-action.delete:hover {
+  background: #dc3545;
+  color: white;
+}
+
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    window.showAddUserModal = function() {
+        alert('Add user functionality would be implemented here.');
+    };
+
+    window.editUser = function(userId) {
+        alert(`Edit user ${userId} functionality would be implemented here.`);
+    };
+
+    window.deleteUser = function(userId) {
+        if (confirm(`Are you sure you want to delete user ${userId}?`)) {
+            alert(`User ${userId} deleted.`);
+        }
+    };
+
+});
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{# Macro to generate the animated button #}
+{% macro animated_button(text, tag='button', type='button', id='', class='', href='#', icon_svg='') %}
+<div class="btn-wrapper">
+    {% if tag == 'a' %}
+        <a class="btn {{ class }}" href="{{ href }}" {% if id %}id="{{ id }}"{% endif %} tabindex="0">
+    {% else %}
+        <button class="btn {{ class }}" type="{{ type }}" {% if id %}id="{{ id }}"{% endif %} tabindex="0">
+    {% endif %}
+        <div class="txt-wrapper">
+            <span class="txt-1">
+                {% for char in text %}
+                    <span class="btn-letter">{{ char }}</span>
+                {% endfor %}
+            </span>
+        </div>
+        {% if icon_svg %}
+        <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            {{ icon_svg|safe }}
+        </svg>
+        {% endif %}
+    {% if tag == 'a' %}
+        </a>
+    {% else %}
+        </button>
+    {% endif %}
+</div>
+{% endmacro %}

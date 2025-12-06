@@ -1,0 +1,898 @@
+{% extends 'base.html' %}
+
+{% block title %}Reports - Shakti Analytics{% endblock %}
+
+{% block content %}
+<div class="reports-page-container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb-nav">
+      <div class="breadcrumb-container">
+        <a href="{{ url_for('homepage') }}" class="breadcrumb-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="{{ url_for('index') }}" class="breadcrumb-link">
+          <i class="fas fa-tachometer-alt"></i>
+          Dashboard
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">
+          <i class="fas fa-file-alt"></i>
+          Reports
+        </span>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <h1 class="page-title">
+        <i class="fas fa-file-alt"></i>
+        Forensic Reports
+      </h1>
+      <p class="page-subtitle">Generate comprehensive digital evidence analysis reports</p>
+    </div>
+
+    <!-- Report Configuration Card -->
+    <div class="report-config-card card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>Report Configuration</h3>
+          <p>Configure forensic report parameters and data sources</p>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="report-config-grid">
+          <!-- Data Type Selection -->
+          <div class="config-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Select the data type for report generation">
+            <div class="control-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="control-content">
+              <label for="reportDataType" class="control-label">Data Type</label>
+              <select id="reportDataType" class="modern-select">
+                <option selected disabled>Choose data type...</option>
+                {% for dt in data_types %}
+                  <option value="{{ dt }}" {% if request.args.get('data_type') == dt %}selected{% endif %}>{{ dt.replace('_', ' ') | capitalize }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <!-- Report Type -->
+          <div class="config-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Choose the type of forensic report to generate">
+            <div class="control-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="control-content">
+              <label for="reportType" class="control-label">Report Type</label>
+              <select id="reportType" class="modern-select">
+                <option value="comprehensive" selected>Comprehensive Analysis</option>
+                <option value="summary">Executive Summary</option>
+                <option value="technical">Technical Report</option>
+                <option value="evidence">Evidence Chain</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Date Range -->
+          <div class="config-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Specify the time period for the report">
+            <div class="control-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="control-content">
+              <label for="reportDateRange" class="control-label">Date Range</label>
+              <select id="reportDateRange" class="modern-select">
+                <option value="all" selected>All Available Data</option>
+                <option value="last_week">Last 7 Days</option>
+                <option value="last_month">Last 30 Days</option>
+                <option value="last_quarter">Last 3 Months</option>
+                <option value="custom">Custom Range</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Include Sections -->
+          <div class="config-item">
+            <div class="control-icon">
+              <i class="fas fa-check-square"></i>
+            </div>
+            <div class="control-content">
+              <label class="control-label">Include Sections</label>
+              <div class="checkbox-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeSummary" checked>
+                  <label class="form-check-label" for="includeSummary">Executive Summary</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeCharts" checked>
+                  <label class="form-check-label" for="includeCharts">Data Visualizations</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeMap" checked>
+                  <label class="form-check-label" for="includeMap">Geospatial Analysis</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="includeTechnical" checked>
+                  <label class="form-check-label" for="includeTechnical">Technical Details</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generate Report Button -->
+        <div class="report-actions">
+          <button id="generateReportBtn" class="generate-btn" disabled>
+            <span class="btn-icon">
+              <i class="fas fa-file-pdf"></i>
+            </span>
+            <span class="btn-text">Generate Report</span>
+            <span class="btn-loading" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+
+          <div class="report-info">
+            <i class="fas fa-info-circle"></i>
+            <span>Report generation may take several minutes for large datasets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report Preview Card -->
+    <div class="report-preview-card card-modern" id="reportPreview" style="display: none;">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>Report Preview</h3>
+          <p>Preview of the generated forensic report</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-modern btn-sm" id="downloadReportBtn">
+            <i class="fas fa-download"></i>
+            Download PDF
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="report-preview-content">
+          <div class="report-header">
+            <div class="report-logo">
+              <i class="fas fa-shield-alt"></i>
+              <span>SHAKTI FORENSICS</span>
+            </div>
+            <div class="report-meta">
+              <div class="meta-item">
+                <span class="meta-label">Report ID:</span>
+                <span class="meta-value" id="reportId">FR-2024-001</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Generated:</span>
+                <span class="meta-value" id="reportDate">2024-01-15 14:30:00</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Officer:</span>
+                <span class="meta-value" id="reportOfficer">Officer ID: 4782</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-sections">
+            <div class="report-section">
+              <h4 class="section-title">
+                <i class="fas fa-chart-line"></i>
+                Executive Summary
+              </h4>
+              <div class="section-content">
+                <div class="summary-stats">
+                  <div class="stat-box">
+                    <div class="stat-number" id="totalRecords">--</div>
+                    <div class="stat-label">Total Records</div>
+                  </div>
+                  <div class="stat-box">
+                    <div class="stat-number" id="uniqueDevices">--</div>
+                    <div class="stat-label">Unique Devices</div>
+                  </div>
+                  <div class="stat-box">
+                    <div class="stat-number" id="dateRange">--</div>
+                    <div class="stat-label">Date Range</div>
+                  </div>
+                  <div class="stat-box">
+                    <div class="stat-number" id="peakActivity">--</div>
+                    <div class="stat-label">Peak Activity</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-section">
+              <h4 class="section-title">
+                <i class="fas fa-map-marked-alt"></i>
+                Geospatial Analysis
+              </h4>
+              <div class="section-content">
+                <div id="reportMap" class="report-map-placeholder">
+                  <i class="fas fa-map-marked-alt"></i>
+                  <p>Interactive map will be included in PDF</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-section">
+              <h4 class="section-title">
+                <i class="fas fa-chart-bar"></i>
+                Data Visualizations
+              </h4>
+              <div class="section-content">
+                <div class="chart-placeholders">
+                  <div class="chart-placeholder">
+                    <i class="fas fa-chart-pie"></i>
+                    <p>Activity Distribution Chart</p>
+                  </div>
+                  <div class="chart-placeholder">
+                    <i class="fas fa-chart-line"></i>
+                    <p>Temporal Analysis Chart</p>
+                  </div>
+                  <div class="chart-placeholder">
+                    <i class="fas fa-heat"></i>
+                    <p>Heat Map Visualization</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block head %}
+<style>
+/* ===== REPORTS PAGE STYLES ===== */
+
+.reports-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+/* Breadcrumb Styles */
+.breadcrumb-nav {
+  width: 100%;
+  margin-bottom: 20px;
+  animation: slideInLeft 0.6s ease-out 0.4s both;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.page-title i {
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+  font-size: 2.8rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Report Configuration */
+.report-config-card, .report-preview-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.report-config-card {
+  margin-bottom: 30px;
+}
+
+.report-config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.config-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.config-item:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.control-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+  margin-bottom: 12px;
+}
+
+.control-icon i {
+  color: white;
+  font-size: 16px;
+}
+
+.control-content {
+  flex: 1;
+}
+
+.control-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-group .form-check {
+  margin-bottom: 0;
+}
+
+.checkbox-group .form-check-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Report Actions */
+.report-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.report-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.report-info i {
+  color: var(--accent-blue);
+}
+
+/* Report Preview */
+.report-preview-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.report-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.report-logo i {
+  font-size: 2rem;
+  text-shadow: var(--neon-glow);
+}
+
+.report-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+}
+
+.meta-item {
+  display: flex;
+  gap: 8px;
+}
+
+.meta-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.meta-value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.report-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.report-section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.section-title i {
+  color: var(--accent-blue);
+}
+
+.section-content {
+  color: var(--text-secondary);
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.stat-box {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.report-map-placeholder, .chart-placeholders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.report-map-placeholder {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-map-placeholder i {
+  font-size: 3rem;
+  color: var(--accent-blue);
+  opacity: 0.5;
+}
+
+.chart-placeholders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.chart-placeholder i {
+  font-size: 2rem;
+  color: var(--accent-blue);
+  opacity: 0.6;
+}
+
+.chart-placeholder p {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .report-config-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .summary-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .reports-page-container {
+    padding: 0 15px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-title i {
+    font-size: 2.4rem;
+  }
+
+  .report-config-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .report-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-placeholders {
+    grid-template-columns: 1fr;
+  }
+
+  .report-actions {
+    align-items: stretch;
+  }
+
+  .generate-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .report-section {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+/* Loading States */
+.report-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 16px;
+}
+
+.report-loading-content {
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.report-loading-spinner {
+  font-size: 48px;
+  color: var(--accent-blue);
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+.report-loading-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.report-loading-subtext {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Reports page loaded, initializing...');
+
+    const reportDataType = document.getElementById('reportDataType');
+    const reportType = document.getElementById('reportType');
+    const reportDateRange = document.getElementById('reportDateRange');
+    const generateReportBtn = document.getElementById('generateReportBtn');
+    const downloadReportBtn = document.getElementById('downloadReportBtn');
+    const reportPreview = document.getElementById('reportPreview');
+
+    // Initialize tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Enable/disable generate button based on selections
+    function updateGenerateButtonState() {
+        const hasDataType = reportDataType.value && reportDataType.value !== 'Choose data type...';
+        generateReportBtn.disabled = !hasDataType;
+    }
+
+    // Update button state when data type changes
+    reportDataType.addEventListener('change', function() {
+        updateGenerateButtonState();
+    });
+
+    // Generate report button
+    generateReportBtn.addEventListener('click', function() {
+        if (generateReportBtn.disabled) return;
+
+        console.log('Generate Report button clicked');
+        generateReport();
+    });
+
+    // Download report button
+    downloadReportBtn.addEventListener('click', function() {
+        downloadReport();
+    });
+
+    function generateReport() {
+        const dataType = reportDataType.value;
+        const type = reportType.value;
+        const dateRange = reportDateRange.value;
+
+        if (!dataType) {
+            alert('Please select a data type first.');
+            return;
+        }
+
+        // Show loading state
+        generateReportBtn.disabled = true;
+        generateReportBtn.innerHTML = `
+            <span class="btn-icon">
+                <i class="fas fa-spinner fa-spin"></i>
+            </span>
+            <span class="btn-text">Generating...</span>
+            <span class="btn-loading" style="display: inline;">
+                <i class="fas fa-spinner fa-spin"></i>
+            </span>
+        `;
+
+        // Show loading overlay on preview
+        const previewBody = reportPreview.querySelector('.card-body-modern');
+        previewBody.innerHTML = `
+            <div class="report-loading-overlay">
+                <div class="report-loading-content">
+                    <div class="report-loading-spinner">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="report-loading-text">Generating Forensic Report</div>
+                    <div class="report-loading-subtext">Processing ${dataType} data...</div>
+                </div>
+            </div>
+        `;
+
+        reportPreview.style.display = 'block';
+
+        // Simulate report generation (replace with actual API call)
+        setTimeout(() => {
+            // Mock report generation
+            updateReportPreview(dataType, type, dateRange);
+
+            // Reset button
+            generateReportBtn.disabled = false;
+            generateReportBtn.innerHTML = `
+                <span class="btn-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </span>
+                <span class="btn-text">Generate Report</span>
+                <span class="btn-loading" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+            `;
+        }, 3000);
+    }
+
+    function updateReportPreview(dataType, type, dateRange) {
+        // Update report metadata
+        document.getElementById('reportId').textContent = 'FR-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+        document.getElementById('reportDate').textContent = new Date().toLocaleString();
+
+        // Mock statistics (replace with actual data)
+        document.getElementById('totalRecords').textContent = '15,247';
+        document.getElementById('uniqueDevices').textContent = '1,203';
+        document.getElementById('dateRange').textContent = '30 days';
+        document.getElementById('peakActivity').textContent = '14:00-16:00';
+
+        // Restore preview content
+        const previewBody = reportPreview.querySelector('.card-body-modern');
+        previewBody.innerHTML = `
+            <div class="report-preview-content">
+                <div class="report-header">
+                    <div class="report-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SHAKTI FORENSICS</span>
+                    </div>
+                    <div class="report-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Report ID:</span>
+                            <span class="meta-value" id="reportId">FR-2024-001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Generated:</span>
+                            <span class="meta-value" id="reportDate">2024-01-15 14:30:00</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Officer:</span>
+                            <span class="meta-value" id="reportOfficer">Officer ID: 4782</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-sections">
+                    <div class="report-section">
+                        <h4 class="section-title">
+                            <i class="fas fa-chart-line"></i>
+                            Executive Summary
+                        </h4>
+                        <div class="section-content">
+                            <div class="summary-stats">
+                                <div class="stat-box">
+                                    <div class="stat-number" id="totalRecords">15,247</div>
+                                    <div class="stat-label">Total Records</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number" id="uniqueDevices">1,203</div>
+                                    <div class="stat-label">Unique Devices</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number" id="dateRange">30 days</div>
+                                    <div class="stat-label">Date Range</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number" id="peakActivity">14:00-16:00</div>
+                                    <div class="stat-label">Peak Activity</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <h4 class="section-title">
+                            <i class="fas fa-map-marked-alt"></i>
+                            Geospatial Analysis
+                        </h4>
+                        <div class="section-content">
+                            <div id="reportMap" class="report-map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Interactive map will be included in PDF</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <h4 class="section-title">
+                            <i class="fas fa-chart-bar"></i>
+                            Data Visualizations
+                        </h4>
+                        <div class="section-content">
+                            <div class="chart-placeholders">
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <p>Activity Distribution Chart</p>
+                                </div>
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-line"></i>
+                                    <p>Temporal Analysis Chart</p>
+                                </div>
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-heat"></i>
+                                    <p>Heat Map Visualization</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function downloadReport() {
+        // Mock download functionality
+        alert('PDF Report Download functionality would be implemented here.\n\nThe report would include:\n• Executive Summary\n• Data Visualizations\n• Geospatial Analysis\n• Technical Details\n• Evidence Chain\n\nFile: forensic_report_' + new Date().toISOString().split('T')[0] + '.pdf');
+    }
+
+    // Initial setup
+    setTimeout(() => {
+        console.log('Reports page initialization complete');
+        updateGenerateButtonState();
+    }, 500);
+});
+</script>
+{% endblock %}

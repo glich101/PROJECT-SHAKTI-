@@ -1,0 +1,1018 @@
+{% extends 'base.html' %}
+
+{% block title %}Shakti Analytics - Cyber Forensics Dashboard{% endblock %}
+
+{% block content %}
+<div class="homepage-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="hero-title-main">SHAKTI</span>
+          <span class="hero-title-sub">Cyber Forensics Analytics</span>
+        </h1>
+        <p class="hero-description">
+          Advanced digital evidence analysis and visualization platform for law enforcement agencies.
+          Process CDR data, track cellular patterns, and generate forensic intelligence reports.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">10M+</div>
+            <div class="stat-label">Records Analyzed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Active Cases</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-label">Accuracy Rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="cyber-grid">
+          <div class="grid-node active"></div>
+          <div class="grid-node"></div>
+          <div class="grid-node active"></div>
+          <div class="grid-connection"></div>
+          <div class="grid-node"></div>
+          <div class="grid-node active"></div>
+          <div class="grid-node"></div>
+          <div class="grid-connection"></div>
+          <div class="grid-node active"></div>
+        </div>
+        <div class="floating-elements">
+          <div class="data-stream">
+            <i class="fas fa-mobile-alt"></i>
+            <span>CDR Analysis</span>
+          </div>
+          <div class="data-stream">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Geolocation Tracking</span>
+          </div>
+          <div class="data-stream">
+            <i class="fas fa-chart-line"></i>
+            <span>Pattern Recognition</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="{{ url_for('index') }}" class="cta-button primary">
+        <i class="fas fa-play"></i>
+        <span>Access Dashboard</span>
+      </a>
+      <a href="{{ url_for('upload_page') }}" class="cta-button secondary">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <span>Upload Evidence</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-shield-alt"></i>
+        Forensic Analysis Tools
+      </h2>
+      <p class="section-description">
+        Comprehensive digital forensics capabilities designed for modern law enforcement investigations
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" data-bs-toggle="tooltip" data-bs-placement="top" title="Advanced CDR data processing and analysis">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3 class="feature-title">CDR Analysis</h3>
+        <p class="feature-description">
+          Process call detail records with advanced filtering, pattern recognition, and temporal analysis for investigation support.
+        </p>
+        <div class="feature-stats">
+          <span class="stat">Real-time</span>
+          <span class="stat">Pattern-based</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-bs-toggle="tooltip" data-bs-placement="top" title="Interactive geographical mapping and tracking">
+        <div class="feature-icon">
+          <i class="fas fa-map-marked-alt"></i>
+        </div>
+        <h3 class="feature-title">Geospatial Intelligence</h3>
+        <p class="feature-description">
+          Visualize cellular tower data, track movement patterns, and generate location intelligence for suspect tracking.
+        </p>
+        <div class="feature-stats">
+          <span class="stat">Interactive</span>
+          <span class="stat">Real-time</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-bs-toggle="tooltip" data-bs-placement="top" title="Advanced data visualization and reporting">
+        <div class="feature-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <h3 class="feature-title">Visual Analytics</h3>
+        <p class="feature-description">
+          Generate comprehensive charts, graphs, and reports with automated pattern detection and anomaly identification.
+        </p>
+        <div class="feature-stats">
+          <span class="stat">Automated</span>
+          <span class="stat">Exportable</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-bs-toggle="tooltip" data-bs-placement="top" title="Secure evidence management and chain of custody">
+        <div class="feature-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h3 class="feature-title">Evidence Management</h3>
+        <p class="feature-description">
+          Maintain secure digital evidence with proper chain of custody tracking and forensic integrity verification.
+        </p>
+        <div class="feature-stats">
+          <span class="stat">Secure</span>
+          <span class="stat">Compliant</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-bs-toggle="tooltip" data-bs-placement="top" title="AI-powered pattern recognition and anomaly detection">
+        <div class="feature-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3 class="feature-title">AI Intelligence</h3>
+        <p class="feature-description">
+          Machine learning algorithms identify suspicious patterns, predict behavior, and assist in investigative prioritization.
+        </p>
+        <div class="feature-stats">
+          <span class="stat">Predictive</span>
+          <span class="stat">Automated</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-bs-toggle="tooltip" data-bs-placement="top" title="Multi-format data import and processing">
+        <div class="feature-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3 class="feature-title">Data Integration</h3>
+        <p class="feature-description">
+          Support for multiple data formats including CSV, Excel, and direct database connections for comprehensive analysis.
+        </p>
+        <div class="feature-stats">
+          <span class="stat">Multi-format</span>
+          <span class="stat">Automated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="workflow-section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-route"></i>
+        Investigation Workflow
+      </h2>
+      <p class="section-description">
+        Streamlined forensic analysis process from data ingestion to actionable intelligence
+      </p>
+    </div>
+
+    <div class="workflow-container">
+      <div class="workflow-step" data-step="1">
+        <div class="step-icon">
+          <i class="fas fa-upload"></i>
+        </div>
+        <h4 class="step-title">Data Ingestion</h4>
+        <p class="step-description">Upload CDR files, tower data, and evidence files through secure channels</p>
+      </div>
+
+      <div class="workflow-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+
+      <div class="workflow-step" data-step="2">
+        <div class="step-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h4 class="step-title">Analysis</h4>
+        <p class="step-description">Automated processing, pattern recognition, and anomaly detection</p>
+      </div>
+
+      <div class="workflow-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+
+      <div class="workflow-step" data-step="3">
+        <div class="step-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h4 class="step-title">Visualization</h4>
+        <p class="step-description">Interactive charts, maps, and reports for investigative insights</p>
+      </div>
+
+      <div class="workflow-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+
+      <div class="workflow-step" data-step="4">
+        <div class="step-icon">
+          <i class="fas fa-gavel"></i>
+        </div>
+        <h4 class="step-title">Intelligence</h4>
+        <p class="step-description">Generate actionable intelligence reports for law enforcement action</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">2.4TB</div>
+          <div class="stat-label">Data Processed</div>
+          <div class="stat-description">Telecommunications records analyzed</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">15min</div>
+          <div class="stat-label">Average Analysis Time</div>
+          <div class="stat-description">From upload to actionable insights</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Active Investigators</div>
+          <div class="stat-description">Law enforcement professionals trained</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Case Resolution Rate</div>
+          <div class="stat-description">Successful investigations completed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">
+        <i class="fas fa-rocket"></i>
+        Ready to Begin Your Investigation?
+      </h2>
+      <p class="cta-description">
+        Access the most advanced cyber forensics platform available to law enforcement agencies worldwide.
+      </p>
+      <div class="cta-buttons">
+        <a href="{{ url_for('index') }}" class="cta-button primary large">
+          <i class="fas fa-play-circle"></i>
+          <span>Launch Dashboard</span>
+        </a>
+        <a href="{{ url_for('upload_page') }}" class="cta-button secondary large">
+          <i class="fas fa-file-upload"></i>
+          <span>Upload Evidence</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+/* ===== HOMEPAGE STYLES ===== */
+
+.homepage-container {
+  min-height: 100vh;
+  background: var(--primary-dark);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.hero-title {
+  margin-bottom: 30px;
+}
+
+.hero-title-main {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.hero-title-sub {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.hero-visual {
+  position: relative;
+  height: 400px;
+  animation: slideInRight 0.8s ease-out 0.2s both;
+}
+
+.cyber-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid-node {
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 212, 255, 0.2);
+  border-radius: 50%;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.grid-node.active {
+  background: var(--accent-blue);
+  box-shadow: var(--neon-glow);
+  animation: pulse 2s infinite;
+}
+
+.grid-connection {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: rgba(0, 212, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.data-stream {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  backdrop-filter: var(--glass-backdrop);
+  box-shadow: var(--glass-shadow);
+  animation: float 6s ease-in-out infinite;
+}
+
+.data-stream:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.data-stream:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.data-stream:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.data-stream i {
+  color: var(--accent-blue);
+  font-size: 1.2rem;
+}
+
+.data-stream span {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-actions {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 3;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition-normal);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button.primary {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  color: white;
+  border: none;
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4);
+}
+
+.cta-button.secondary {
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  color: var(--text-primary);
+  backdrop-filter: var(--glass-backdrop);
+}
+
+.cta-button.secondary:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.section-title i {
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Features Section */
+.features-section {
+  padding: 100px 0;
+  background: rgba(26, 26, 26, 0.3);
+}
+
+.features-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 30px;
+  text-align: center;
+  transition: var(--transition-normal);
+  backdrop-filter: var(--glass-backdrop);
+  box-shadow: var(--glass-shadow);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+.feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+.feature-card:hover {
+  border-color: var(--accent-blue);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 212, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  box-shadow: var(--neon-glow);
+}
+
+.feature-icon i {
+  color: white;
+  font-size: 2rem;
+}
+
+.feature-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.feature-stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feature-stats .stat {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-blue);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Workflow Section */
+.workflow-section {
+  padding: 100px 0;
+}
+
+.workflow-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.workflow-step {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  text-align: center;
+  min-width: 200px;
+  transition: var(--transition-normal);
+  backdrop-filter: var(--glass-backdrop);
+  box-shadow: var(--glass-shadow);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.workflow-step:nth-child(1) { animation-delay: 0.1s; }
+.workflow-step:nth-child(3) { animation-delay: 0.2s; }
+.workflow-step:nth-child(5) { animation-delay: 0.3s; }
+.workflow-step:nth-child(7) { animation-delay: 0.4s; }
+
+.workflow-step:hover {
+  border-color: var(--accent-blue);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 212, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.step-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: var(--neon-glow);
+}
+
+.step-icon i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.step-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.workflow-arrow {
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 80px 0;
+  background: rgba(26, 26, 26, 0.3);
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.stat-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: var(--transition-normal);
+  backdrop-filter: var(--glass-backdrop);
+  box-shadow: var(--glass-shadow);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+.stat-card:hover {
+  border-color: var(--accent-blue);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 212, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--neon-glow);
+  flex-shrink: 0;
+}
+
+.stat-icon i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.stat-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 100px 0;
+  background:
+    linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(138, 43, 226, 0.05) 100%),
+    rgba(26, 26, 26, 0.5);
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cta-title i {
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button.large {
+  padding: 18px 40px;
+  font-size: 1.2rem;
+}
+
+.cta-button.large i {
+  font-size: 1.3rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-visual {
+    height: 300px;
+  }
+
+  .hero-actions {
+    position: static;
+    transform: none;
+    margin-top: 40px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .workflow-container {
+    gap: 20px;
+  }
+
+  .workflow-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0 40px;
+  }
+
+  .hero-title-main {
+    font-size: 3.5rem;
+  }
+
+  .hero-title-sub {
+    font-size: 1.4rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .features-section,
+  .workflow-section,
+  .stats-section,
+  .cta-section {
+    padding: 60px 0;
+  }
+
+  .features-grid,
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .workflow-step {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button.large {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title-main {
+    font-size: 2.8rem;
+  }
+
+  .hero-title-sub {
+    font-size: 1.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-stats {
+    gap: 20px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-title {
+    font-size: 2.2rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+  }
+}
+</style>
+{% endblock %}

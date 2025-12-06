@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 40px; }
+        .error-container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; }
+        h1 { color: #d9534f; }
+        a { color: #0275d8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>An Error Occurred</h1>
+        <p>{{ error_message }}</p>
+        <a href="{% url 'cdr_app:index' %}">Return to Dashboard</a>
+    </div>
+</body>
+</html>

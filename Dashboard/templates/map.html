@@ -1,0 +1,949 @@
+{% extends 'base.html' %}
+
+{% block title %}Map View - Shakti CDR Analytics{% endblock %}
+
+{% block content %}
+<div class="map-page-container">
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{{ url_for('homepage') }}">
+            <i class="fas fa-home"></i>
+          </a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{{ url_for('index') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <i class="fas fa-map-marked-alt"></i>
+          Map View
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header mb-4">
+      <h1 class="page-title">
+        <i class="fas fa-map-marked-alt"></i>
+        Location Map
+      </h1>
+      <p class="page-subtitle">Interactive map showing location data points</p>
+    </div>
+
+    <!-- Map Controls Card -->
+    <div class="map-controls-card card-modern">
+      <div class="card-header-modern">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h3>Map Controls</h3>
+            <p>Select data type to display on map</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="map-controls-grid">
+          <!-- Data Type Selection -->
+          <div class="control-item">
+            <div class="control-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="control-content">
+              <label for="mapDataTypeSelect" class="control-label">Data Type</label>
+              <select id="mapDataTypeSelect" class="modern-select">
+                <option selected disabled>Choose data type...</option>
+                {% for data_type in data_types %}
+                <option value="{{ data_type }}">{{ data_type.replace('_', ' ').title() }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <!-- Visualization Mode -->
+          <div class="control-item">
+            <div class="control-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="control-content">
+              <label for="visualizationModeSelect" class="control-label">Visualization</label>
+              <select id="visualizationModeSelect" class="modern-select">
+                <option value="markers">Location Markers</option>
+                <option value="clusters">Smart Clusters</option>
+                <option value="heatmap">Heat Map</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Advanced Tools -->
+          <div class="control-item">
+            <div class="control-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="control-content">
+              <label for="advancedToolsSelect" class="control-label">Tools</label>
+              <select id="advancedToolsSelect" class="modern-select">
+                <option value="none">None</option>
+                <option value="geofence">Geofencing</option>
+                <option value="measure">Measure Distance</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Map Style -->
+          <div class="control-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Change map appearance">
+            <div class="control-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <div class="control-content">
+              <label for="mapStyleSelect" class="control-label">Map Style</label>
+              <select id="mapStyleSelect" class="modern-select">
+                <option value="streets">Streets</option>
+                <option value="satellite" selected>Satellite</option>
+                <option value="terrain">Terrain</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Actions -->
+        <div class="map-actions">
+          <button id="generateMapBtn" class="generate-btn" disabled>
+            <span class="btn-icon">
+              <i class="fas fa-map"></i>
+            </span>
+            <span class="btn-text">Generate Map</span>
+          </button>
+          <button id="geolocationBtn" class="action-btn">
+            <i class="fas fa-crosshairs"></i>
+            My Location
+          </button>
+          <button id="fullscreenBtn" class="action-btn">
+            <i class="fas fa-expand"></i>
+            Fullscreen
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Display Area -->
+    <div class="map-display-area card-modern">
+      <div class="card-header-modern">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h2>Location Visualization</h2>
+            <p>Interactive map showing location data points</p>
+          </div>
+          <div class="map-legend">
+            <div class="legend-item">
+              <div class="legend-color" style="background: #00d4ff;"></div>
+              <span>Data Points</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div id="map-container" class="map-container">
+          <!-- Map will be rendered here -->
+          <div class="map-placeholder">
+            <div class="placeholder-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div class="placeholder-content">
+              <h3>Welcome to Map View</h3>
+              <p>
+                {% if available_data %}
+                Loading map with uploaded data points...
+                {% else %}
+                Upload data first, then select a data type and click "Generate Map" to display location points
+                {% endif %}
+              </p>
+              <div class="map-features">
+                <div class="feature">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Location Markers</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-search-plus"></i>
+                  <span>Interactive Zoom</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-info-circle"></i>
+                  <span>Data Details</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Advanced Leaflet Plugins -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-heat@0.2.0/dist/leaflet-heat.css" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+<script src="https://unpkg.com/leaflet-heat@0.2.0/dist/leaflet-heat.js"></script>
+<script src="https://unpkg.com/turf@3.0.14/turf.min.js"></script>
+
+<!-- Hidden element to store available data -->
+<div id="available-data" style="display: none;" data-available="{{ available_data|tojson }}"></div>
+
+<script>
+// Map Application
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Map application initializing...');
+
+    let map = null;
+    let currentData = null;
+    let currentDataType = null;
+    let markers = [];
+    let markerClusterGroup = null;
+    let heatmapLayer = null;
+    let currentTileLayer = null;
+    let userLocationMarker = null;
+    let drawnItems = null;
+    let drawControl = null;
+    let currentVisualization = 'markers';
+    let geofenceLayer = null;
+
+    // DOM elements
+    const mapDataTypeSelect = document.getElementById('mapDataTypeSelect');
+    const visualizationModeSelect = document.getElementById('visualizationModeSelect');
+    const advancedToolsSelect = document.getElementById('advancedToolsSelect');
+    const mapStyleSelect = document.getElementById('mapStyleSelect');
+    const generateMapBtn = document.getElementById('generateMapBtn');
+    const geolocationBtn = document.getElementById('geolocationBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const mapContainer = document.getElementById('map-container');
+
+    // Initialize
+    setupEventListeners();
+    updateGenerateButtonState();
+
+    // Auto-load first available data type if any
+    const availableDataElement = document.getElementById('available-data');
+    if (availableDataElement) {
+        const availableDataJson = availableDataElement.getAttribute('data-available');
+        if (availableDataJson) {
+            try {
+                const availableData = JSON.parse(availableDataJson);
+                if (availableData && availableData.length > 0) {
+                    const firstDataType = availableData[0].type;
+                    mapDataTypeSelect.value = firstDataType;
+                    updateGenerateButtonState();
+                    // Auto-generate map after a short delay to ensure everything is loaded
+                    setTimeout(() => {
+                        generateMap();
+                    }, 500);
+                }
+            } catch (e) {
+                console.error('Error parsing available data:', e);
+            }
+        }
+    }
+
+    function setupEventListeners() {
+        mapDataTypeSelect.addEventListener('change', updateGenerateButtonState);
+        visualizationModeSelect.addEventListener('change', updateVisualizationMode);
+        advancedToolsSelect.addEventListener('change', updateAdvancedTools);
+        generateMapBtn.addEventListener('click', generateMap);
+        geolocationBtn.addEventListener('click', getUserLocation);
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+        mapStyleSelect.addEventListener('change', updateMapStyle);
+    }
+
+    function updateGenerateButtonState() {
+        const hasDataType = mapDataTypeSelect.value && mapDataTypeSelect.value !== 'Choose data type...';
+        generateMapBtn.disabled = !hasDataType;
+    }
+
+    function generateMap() {
+        const dataType = mapDataTypeSelect.value;
+        if (!dataType) return;
+
+        // Show loading
+        generateMapBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+        generateMapBtn.disabled = true;
+
+        console.log('Generating map for:', dataType);
+
+        // Fetch map data
+        fetch(`/map_data/${encodeURIComponent(dataType)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                console.log('Map data received:', data);
+
+                // Initialize or update map
+                if (!map) {
+                    initializeMap(data);
+                } else {
+                    updateMap(data);
+                }
+
+                currentData = data;
+                currentDataType = dataType;
+
+                // Reset button
+                generateMapBtn.innerHTML = `
+                    <span class="btn-icon"><i class="fas fa-map"></i></span>
+                    <span class="btn-text">Update Map</span>
+                `;
+                generateMapBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Map generation error:', error);
+                showMapError(error.message || 'Failed to load map data. Please check your data type selection.');
+                resetMapButton();
+            });
+    }
+
+    function getTileLayer(style) {
+        const tileLayers = {
+            streets: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19,
+                minZoom: 3
+            }),
+            satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                maxZoom: 18,
+                minZoom: 3
+            }),
+            terrain: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+                maxZoom: 17,
+                minZoom: 3
+            })
+        };
+        return tileLayers[style] || tileLayers.satellite;
+    }
+
+    function initializeMap(data) {
+        const mapContainer = document.getElementById('map-container');
+
+        // Clear existing content
+        mapContainer.innerHTML = '';
+
+        // Initialize Leaflet map
+        map = L.map('map-container', {
+            center: [data.center?.lat || 20.5937, data.center?.lon || 78.9629],
+            zoom: 5,
+            zoomControl: true,
+            scrollWheelZoom: true,
+            doubleClickZoom: true,
+            boxZoom: true,
+            keyboard: true,
+            fadeAnimation: true,
+            zoomAnimation: true,
+            markerZoomAnimation: true
+        });
+
+        // Add satellite tiles by default
+        currentTileLayer = getTileLayer('satellite').addTo(map);
+
+        // Add markers
+        addMarkers(data.points);
+
+        console.log('Leaflet map initialized with satellite view');
+    }
+
+    function updateMap(data) {
+        // Clear existing markers
+        markers.forEach(marker => map.removeLayer(marker));
+        markers = [];
+
+        // Add new markers
+        addMarkers(data.points);
+
+        // Fit map to data bounds
+        if (data.points && data.points.length > 0) {
+            const bounds = L.latLngBounds(data.points.map(p => [p.lat, p.lon]));
+            map.fitBounds(bounds, { padding: [20, 20], maxZoom: 12 });
+        }
+
+        // Ensure markers are on top of tile layer
+        markers.forEach(marker => {
+            marker.bringToFront();
+        });
+    }
+
+    function createMarker(point, index) {
+        const marker = L.marker([point.lat, point.lon], {
+            icon: L.divIcon({
+                className: 'map-marker-satellite',
+                html: '<div class="satellite-marker"><div class="satellite-marker-inner"></div><div class="satellite-marker-pulse"></div></div>',
+                iconSize: [20, 20],
+                iconAnchor: [10, 10]
+            })
+        });
+
+        // Add hover tooltip with uploaded data
+        let tooltipContent = `
+            <div class="satellite-tooltip">
+                <div class="tooltip-header">📍 Location Data Point</div>
+                <div class="tooltip-content">
+                    <div class="tooltip-row"><span class="label">Lat:</span> ${point.lat.toFixed(6)}</div>
+                    <div class="tooltip-row"><span class="label">Lon:</span> ${point.lon.toFixed(6)}</div>
+                    <div class="tooltip-row"><span class="label">Type:</span> ${currentDataType.toUpperCase()}</div>
+                    <div class="tooltip-row"><span class="label">ID:</span> ${point.index + 1}</div>`;
+
+        // Add uploaded data fields to tooltip
+        const dataFields = ['msisdn', 'timestamp', 'duration', 'location', 'imei', 'imsi'];
+        dataFields.forEach(field => {
+            if (point[field]) {
+                const label = field.charAt(0).toUpperCase() + field.slice(1).replace('_', ' ');
+                tooltipContent += `<div class="tooltip-row"><span class="label">${label}:</span> ${point[field]}</div>`;
+            }
+        });
+
+        // Add any other custom fields (limit to avoid overcrowding)
+        let customFieldCount = 0;
+        Object.keys(point).forEach(key => {
+            if (!['lat', 'lon', 'index', 'msisdn', 'timestamp', 'duration', 'location', 'imei', 'imsi'].includes(key) && customFieldCount < 3) {
+                const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+                tooltipContent += `<div class="tooltip-row"><span class="label">${label}:</span> ${point[key]}</div>`;
+                customFieldCount++;
+            }
+        });
+
+        tooltipContent += `
+                </div>
+            </div>`;
+
+        marker.bindTooltip(tooltipContent, {
+            permanent: false,
+            direction: 'top',
+            offset: [0, -10],
+            className: 'satellite-tooltip-container'
+        });
+
+        // Add click popup for detailed info with uploaded data
+        let popupContent = `
+            <div class="satellite-popup">
+                <h4 style="margin: 0 0 15px 0; color: #00d4ff; font-size: 16px;">📍 Detailed Location Data</h4>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <strong>Coordinates:</strong><br>
+                        <span style="font-family: monospace; color: #00d4ff;">${point.lat.toFixed(6)}, ${point.lon.toFixed(6)}</span>
+                    </div>
+                    <div class="popup-item">
+                        <strong>Data Type:</strong><br>
+                        <span style="color: #00ffff;">${currentDataType.toUpperCase()}</span>
+                    </div>
+                    <div class="popup-item">
+                        <strong>Point ID:</strong><br>
+                        <span style="color: #ffffff;">${point.index + 1}</span>
+                    </div>
+                    <div class="popup-item">
+                        <strong>Total Points:</strong><br>
+                        <span style="color: #ffffff;">${markers.length}</span>
+                    </div>`;
+
+        // Add uploaded data fields to popup
+        const popupDataFields = ['msisdn', 'timestamp', 'duration', 'location', 'imei', 'imsi'];
+        popupDataFields.forEach(field => {
+            if (point[field]) {
+                const label = field.charAt(0).toUpperCase() + field.slice(1).replace('_', ' ');
+                popupContent += `
+                    <div class="popup-item">
+                        <strong>${label}:</strong><br>
+                        <span style="color: #ffffff;">${point[field]}</span>
+                    </div>`;
+            }
+        });
+
+        // Add any other custom fields
+        let popupCustomFieldCount = 0;
+        Object.keys(point).forEach(key => {
+            if (!['lat', 'lon', 'index', 'msisdn', 'timestamp', 'duration', 'location', 'imei', 'imsi'].includes(key) && popupCustomFieldCount < 4) {
+                const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+                popupContent += `
+                    <div class="popup-item">
+                        <strong>${label}:</strong><br>
+                        <span style="color: #ffffff;">${point[key]}</span>
+                    </div>`;
+                popupCustomFieldCount++;
+            }
+        });
+
+        popupContent += `
+                </div>
+            </div>`;
+
+        marker.bindPopup(popupContent, {
+            maxWidth: 400,
+            className: 'satellite-popup-container'
+        });
+
+        return marker;
+    }
+
+    function addMarkers(points) {
+        const maxPoints = 10000; // Increased limit for advanced features
+        const displayPoints = points.length > maxPoints ? points.slice(0, maxPoints) : points;
+
+        if (points.length > maxPoints) {
+            showMapNotification(`Showing first ${maxPoints} of ${points.length} points for performance`, 'info');
+        }
+
+        // Clear existing layers
+        clearVisualizationLayers();
+
+        // Create markers array
+        markers = displayPoints.map((point, index) => createMarker(point, index));
+
+        // Apply current visualization mode
+        applyVisualizationMode();
+
+        console.log(`Added ${displayPoints.length} markers with ${currentVisualization} visualization`);
+    }
+
+    function clearVisualizationLayers() {
+        // Remove marker cluster group
+        if (markerClusterGroup && map.hasLayer(markerClusterGroup)) {
+            map.removeLayer(markerClusterGroup);
+        }
+
+        // Remove individual markers
+        markers.forEach(marker => {
+            if (map.hasLayer(marker)) {
+                map.removeLayer(marker);
+            }
+        });
+
+        // Remove heatmap layer
+        if (heatmapLayer && map.hasLayer(heatmapLayer)) {
+            map.removeLayer(heatmapLayer);
+        }
+    }
+
+    function applyVisualizationMode() {
+        clearVisualizationLayers();
+
+        if (currentVisualization === 'clusters') {
+            // Create marker cluster group
+            markerClusterGroup = L.markerClusterGroup({
+                chunkedLoading: true,
+                maxClusterRadius: 50,
+                spiderfyOnMaxZoom: true,
+                showCoverageOnHover: false,
+                zoomToBoundsOnClick: true,
+                removeOutsideVisibleBounds: true,
+                animate: true,
+                iconCreateFunction: function(cluster) {
+                    const childCount = cluster.getChildCount();
+                    let className = 'marker-cluster-';
+                    if (childCount < 10) {
+                        className += 'small';
+                    } else if (childCount < 100) {
+                        className += 'medium';
+                    } else {
+                        className += 'large';
+                    }
+                    return new L.DivIcon({
+                        html: '<div><span>' + childCount + '</span></div>',
+                        className: 'marker-cluster ' + className,
+                        iconSize: new L.Point(40, 40)
+                    });
+                }
+            });
+
+            // Add markers to cluster group
+            markerClusterGroup.addLayers(markers);
+            map.addLayer(markerClusterGroup);
+
+        } else if (currentVisualization === 'heatmap') {
+            // Create heatmap data
+            const heatmapData = markers.map(marker => {
+                const latlng = marker.getLatLng();
+                return [latlng.lat, latlng.lng, 0.5]; // [lat, lng, intensity]
+            });
+
+            // Create heatmap layer
+            heatmapLayer = L.heatLayer(heatmapData, {
+                radius: 25,
+                blur: 15,
+                maxZoom: 16,
+                max: 1.0,
+                gradient: {
+                    0.2: '#00d4ff',
+                    0.4: '#00ffff',
+                    0.6: '#8a2be2',
+                    0.8: '#ff4444',
+                    1.0: '#ff0000'
+                }
+            });
+
+            map.addLayer(heatmapLayer);
+
+        } else {
+            // Default markers view
+            markers.forEach(marker => marker.addTo(map));
+        }
+    }
+
+    function updateVisualizationMode() {
+        currentVisualization = visualizationModeSelect.value;
+        console.log('Visualization mode changed to:', currentVisualization);
+
+        if (markers.length > 0) {
+            applyVisualizationMode();
+        }
+    }
+
+    function updateAdvancedTools() {
+        const selectedTool = advancedToolsSelect.value;
+        console.log('Advanced tool changed to:', selectedTool);
+
+        // Remove existing drawing controls
+        if (drawControl) {
+            map.removeControl(drawControl);
+            drawControl = null;
+        }
+
+        if (drawnItems && map.hasLayer(drawnItems)) {
+            map.removeLayer(drawnItems);
+        }
+
+        if (selectedTool === 'geofence') {
+            enableGeofencing();
+        } else if (selectedTool === 'measure') {
+            enableMeasurement();
+        }
+    }
+
+    function enableGeofencing() {
+        // Create a layer group for drawn items
+        drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        // Initialize draw control
+        drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            },
+            draw: {
+                polygon: {
+                    allowIntersection: false,
+                    showArea: true,
+                    drawError: {
+                        color: '#ff4444',
+                        message: '<strong>Error:</strong> Shape edges cannot cross!'
+                    },
+                    shapeOptions: {
+                        color: '#00d4ff',
+                        fillColor: 'rgba(0, 212, 255, 0.2)',
+                        weight: 2
+                    }
+                },
+                rectangle: {
+                    shapeOptions: {
+                        color: '#00d4ff',
+                        fillColor: 'rgba(0, 212, 255, 0.2)',
+                        weight: 2
+                    }
+                },
+                circle: {
+                    shapeOptions: {
+                        color: '#00d4ff',
+                        fillColor: 'rgba(0, 212, 255, 0.2)',
+                        weight: 2
+                    }
+                },
+                marker: false,
+                polyline: false,
+                circlemarker: false
+            }
+        });
+
+        map.addControl(drawControl);
+
+        // Handle draw events
+        map.on(L.Draw.Event.CREATED, function (event) {
+            const layer = event.layer;
+            drawnItems.addLayer(layer);
+
+            // Calculate area/perimeter for polygons
+            if (event.layerType === 'polygon' || event.layerType === 'rectangle') {
+                const area = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
+                const perimeter = L.GeometryUtil.accumulatedLengths(layer.getLatLngs()[0]);
+
+                layer.bindPopup(`
+                    <div class="geofence-popup">
+                        <h4 style="color: #00d4ff; margin: 0 0 10px 0;">🏛️ Geofence Zone</h4>
+                        <div style="display: grid; gap: 8px;">
+                            <div><strong>Area:</strong> ${(area / 1000000).toFixed(2)} km²</div>
+                            <div><strong>Perimeter:</strong> ${(perimeter / 1000).toFixed(2)} km</div>
+                            <div><strong>Type:</strong> ${event.layerType}</div>
+                        </div>
+                    </div>
+                `);
+            } else if (event.layerType === 'circle') {
+                const radius = layer.getRadius();
+                const area = Math.PI * radius * radius;
+
+                layer.bindPopup(`
+                    <div class="geofence-popup">
+                        <h4 style="color: #00d4ff; margin: 0 0 10px 0;">⭕ Geofence Zone</h4>
+                        <div style="display: grid; gap: 8px;">
+                            <div><strong>Radius:</strong> ${(radius / 1000).toFixed(2)} km</div>
+                            <div><strong>Area:</strong> ${(area / 1000000).toFixed(2)} km²</div>
+                            <div><strong>Center:</strong> ${layer.getLatLng().lat.toFixed(6)}, ${layer.getLatLng().lng.toFixed(6)}</div>
+                        </div>
+                    </div>
+                `);
+            }
+
+            showMapNotification('Geofence zone created! Click to view details.', 'info');
+        });
+
+        showMapNotification('Geofencing tools enabled. Draw polygons, rectangles, or circles to create zones.', 'info');
+    }
+
+    function enableMeasurement() {
+        // Create a layer group for measurements
+        drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        // Initialize draw control for measurement
+        drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            },
+            draw: {
+                polyline: {
+                    shapeOptions: {
+                        color: '#ff4444',
+                        weight: 3,
+                        opacity: 0.8
+                    }
+                },
+                polygon: false,
+                rectangle: false,
+                circle: false,
+                marker: false,
+                circlemarker: false
+            }
+        });
+
+        map.addControl(drawControl);
+
+        // Handle measurement draw events
+        map.on(L.Draw.Event.CREATED, function (event) {
+            if (event.layerType === 'polyline') {
+                const layer = event.layer;
+                drawnItems.addLayer(layer);
+
+                const distance = L.GeometryUtil.accumulatedLengths(layer.getLatLngs());
+                const totalDistance = distance[distance.length - 1];
+
+                layer.bindPopup(`
+                    <div class="measurement-popup">
+                        <h4 style="color: #ff4444; margin: 0 0 10px 0;">📏 Distance Measurement</h4>
+                        <div style="display: grid; gap: 8px;">
+                            <div><strong>Total Distance:</strong> ${(totalDistance / 1000).toFixed(2)} km</div>
+                            <div><strong>Straight Distance:</strong> ${layer.getLatLngs()[0].distanceTo(layer.getLatLngs()[layer.getLatLngs().length - 1]) / 1000} km</div>
+                            <div><strong>Points:</strong> ${layer.getLatLngs().length}</div>
+                        </div>
+                    </div>
+                `);
+
+                showMapNotification(`Measured distance: ${(totalDistance / 1000).toFixed(2)} km`, 'info');
+            }
+        });
+
+        showMapNotification('Measurement tool enabled. Draw lines to measure distances.', 'info');
+    }
+
+    function getUserLocation() {
+        if (!navigator.geolocation) {
+            showMapError('Geolocation is not supported by this browser.');
+            return;
+        }
+
+        geolocationBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Locating...';
+        geolocationBtn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const accuracy = position.coords.accuracy;
+
+                // Remove existing user location marker
+                if (userLocationMarker) {
+                    map.removeLayer(userLocationMarker);
+                }
+
+                // Create user location marker
+                userLocationMarker = L.marker([lat, lng], {
+                    icon: L.divIcon({
+                        className: 'user-location-marker',
+                        html: '<div class="user-location-pulse"><div class="user-location-dot"></div></div>',
+                        iconSize: [20, 20],
+                        iconAnchor: [10, 10]
+                    })
+                }).bindPopup(`
+                    <div class="user-location-popup">
+                        <h4 style="color: #00ff88; margin: 0 0 10px 0;">📍 Your Location</h4>
+                        <div style="display: grid; gap: 8px;">
+                            <div><strong>Coordinates:</strong><br>${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
+                            <div><strong>Accuracy:</strong><br>±${accuracy.toFixed(0)} meters</div>
+                            <div><strong>Timestamp:</strong><br>${new Date(position.timestamp).toLocaleString()}</div>
+                        </div>
+                    </div>
+                `);
+
+                userLocationMarker.addTo(map);
+
+                // Pan to user location
+                map.setView([lat, lng], 15);
+
+                // Reset button
+                geolocationBtn.innerHTML = '<i class="fas fa-crosshairs"></i> My Location';
+                geolocationBtn.disabled = false;
+
+                showMapNotification('Your location has been found and marked on the map.', 'info');
+            },
+            function(error) {
+                let errorMessage = 'Unable to retrieve your location.';
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMessage = 'Location access denied. Please enable location permissions.';
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMessage = 'Location information is unavailable.';
+                        break;
+                    case error.TIMEOUT:
+                        errorMessage = 'Location request timed out.';
+                        break;
+                }
+
+                showMapError(errorMessage);
+
+                // Reset button
+                geolocationBtn.innerHTML = '<i class="fas fa-crosshairs"></i> My Location';
+                geolocationBtn.disabled = false;
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 300000 // 5 minutes
+            }
+        );
+    }
+
+    function updateMapStyle() {
+        if (!map) return;
+
+        const selectedStyle = mapStyleSelect.value;
+        console.log('Map style changed to:', selectedStyle);
+
+        // Remove current tile layer
+        if (currentTileLayer) {
+            map.removeLayer(currentTileLayer);
+        }
+
+        // Add new tile layer
+        currentTileLayer = getTileLayer(selectedStyle).addTo(map);
+
+        // Bring markers and other layers to front
+        if (markers.length > 0) {
+            applyVisualizationMode();
+        }
+
+        if (userLocationMarker && map.hasLayer(userLocationMarker)) {
+            userLocationMarker.bringToFront();
+        }
+
+        if (drawnItems && map.hasLayer(drawnItems)) {
+            drawnItems.bringToFront();
+        }
+    }
+
+    function toggleFullscreen() {
+        const mapDisplayArea = document.querySelector('.map-display-area');
+
+        if (!document.fullscreenElement) {
+            mapDisplayArea.requestFullscreen().then(() => {
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i> Exit Fullscreen';
+            }).catch(err => {
+                console.error('Error attempting to enable fullscreen:', err);
+            });
+        } else {
+            document.exitFullscreen().then(() => {
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i> Fullscreen';
+            });
+        }
+    }
+
+    function showMapError(message) {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.map-notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        const notification = document.createElement('div');
+        notification.className = 'map-notification map-notification-error';
+        notification.innerHTML = `
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>${message}</span>
+        `;
+
+        mapContainer.appendChild(notification);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+
+    function showMapNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.map-notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        const notification = document.createElement('div');
+        notification.className = `map-notification map-notification-${type}`;
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'error' ? 'exclamation-triangle' : type === 'warning' ? 'exclamation-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        `;
+
+        mapContainer.appendChild(notification);
+
+        // Auto-remove after 4 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 4000);
+    }
+
+    function resetMapButton() {
+        generateMapBtn.innerHTML = `
+            <span class="btn-icon"><i class="fas fa-map"></i></span>
+            <span class="btn-text">Generate Map</span>
+        `;
+        generateMapBtn.disabled = false;
+    }
+});
+</script>
+{% endblock %}

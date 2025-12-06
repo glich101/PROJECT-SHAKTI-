@@ -1,0 +1,70 @@
+/* =====================
+   Site CSS - Additional Utilities and Components
+   Contains supplementary styles not covered in main framework
+   ===================== */
+/* =====================
+   Site CSS - Legacy Support and Additional Components
+   Contains styles for backward compatibility and specialized components
+   ===================== */
+
+/* Legacy layout support for older templates */
+
+/* ============ Layout ============ */
+.sidebar{width:var(--sidebar-width);background:#212529;color:#fff;min-height:100vh;padding:1rem;position:fixed;left:0;top:0}
+.main-content{margin-left:var(--sidebar-width);padding:1.5rem}
+
+.navbar-brand{font-weight:700;font-size:1.25rem;color:#fff}
+
+/* Cards */
+.card{background:var(--color-surface);border-radius:var(--card-radius);box-shadow:var(--shadow-1);border:none}
+
+/* Buttons */
+.btn{transition:all .18s ease;cursor:pointer}
+.btn-primary{background:linear-gradient(180deg,var(--color-primary-500),var(--color-primary-600));color:#fff;border:none;padding:.55rem .9rem;border-radius:.5rem}
+.btn-outline-secondary{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:.45rem .7rem;border-radius:.5rem}
+.btn:focus{outline:3px solid rgba(13,110,253,0.18);outline-offset:2px}
+
+/* Additional utility classes not in main framework */
+.text-muted{color:var(--color-muted)}
+.flex{display:flex}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.mb-1{margin-bottom:var(--space-sm)}
+.mb-2{margin-bottom:var(--space-md)}
+
+/* Responsive adjustments */
+@media (max-width: var(--bp-lg)){
+  .sidebar{position:relative;width:100%;height:auto}
+  .main-content{margin-left:0;padding:1rem}
+}
+
+/* Small screens: increase tap targets */
+@media (max-width: var(--bp-sm)){
+  :root{--space-md: .85rem}
+  .btn{padding:.7rem .9rem}
+}
+
+/* ============ Collapsible Sidebar Layout ============ */
+body{transition:background-color .2s ease}
+.sidebar{transition:width .22s ease, transform .22s ease}
+.main-content{transition:margin-left .22s ease,padding .2s ease}
+
+/* Compact sidebar when body has .sidebar-collapsed */
+body.sidebar-collapsed .sidebar{width:64px}
+body.sidebar-collapsed .sidebar .navbar-brand{opacity:0;pointer-events:none}
+body.sidebar-collapsed .sidebar .nav-link{padding-left:.6rem;padding-right:.6rem;text-align:center}
+body.sidebar-collapsed .main-content{margin-left:64px}
+
+/* On very small screens hide the sidebar by default and allow toggle */
+@media (max-width: var(--bp-md)){
+  .sidebar{transform:translateX(-100%)}
+  body.sidebar-open .sidebar{transform:translateX(0)}
+  .main-content{margin-left:0}
+}
+/* Page background: prefer `static/img/logo.jpg` (your attached crest). If absent,
+   fall back to `logo.svg`. Use `contain` so the whole logo is visible centered.
+   If you prefer the logo to fill the screen (may crop), change `background-size` to `cover`.
+*/
+body.app-body{background:var(--bg);min-height:100vh}
+
+/* Legacy support for older templates */
+.form-label{font-weight:600}

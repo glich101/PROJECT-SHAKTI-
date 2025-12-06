@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload Data - Shakti{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="page-title">Upload Data</h1>
+
+        <div class="card-modern">
+            <div class="card-body-modern">
+                <form id="uploadForm">
+                    <div class="mb-3">
+                        <label for="dataTypeSelect" class="form-label">1. Select Data Type</label>
+                        <select id="dataTypeSelect" class="form-select" required>
+                            <option value="" selected disabled>Choose a data type...</option>
+                            {% for dt in data_types %}
+                            <option value="{{ dt }}">{{ dt.replace('_', ' ') | capitalize }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">2. Choose File (.csv, .xls, .xlsx)</label>
+                        <input type="file" id="fileInput" class="form-control" accept=".csv,.xls,.xlsx" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+                <div id="uploadStatus" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const dataType = document.getElementById('dataTypeSelect').value;
+    const fileInput = document.getElementById('fileInput');
+    const statusDiv = document.getElementById('uploadStatus');
+
+    if (!dataType || fileInput.files.length === 0) {
+        statusDiv.innerHTML = `<div class="alert alert-warning">Please select a data type and a file.</div>`;
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    statusDiv.innerHTML = `<div class="alert alert-info">Uploading and processing...</div>`;
+
+    fetch(`/upload/${dataType}`, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        // If the response is a redirect (even if opaque), we handle it on the client.
+        if (response.redirected) {
+            window.location.href = response.url;
+            return; // Stop processing
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data && data.success && data.redirect_url) {
+            // On success, redirect the user to the URL provided by the server.
+            window.location.href = data.redirect_url;
+        } else {
+            // Display the error message from the server.
+            statusDiv.innerHTML = `<div class="alert alert-danger"><strong>Error:</strong> ${data ? data.error : 'An unknown error occurred.'}</div>`;
+        }
+    })
+    .catch(error => {
+        statusDiv.innerHTML = `<div class="alert alert-danger">An unexpected error occurred. See console for details.</div>`;
+        console.error('Upload error:', error);
+    });
+});
+</script>
+{% endblock %}

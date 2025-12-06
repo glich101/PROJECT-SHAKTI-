@@ -1,0 +1,1137 @@
+{% extends 'base.html' %}
+
+{% block title %}Map View - Shakti Analytics{% endblock %}
+
+{% block content %}
+<div class="map-page-container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb-nav">
+      <div class="breadcrumb-container">
+        <a href="{{ url_for('homepage') }}" class="breadcrumb-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="{{ url_for('index') }}" class="breadcrumb-link">
+          <i class="fas fa-tachometer-alt"></i>
+          Dashboard
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">
+          <i class="fas fa-map-marked-alt"></i>
+          Map View
+        </span>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <h1 class="page-title">
+        <i class="fas fa-map-marked-alt"></i>
+        Location Map
+      </h1>
+      <p class="page-subtitle">Interactive map showing location data points</p>
+    </div>
+
+    <!-- Map Controls Card -->
+    <div class="map-controls-card card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-sliders-h"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>Map Controls</h3>
+          <p>Select data type to display on map</p>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="map-controls-grid">
+          <!-- Data Type Selection -->
+          <div class="control-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Select the type of location data to visualize">
+            <div class="control-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="control-content">
+              <label for="mapDataTypeSelect" class="control-label">Data Type</label>
+              <select id="mapDataTypeSelect" class="modern-select">
+                <option selected disabled>Choose data type...</option>
+                {% for dt in data_types %}
+                  <option value="{{ dt }}" {% if request.args.get('data_type') == dt %}selected{% endif %}>{{ dt.replace('_', ' ') | capitalize }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <!-- Visualization Mode -->
+          <div class="control-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Choose visualization method">
+            <div class="control-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="control-content">
+              <label for="mapModeSelect" class="control-label">Visualization</label>
+              <select id="mapModeSelect" class="modern-select">
+                <option value="markers">Location Markers</option>
+                <option value="clusters">Smart Clusters</option>
+                <option value="heatmap">Density Heatmap</option>
+                <option value="3d-buildings">3D Terrain</option>
+                <option value="trajectory">Movement Paths</option>
+                <option value="timeline">Time Animation</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Map Style -->
+          <div class="control-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Change map appearance">
+            <div class="control-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <div class="control-content">
+              <label for="mapStyleSelect" class="control-label">Map Style</label>
+              <select id="mapStyleSelect" class="modern-select">
+                <option value="streets">Streets</option>
+                <option value="satellite">Satellite</option>
+                <option value="terrain">Terrain</option>
+                <option value="dark">Dark Mode</option>
+                <option value="light">Light Mode</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Advanced GEOINT Controls -->
+        <div class="geoint-controls-section">
+          <h4 class="geoint-section-title">
+            <i class="fas fa-shield-alt"></i>
+            Advanced GEOINT Tools
+          </h4>
+
+          <div class="geoint-tools-grid">
+            <!-- Geofencing -->
+            <button id="geofenceBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="Create investigation zones">
+              <i class="fas fa-draw-polygon"></i>
+              <span>Geofencing</span>
+            </button>
+
+            <!-- Tower Ranges -->
+            <button id="towerRangeBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="Show cell tower coverage">
+              <i class="fas fa-broadcast-tower"></i>
+              <span>Tower Ranges</span>
+            </button>
+
+            <!-- Trajectory -->
+            <button id="trajectoryBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="Track movement paths">
+              <i class="fas fa-route"></i>
+              <span>Trajectory</span>
+            </button>
+
+            <!-- Timeline -->
+            <button id="timelineBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="Time-based animation">
+              <i class="fas fa-clock"></i>
+              <span>Timeline</span>
+            </button>
+
+            <!-- Multi-Suspect -->
+            <button id="multiSuspectBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="Compare multiple suspects">
+              <i class="fas fa-users"></i>
+              <span>Multi-Suspect</span>
+            </button>
+
+            <!-- Reverse Geocoding -->
+            <button id="reverseGeocodeBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="Convert coordinates to addresses">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Addresses</span>
+            </button>
+
+            <!-- AI Analysis -->
+            <button id="aiAnalysisBtn" class="geoint-tool-btn" data-bs-toggle="tooltip" title="AI pattern recognition">
+              <i class="fas fa-brain"></i>
+              <span>AI Analysis</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Map Actions -->
+        <div class="map-actions">
+          <button id="generateMapBtn" class="generate-btn" disabled>
+            <span class="btn-icon">
+              <i class="fas fa-map"></i>
+            </span>
+            <span class="btn-text">Generate Map</span>
+            <span class="btn-loading" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Display Area -->
+    <div class="map-display-area card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-globe-asia"></i>
+        </div>
+        <div class="card-title-section">
+          <h2>Location Visualization</h2>
+          <p>Interactive map showing location data points</p>
+        </div>
+        <div class="card-actions">
+          <div class="map-legend">
+            <div class="legend-item">
+              <div class="legend-color high"></div>
+              <span>High Activity</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color medium"></div>
+              <span>Medium Activity</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color low"></div>
+              <span>Low Activity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div id="map-container" class="map-container">
+          <!-- Map will be rendered here -->
+          <div class="map-placeholder">
+            <div class="placeholder-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3 class="placeholder-title">Map Ready</h3>
+            <p class="placeholder-text">Select a data type above and click "Generate Map" to display location points</p>
+            <div class="map-features">
+              <div class="feature">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Location Markers</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-search-plus"></i>
+                <span>Interactive Zoom</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-info-circle"></i>
+                <span>Location Details</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-expand"></i>
+                <span>Fullscreen View</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Analysis Panel -->
+    <div class="analysis-panel card-modern">
+      <div class="card-header-modern">
+        <div class="card-icon">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <div class="card-title-section">
+          <h3>Location Analysis</h3>
+          <p>Statistical insights from geospatial data</p>
+        </div>
+      </div>
+
+      <div class="card-body-modern">
+        <div class="analysis-grid">
+          <div class="analysis-item">
+            <div class="analysis-icon">
+              <i class="fas fa-tower-broadcast"></i>
+            </div>
+            <div class="analysis-content">
+              <div class="analysis-number" id="towerCount">--</div>
+              <div class="analysis-label">Active Towers</div>
+            </div>
+          </div>
+
+          <div class="analysis-item">
+            <div class="analysis-icon">
+              <i class="fas fa-map-pin"></i>
+            </div>
+            <div class="analysis-content">
+              <div class="analysis-number" id="locationCount">--</div>
+              <div class="analysis-label">Unique Locations</div>
+            </div>
+          </div>
+
+          <div class="analysis-item">
+            <div class="analysis-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="analysis-content">
+              <div class="analysis-number" id="peakHour">--</div>
+              <div class="analysis-label">Peak Activity Hour</div>
+            </div>
+          </div>
+
+          <div class="analysis-item">
+            <div class="analysis-icon">
+              <i class="fas fa-route"></i>
+            </div>
+            <div class="analysis-content">
+              <div class="analysis-number" id="movementCount">--</div>
+              <div class="analysis-label">Movement Patterns</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block head %}
+<style>
+/* ===== MAP PAGE STYLES ===== */
+
+/* Performance optimized marker styles */
+.cluster-marker, .map-marker {
+    pointer-events: auto !important;
+    will-change: transform;
+}
+
+.cluster-marker div, .map-marker div {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Optimize map container for performance */
+#map-container {
+    contain: layout style paint;
+    will-change: transform;
+}
+
+/* ===== MAP NOTIFICATIONS ===== */
+
+/* Map Notifications */
+.map-notification {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.map-notification-error {
+    background: rgba(220, 53, 69, 0.95);
+    border: 1px solid #dc3545;
+    color: white;
+}
+
+.map-notification-warning {
+    background: rgba(255, 193, 7, 0.95);
+    border: 1px solid #ffc107;
+    color: #212529;
+}
+
+.map-notification-info {
+    background: rgba(0, 212, 255, 0.95);
+    border: 1px solid #00d4ff;
+    color: white;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.notification-content i {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.notification-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+.map-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+/* Breadcrumb Styles for Map Page */
+.breadcrumb-nav {
+  width: 100%;
+  margin-bottom: 20px;
+  animation: slideInLeft 0.6s ease-out 0.4s both;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.page-title i {
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+  font-size: 2.8rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Map Controls */
+.map-controls-card, .map-display-area, .analysis-panel {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-controls-card, .analysis-panel {
+  margin-bottom: 30px;
+}
+
+.map-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.control-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.control-item:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.control-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+  z-index: 2;
+}
+
+.control-icon i {
+  color: white;
+  font-size: 16px;
+}
+
+.control-content {
+  margin-left: 60px;
+}
+
+.control-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Map Actions */
+.map-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.map-tools {
+  display: flex;
+  gap: 10px;
+}
+
+/* Map Container */
+.map-container {
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.map-placeholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  color: var(--accent-blue);
+  margin-bottom: 30px;
+  text-shadow: var(--neon-glow);
+}
+
+.placeholder-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.placeholder-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.map-features {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.map-features .feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  transition: all 0.3s ease;
+}
+
+.map-features .feature:hover {
+  background: rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.map-features .feature i {
+  color: var(--accent-blue);
+}
+
+/* Map Legend */
+.map-legend {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.legend-color.high {
+  background: linear-gradient(135deg, #ff4444, #cc0000);
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.legend-color.medium {
+  background: linear-gradient(135deg, #ffaa00, #cc8800);
+  box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+}
+
+.legend-color.low {
+  background: linear-gradient(135deg, #00ff88, #00cc66);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Analysis Panel */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.analysis-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.analysis-item:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.analysis-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--neon-glow);
+  flex-shrink: 0;
+}
+
+.analysis-icon i {
+  color: white;
+  font-size: 18px;
+}
+
+.analysis-content {
+  flex: 1;
+}
+
+.analysis-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-shadow: var(--neon-glow);
+  margin-bottom: 5px;
+}
+
+.analysis-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .map-controls-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .analysis-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .map-page-container {
+    padding: 0 15px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-title i {
+    font-size: 2.4rem;
+  }
+
+  .map-container {
+    height: 400px;
+  }
+
+  .map-controls-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .map-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .map-tools {
+    justify-content: center;
+  }
+
+  .map-legend {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .analysis-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .analysis-item {
+    padding: 15px;
+  }
+
+  .analysis-number {
+    font-size: 1.5rem;
+  }
+
+  .map-features {
+    gap: 15px;
+  }
+
+  .map-features .feature {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .placeholder-icon {
+    font-size: 60px;
+  }
+
+  .placeholder-title {
+    font-size: 1.6rem;
+  }
+
+  .map-legend {
+    gap: 15px;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Loading States */
+.map-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 12px;
+}
+
+.map-loading-content {
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.map-loading-spinner {
+  font-size: 48px;
+  color: var(--accent-blue);
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+.map-loading-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.map-loading-subtext {
+   font-size: 0.9rem;
+   color: var(--text-secondary);
+}
+
+.map-loading-progress {
+   margin-top: 20px;
+   width: 100%;
+   max-width: 300px;
+}
+
+.progress-bar {
+   width: 100%;
+   height: 8px;
+   background: rgba(255, 255, 255, 0.2);
+   border-radius: 4px;
+   overflow: hidden;
+   margin-bottom: 10px;
+}
+
+.progress-fill {
+   height: 100%;
+   background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+   border-radius: 4px;
+   width: 0%;
+   transition: width 0.3s ease;
+   box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.progress-text {
+   font-size: 0.85rem;
+   color: var(--accent-cyan);
+   text-align: center;
+   font-weight: 500;
+}
+
+/* Fullscreen Mode */
+.map-fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+}
+
+.map-fullscreen .map-container {
+  height: 100vh !important;
+  border-radius: 0 !important;
+}
+
+/* Timeline Panel Styles */
+.timeline-panel, .geofencing-panel, .multi-suspect-panel {
+  margin-bottom: 20px;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.timeline-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.timeline-slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.timeline-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.timeline-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(0, 212, 255, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.timeline-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  border: 2px solid white;
+}
+
+.timeline-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  border: 2px solid white;
+}
+
+.timeline-speed-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Geofencing Panel Styles */
+.geofence-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.geofence-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.geofence-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.geofence-item:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.geofence-info {
+  flex: 1;
+}
+
+.geofence-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.geofence-stats {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.geofence-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.geofence-actions button {
+  padding: 5px 8px;
+  font-size: 0.8rem;
+}
+
+/* Multi-Suspect Panel Styles */
+.suspect-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.suspect-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.suspect-item:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.suspect-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.suspect-item input[type="checkbox"] {
+  margin: 0;
+  transform: scale(1.2);
+}
+
+.suspect-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.suspect-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.legend-line {
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Tower Range Visualization */
+.tower-range-circle {
+  fill: rgba(0, 212, 255, 0.1);
+  stroke: rgba(0, 212, 255, 0.5);
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+}
+
+/* Trajectory Path Styles */
+.trajectory-path {
+  stroke: var(--accent-blue);
+  stroke-width: 3;
+  fill: none;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.6));
+}
+
+.trajectory-marker {
+  background: var(--accent-blue);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+/* Geofence Zone Styles */
+.geofence-zone {
+  fill: rgba(255, 68, 68, 0.2);
+  stroke: #ff4444;
+  stroke-width: 3;
+  stroke-dasharray: 8, 4;
+}
+
+.geofence-zone.active {
+  fill: rgba(0, 255, 136, 0.2);
+  stroke: #00ff88;
+}
+
+/* AI Pattern Recognition Styles */
+.ai-pattern-marker {
+  background: linear-gradient(45deg, #ff4444, #ff8844);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.8);
+  animation: aiPulse 2s infinite;
+}
+
+@keyframes aiPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.ai-pattern-zone {
+  fill: rgba(255, 170, 0, 0.3);
+  stroke: #ffaa00;
+  stroke-width: 2;
+  stroke-dasharray: 10, 5;
+}
+
+/* Print Styles */
+@media print {
+  .map-controls-card, .analysis-panel, .timeline-panel, .geofencing-panel, .multi-suspect-panel {
+    display: none !important;
+  }
+
+  .map-container {
+    height: 600px !important;
+    break-inside: avoid;
+  }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<!-- Leaflet CSS and JS for Free Map Tiles -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Leaflet MarkerCluster for clustering -->
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+<!-- Professional Map Application -->
+<script src="{{ url_for('static', filename='js/map-app.js') }}"></script>
+
+<script>
+// Initialize map application when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('SHAKTI Map: Initializing map application...');
+
+    // Initialize tooltips if Bootstrap is available
+    if (typeof bootstrap !== 'undefined') {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+
+    console.log('SHAKTI Map: Map application ready');
+});
+</script>
+{% endblock %}
